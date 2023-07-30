@@ -2,4 +2,4 @@
 
 ## BASH Scripts
 
-<p>[N8N-Login.sh](scripts/BASH-Script/N8N-Login.sh)</p>
+<p>[N8N-Login.sh](BASH-Script/N8N-Login.sh)</p>
