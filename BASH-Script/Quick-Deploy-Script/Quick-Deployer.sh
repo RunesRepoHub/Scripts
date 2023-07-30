@@ -26,6 +26,18 @@ apt-get upgrade -y
 sleep 2
 clear
 
+# Install and Configure Starship
+
+# Install and Configure Checkmk
+
+# Install and Configure Wazuh 
+
+# Install and Configure Cloudflare Tunnel
+
+# Add Nightly Reboot Cron
+
+# Add Nightly Update Cron
+
 # Change hostname via variables
 echo "Change Hostname Via Hostnamectl"
 echo " "
