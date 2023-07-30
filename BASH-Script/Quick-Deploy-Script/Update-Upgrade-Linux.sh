@@ -1,3 +1,14 @@
+## |--------------------------------|
+## |       Made By Rune004          |
+## |    Need Support or Help?       |
+## |    It can be found below.      |
+## |                                |
+## |            Discord:            |
+## | https://discord.gg/UHd4tJg9Vm  |
+## |                                |
+## |            Github:             |
+## |  https://github.com/rune004    |
+## |--------------------------------|
 !/bin/bash
 clear 
 
