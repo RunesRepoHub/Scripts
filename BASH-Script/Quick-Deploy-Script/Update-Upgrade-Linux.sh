@@ -1,6 +1,10 @@
-# Install sudo
-apt-get install sudo -y
-sleep 2
+!/bin/bash
+clear 
+
+# Run apt-get update/upgrade
+echo "Run apt-get update/upgrade"
+echo " "
+sleep
 
 # apt-get update
 apt-get update -y
@@ -54,7 +58,6 @@ echo " gateway 192.168.1.1" > /etc/network/interfaces
 echo " dns-nameservers 192.168.1.1 1.1.1.1" > /etc/network/interfaces
 sleep 2
 clear
-sleep 10
 
 # Install Docker Engine, containerd, and Docker Compose.
 
@@ -70,7 +73,7 @@ echo "Add Docker’s official GPG key:"
 echo " "
 sleep 2
 install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
 chmod a+r /etc/apt/keyrings/docker.gpg
 sleep 2
 clear
