@@ -23,22 +23,22 @@ read -p 'New IP Address: ' IP
 sleep 2
 
 # Overwrite the /etc/network/interfaces file with new settings
-echo "# This file describes the network interfaces available on your system" > </etc/network/interfaces>
-echo "# and how to activate them. For more information, see interfaces(5)." > </etc/network/interfaces>
-echo " " > </etc/network/interfaces>
-echo "source /etc/network/interfaces.d/*" > </etc/network/interfaces>
-echo " " > </etc/network/interfaces>
-echo "# The loopback network interface" > </etc/network/interfaces>
-echo "auto lo" > </etc/network/interfaces>
-echo "iface lo inet loopback" > </etc/network/interfaces>
-echo " " > </etc/network/interfaces>
-echo "# The primary network interface" > </etc/network/interfaces>
-echo "allow-hotplug ens18" > </etc/network/interfaces>
-echo "iface ens18 inet static" > </etc/network/interfaces>
-echo " address $IP" > </etc/network/interfaces>
-echo " netmask 255.255.255.0" > </etc/network/interfaces>
-echo " gateway 192.168.1.1" > </etc/network/interfaces>
-echo " dns-nameservers 192.168.1.1 1.1.1.1" > </etc/network/interfaces>
+echo '# This file describes the network interfaces available on your system' >| </etc/network/interfaces>
+echo '# and how to activate them. For more information, see interfaces(5).' >| </etc/network/interfaces>
+echo " " >| </etc/network/interfaces>
+echo "source /etc/network/interfaces.d/*" >| </etc/network/interfaces>
+echo " " >| </etc/network/interfaces>
+echo '# The loopback network interface' >| </etc/network/interfaces>
+echo "auto lo" >| </etc/network/interfaces>
+echo "iface lo inet loopback" >| </etc/network/interfaces>
+echo " " >| </etc/network/interfaces>
+echo '# The primary network interface' >| </etc/network/interfaces>
+echo "allow-hotplug ens18" >| </etc/network/interfaces>
+echo "iface ens18 inet static" >| </etc/network/interfaces>
+echo " address $IP" >| </etc/network/interfaces>
+echo " netmask 255.255.255.0" >| </etc/network/interfaces>
+echo " gateway 192.168.1.1" >| </etc/network/interfaces>
+echo " dns-nameservers 192.168.1.1 1.1.1.1" >| </etc/network/interfaces>
 sleep 2
 
 # Install Docker Engine, containerd, and Docker Compose.
