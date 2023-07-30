@@ -4,7 +4,7 @@ clear
 # Run apt-get update/upgrade
 echo "Run apt-get update/upgrade"
 echo " "
-sleep
+sleep 2
 
 # apt-get update
 apt-get update -y
@@ -73,7 +73,7 @@ echo "Add Docker’s official GPG key:"
 echo " "
 sleep 2
 install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg -y
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 chmod a+r /etc/apt/keyrings/docker.gpg
 sleep 2
 clear
@@ -89,6 +89,7 @@ sleep 2
 clear
 
 echo "Update the apt package index and Install Docker Engine, containerd, and Docker Compose."
+echo " "
 sleep 2
 apt-get update -y
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
