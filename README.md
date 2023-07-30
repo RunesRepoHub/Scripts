@@ -1,6 +1,10 @@
 # Scripts
 
-## Fix Download Access
+### Support
+Get support via Discord:
+[Discord](https://discord.gg/UHd4tJg9Vm)
+
+### Fix Download Access
 - Step 1. `apt-get install git`
 - Step 2. `git config --global hub.protocol https`
 - Step 3. `git config --global credential.helper store`
@@ -9,11 +13,12 @@
 # Command And Control "CnC"
 All listed below is bash scripts and all other files used within this application to make it run. These can in some cases by used without any other scripts and files from this repo. Most of them will be secured and can therefore not used as a standalone services. 
 
+-------------------------------------
 ## Quick-Deployer
 
 Quick-Deployer is made for Debian 10 and 11 VM's, so that they can be brought up to speed a lot quick then manual installing the same software and programs, and also configure the VM's settings.
 
--------------------------------------
+
 ### Features:
 - Update/Upgrade VM
 - Change hostname via variables
@@ -22,7 +27,7 @@ Quick-Deployer is made for Debian 10 and 11 VM's, so that they can be brought up
 
 Full Changelog: https://github.com/rune004/scripts/commits/v1.1
 
--------------------------------------
+
 ### Planned or Upcoming Features:
 
 - Install and Configure Starship
@@ -32,6 +37,7 @@ Full Changelog: https://github.com/rune004/scripts/commits/v1.1
 - Add Nightly Reboot Cron
 - Add Nightly Update Cron
 
+-------------------------------------
 
 ## Quick-Auther 
 
@@ -40,17 +46,10 @@ Quick-Auther is made for any Linux OS, it functions by taking user inputs (Passw
 ### Features:
 - Vaildates Username and Password
 
--------------------------------------
+
 ### Planned or Upcoming Features:
 - Requests a session token 
 - Vaildate session token between scripts
 - Request server has basic authentication to improve security
-
-
-
--------------------------------------
-## Support
-Get support via Discord:
-[Discord](https://discord.gg/UHd4tJg9Vm)
 
 -------------------------------------
