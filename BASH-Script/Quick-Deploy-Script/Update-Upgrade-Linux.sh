@@ -8,6 +8,8 @@ sleep 2
 
 # apt-get upgrade
 sudo apt-get upgrade -y
+sleep 2
+clear
 
 # Change hostname via variables
 echo "Change Hostname Via Hostnamectl"
@@ -20,6 +22,7 @@ sleep 2
 # Change IP to static via variables
 echo "Change IP To Static"
 read -p 'New IP Address: ' IP
+echo "The IP Has Been Change To $IP"
 sleep 2
 
 # Overwrite the /etc/network/interfaces file with new settings
