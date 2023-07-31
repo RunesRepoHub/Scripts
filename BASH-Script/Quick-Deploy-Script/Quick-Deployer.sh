@@ -79,7 +79,7 @@ read -p "(yes/no) " starship
 case $starship in 
 	yes ) 
   echo -e "${GREEN}echo ok, beginning installation${ENDCOLOR}"
-  curl -sS https://starship.rs/install.sh | sh -y
+  curl -sS https://starship.rs/install.sh | sh
   sleep 2
   echo 'eval "$(starship init bash)"' >> ~/.bashrc
   ;;
