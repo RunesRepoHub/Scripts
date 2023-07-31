@@ -72,7 +72,7 @@ case $starship in
 	yes ) echo ok, we will proceed
   curl -sS https://starship.rs/install.sh | sh
   sleep 2
-  echo "eval "$(starship init bash)"" >> ~/.bashrc
+  echo 'eval "$(starship init bash)"' >> ~/.bashrc
   ;;
 	no ) echo skipping...;
 		break;;
