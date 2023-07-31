@@ -88,9 +88,8 @@ then
     echo -e "\nInstalling Cloudflare Tunnel"
     echo " "
     echo "Installed Cloudflare Test"
-    done
 else
-    done
+    break
 fi
 
 # Add Nightly Reboot Cron
