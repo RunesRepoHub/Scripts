@@ -75,9 +75,10 @@ read -p "Do you want to Install and Configure Checkmk? (yes/no) " checkmk
 
 case $checkmk in 
 	yes ) echo ok, we will proceed
+  sleep 2
   ;;
 	no ) echo exiting...;
-		exit;;
+		break;;
 	* ) echo invalid response;
 		exit 1;;
 esac
@@ -88,6 +89,7 @@ read -p "Do you want to Install and Configure Wazuh? (yes/no) " wazuh
 
 case $wazuh in 
 	yes ) echo ok, we will proceed
+  sleep 2
   ;;
 	no ) echo exiting...;
 		exit;;
@@ -103,7 +105,7 @@ case $cloudflare in
 	yes ) echo ok, we will proceed
   ;;
 	no ) echo exiting...;
-		exit;;
+		break;;
 	* ) echo invalid response;
 		exit 1;;
 esac
@@ -116,7 +118,7 @@ case $nrc in
 	yes ) echo ok, we will proceed
   ;;
 	no ) echo exiting...;
-		exit;;
+		break;;
 	* ) echo invalid response;
 		exit 1;;
 esac
@@ -129,7 +131,7 @@ case $nuc in
 	yes ) echo ok, we will proceed
   ;;
 	no ) echo exiting...;
-		exit;;
+		break;;
 	* ) echo invalid response;
 		exit 1;;
 esac
