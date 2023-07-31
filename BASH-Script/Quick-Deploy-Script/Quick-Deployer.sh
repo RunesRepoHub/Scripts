@@ -14,7 +14,7 @@ clear
 
 # Script Auto Self Update
 echo "Script Self Updating"
-VERSION="0.0.8"
+VERSION="0.0.9"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Quick-Deploy-Script/Quick-Deployer.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -71,74 +71,69 @@ sleep 2
 clear
 
 # Install and Configure Checkmk
+read -p "Do you want to Install and Configure Checkmk? (yes/no) " checkmk
+
+case $checkmk in 
+	yes ) echo ok, we will proceed
+  ;;
+	no ) echo exiting...;
+		exit;;
+	* ) echo invalid response;
+		exit 1;;
+esac
+clear
 
 # Install and Configure Wazuh 
-echo "Install and Configure Wazuh"
-echo " "
-echo "Please enter your choice:"
-echo " "
-read -p 'Install and Configure Wazuh (yes/no): ' Wazuh
+read -p "Do you want to Install and Configure Wazuh? (yes/no) " wazuh
 
-if (( $Wazuh == "yes" ))
-then
-    clear
-    echo -e "\nInstalling Wazuh"
-    echo " "
-    echo "Installed and Configured Wazuh"
-else
-    echo "Skipping Install and Configure Wazuh"
-fi
+case $wazuh in 
+	yes ) echo ok, we will proceed
+  ;;
+	no ) echo exiting...;
+		exit;;
+	* ) echo invalid response;
+		exit 1;;
+esac
+clear
 
 # Install and Configure Cloudflare Tunnel
-echo "Install and Configure Cloudflare Tunnel"
-echo " "
-echo "Please enter your choice:"
-echo " "
-read -p 'Install Cloudflare Tunnel (yes/no): ' cloudflare
+read -p "Do you want to Install and Configure Cloudflare Tunnel? (yes/no) " cloudflare
 
-if (( $cloudflare == "yes" ))
-then
-    clear
-    echo -e "\nInstalling Cloudflare Tunnel"
-    echo " "
-    echo "Installed Cloudflare Test"
-else
-    echo "Skipping Cloudflare Tunel"
-fi
+case $cloudflare in 
+	yes ) echo ok, we will proceed
+  ;;
+	no ) echo exiting...;
+		exit;;
+	* ) echo invalid response;
+		exit 1;;
+esac
+clear
 
 # Add Nightly Reboot Cron
-echo "Add Nightly Reboot Cron"
-echo " "
-echo "Please enter your choice:"
-echo " "
-read -p 'Add Nightly Reboot Cron (yes/no): ' NightlyRebootCron
+read -p "Do you want to Add Nightly Reboot Cron? (yes/no) " nrc
 
-if (( $NightlyRebootCron == "yes" ))
-then
-    clear
-    echo -e "\nNightly Reboot Cron"
-    echo " "
-    echo "Installed Nightly Reboot Cron"
-else
-    echo "Skipping Add Nightly Reboot Cron"
-fi
+case $nrc in 
+	yes ) echo ok, we will proceed
+  ;;
+	no ) echo exiting...;
+		exit;;
+	* ) echo invalid response;
+		exit 1;;
+esac
+clear
 
 # Add Nightly Update Cron
-echo "Add Nightly Update Cron"
-echo " "
-echo "Please enter your choice:"
-echo " "
-read -p 'Add Nightly Update Cron (yes/no): ' NightlyUpdateCron
+read -p "Do you want to Add Nightly Update Cron? (yes/no) " nuc
 
-if (( $NightlyUpdateCron == "yes" ))
-then
-    clear
-    echo -e "\nInstalling Nightly Update Cron"
-    echo " "
-    echo "Installed Nightly Update Cron"
-else
-    echo "Skipping Add Nightly Update Cron"
-fi
+case $nuc in 
+	yes ) echo ok, we will proceed
+  ;;
+	no ) echo exiting...;
+		exit;;
+	* ) echo invalid response;
+		exit 1;;
+esac
+clear
 
 # Change hostname via variables
 echo "Change Hostname Via Hostnamectl"
