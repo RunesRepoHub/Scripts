@@ -112,6 +112,8 @@ clear
 echo -e "${YELLOW}Do you want to Install and Configure Wazuh?${ENDCOLOR}"
 read -p " (yes/no) " wazuh
 
+echo -e "{$YELLOW}What is the OS on this machine?${ENDCOLOR}
+
 case $wazuh in 
 	yes ) 
   echo ok, we will proceed
