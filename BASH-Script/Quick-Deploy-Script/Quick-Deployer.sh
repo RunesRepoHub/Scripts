@@ -15,7 +15,7 @@ clear
 # Script Auto Self Update
 echo "Script Self Updating"
 sleep 2
-VERSION="0.0.1"
+VERSION="0.0.4"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Quick-Deploy-Script/Quick-Deployer.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -70,11 +70,40 @@ clear
 echo "Test Starship"
 sleep 2
 clear
+
 # Install and Configure Checkmk
 
 # Install and Configure Wazuh 
 
 # Install and Configure Cloudflare Tunnel
+echo "Install and Configure Cloudflare Tunnel"
+echo "--------------------------"
+read -p 'yes: ' cloudflareyes
+read -p 'No: ' cloudflareno
+
+if (( $cloudflareyes == "yes" && $cloudflareno == "no" ))
+then
+    clear
+    echo -e "\nInstalling Cloudflare Tunnel"
+    echo "--------------------------"
+    PS3='Please enter your choice: '
+    options=("Yes" "No")
+    select opt in "${options[@]}"
+    do
+        case $opt in
+            "Yes")
+                echo "Installed Cloudflare Test"
+                break
+                ;;
+            "No")
+                break
+                ;;
+            *) echo "invalid option $REPLY";;
+        esac
+    done
+else
+    clear
+fi
 
 # Add Nightly Reboot Cron
 
