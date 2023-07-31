@@ -172,13 +172,13 @@ echo -e "${YELLOW}Do you want to Change hostname via variables?${ENDCOLOR}"
 read -p " (yes/no) " nuc
 
 case $nuc in 
-	yes ) echo "Change Hostname Via Hostnamectl"
+	yes ) echo -e "${YELLOW}Change Hostname Via Hostnamectl${ENDCOLOR}"
     echo " "
     read -p 'Hostname: ' Hostname
     sleep 2
     hostnamectl set-hostname $Hostname
     echo " "
-    echo "The Hostname Has Been Change To $Hostname"
+    echo -e "${GREEN}The Hostname Has Been Change To $Hostname${ENDCOLOR}"
     sleep 2
     clear
   ;;
@@ -198,11 +198,11 @@ echo -e "${YELLOW}Do you want to Change IP to static via variables?${ENDCOLOR}"
 read -p " (yes/no) " nuc
 
 case $nuc in 
-	yes ) echo "Change IP To Static"
+	yes ) echo -e "${YELLOW}Change IP To Static${ENDCOLOR}"
     echo " "
     read -p 'New IP Address: ' IP
     echo " "
-    echo "The IP Has Been Change To $IP"
+    echo "${GREEN}The IP Has Been Change To $IP${ENDCOLOR}"
     sleep 2
     clear
   ;;
