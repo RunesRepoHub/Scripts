@@ -9,7 +9,7 @@ rm -f updater.sh
 function update()
 {
     TMP_FILE=$(mktemp -p "" "XXXXX.sh")
-    curl -s -L "$SCRIPT_URL" > "$TMP_FILE"
+    curl -s -O "$SCRIPT_URL" > "$TMP_FILE"
     NEW_VER=$(grep "^VERSION" "$TMP_FILE" | awk -F'[="]' '{print $3}')
     ABS_SCRIPT_PATH=$(readlink -f "$SCRIPT_LOCATION")
     if [ "$VERSION" \< "$NEW_VER" ]
