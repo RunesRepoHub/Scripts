@@ -21,7 +21,7 @@ ENDCOLOR="\e[0m"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script Self Updating${ENDCOLOR}"
-VERSION="0.1.4"
+VERSION="0.1.5"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Quick-Deploy-Script/Quick-Deployer.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -92,7 +92,7 @@ clear
 
 # Install and Configure Checkmk
 echo -e "${YELLOW}Do you want to Install and Configure Checkmk?${ENDCOLOR}"
-read -p "Do you want to Install and Configure Checkmk? (yes/no) " checkmk
+read -p " (yes/no) " checkmk
 
 case $checkmk in 
 	yes ) echo ok, we will proceed
@@ -108,7 +108,7 @@ clear
 
 # Install and Configure Wazuh 
 echo -e "${YELLOW}Do you want to Install and Configure Wazuh?${ENDCOLOR}"
-read -p "Do you want to Install and Configure Wazuh? (yes/no) " wazuh
+read -p " (yes/no) " wazuh
 
 case $wazuh in 
 	yes ) echo ok, we will proceed
@@ -124,7 +124,7 @@ clear
 
 # Install and Configure Cloudflare Tunnel
 echo -e "${YELLOW}Do you want to Install and Configure Cloudflare Tunnel?${ENDCOLOR}"
-read -p "Do you want to Install and Configure Cloudflare Tunnel? (yes/no) " cloudflare
+read -p " (yes/no) " cloudflare
 
 case $cloudflare in 
 	yes ) echo ok, we will proceed
@@ -139,7 +139,7 @@ clear
 
 # Add Nightly Reboot Cron
 echo -e "${YELLOW}Do you want to Add Nightly Reboot Cron?${ENDCOLOR}"
-read -p "Do you want to Add Nightly Reboot Cron? (yes/no) " nrc
+read -p " (yes/no) " nrc
 
 case $nrc in 
 	yes ) echo ok, we will proceed
@@ -154,7 +154,7 @@ clear
 
 # Add Nightly Update Cron
 echo -e "${YELLOW}Do you want to Add Nightly Update Cron?${ENDCOLOR}"
-read -p "Do you want to Add Nightly Update Cron? (yes/no) " nuc
+read -p " (yes/no) " nuc
 
 case $nuc in 
 	yes ) echo ok, we will proceed
@@ -190,9 +190,6 @@ case $nuc in
 esac
 clear
 
-
-
-
 # Change IP to static via variables
 echo -e "${YELLOW}Do you want to Change IP to static via variables?${ENDCOLOR}"
 read -p " (yes/no) " nuc
@@ -205,6 +202,30 @@ case $nuc in
     echo "${GREEN}The IP Has Been Change To $IP${ENDCOLOR}"
     sleep 2
     clear
+
+    # Overwrite the /etc/network/interfaces file with new settings
+    echo -e "${YELLOW}Overwrite the /etc/network/interfaces file with new settings${ENDCOLOR}"
+    echo " "
+    sleep 2
+    echo "# This file describes the network interfaces available on your system" > /etc/network/interfaces
+    echo "# and how to activate them. For more information, see interfaces(5)." >> /etc/network/interfaces
+    echo " " >> /etc/network/interfaces
+    echo "source /etc/network/interfaces.d/*" >> /etc/network/interfaces
+    echo " " >> /etc/network/interfaces
+    echo "# The loopback network interface" >> /etc/network/interfaces
+    echo "auto lo" >> /etc/network/interfaces
+    echo "iface lo inet loopback" >> /etc/network/interfaces
+    echo " " >> /etc/network/interfaces
+    echo "# The primary network interface" >> /etc/network/interfaces
+    echo "allow-hotplug ens18" >> /etc/network/interfaces
+    echo "iface ens18 inet static" >> /etc/network/interfaces
+    echo " address $IP" >> /etc/network/interfaces
+    echo " netmask 255.255.255.0" >> /etc/network/interfaces
+    echo " gateway 192.168.1.1" >> /etc/network/interfaces
+    echo " dns-nameservers 192.168.1.1 1.1.1.1" >> /etc/network/interfaces
+    chmod 644 /etc/network/interfaces
+    sleep 2
+    clear
   ;;
 	no ) echo skipping...;
 		break;;
@@ -215,34 +236,9 @@ esac
 clear
 
 
-
-# Overwrite the /etc/network/interfaces file with new settings
-echo "Overwrite the /etc/network/interfaces file with new settings"
-echo " "
-sleep 2
-echo "# This file describes the network interfaces available on your system" > /etc/network/interfaces
-echo "# and how to activate them. For more information, see interfaces(5)." >> /etc/network/interfaces
-echo " " >> /etc/network/interfaces
-echo "source /etc/network/interfaces.d/*" >> /etc/network/interfaces
-echo " " >> /etc/network/interfaces
-echo "# The loopback network interface" >> /etc/network/interfaces
-echo "auto lo" >> /etc/network/interfaces
-echo "iface lo inet loopback" >> /etc/network/interfaces
-echo " " >> /etc/network/interfaces
-echo "# The primary network interface" >> /etc/network/interfaces
-echo "allow-hotplug ens18" >> /etc/network/interfaces
-echo "iface ens18 inet static" >> /etc/network/interfaces
-echo " address $IP" >> /etc/network/interfaces
-echo " netmask 255.255.255.0" >> /etc/network/interfaces
-echo " gateway 192.168.1.1" >> /etc/network/interfaces
-echo " dns-nameservers 192.168.1.1 1.1.1.1" >> /etc/network/interfaces
-chmod 644 /etc/network/interfaces
-sleep 2
-clear
-
 # Install Docker Engine, containerd, and Docker Compose.
 
-echo "Update the apt package index and install packages to allow apt to use a repository over HTTPS"
+echo "${YELLOW}Update the apt package index and install packages to allow apt to use a repository over HTTPS${ENDCOLOR}"
 echo " "
 sleep 2
 apt-get update -y
@@ -250,7 +246,7 @@ apt-get install ca-certificates curl gnupg -y
 sleep 2
 clear
 
-echo "Add Docker’s official GPG key:"
+echo "${YELLOW}Add Docker’s official GPG key:${ENDCOLOR}"
 echo " "
 sleep 2
 install -m 0755 -d /etc/apt/keyrings
@@ -259,7 +255,7 @@ chmod a+r /etc/apt/keyrings/docker.gpg
 sleep 2
 clear
 
-echo "Setting up the repository"
+echo "${YELLOW}Setting up the repository${ENDCOLOR}"
 echo " "
 sleep 2
 echo \
@@ -269,7 +265,7 @@ echo \
 sleep 2
 clear
 
-echo "Update the apt package index and Install Docker Engine, containerd, and Docker Compose."
+echo "${YELLOW}Update the apt package index and Install Docker Engine, containerd, and Docker Compose.${ENDCOLOR}"
 echo " "
 sleep 2
 apt-get update -y
