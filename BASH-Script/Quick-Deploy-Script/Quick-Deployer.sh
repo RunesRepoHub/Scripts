@@ -12,9 +12,16 @@
 #!/usr/bin/env bash
 clear 
 
+# Bash Text Variables
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+ENDCOLOR="\e[0m"
+
 # Script Auto Self Update
-echo "Script Self Updating"
-VERSION="0.1.1"
+echo -e "${BLUE}Script Self Updating${ENDCOLOR}"
+VERSION="0.1.2"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Quick-Deploy-Script/Quick-Deployer.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -48,8 +55,8 @@ update "$@"
 
 echo "$@"
 
-echo "Script Self Updating Complete"
-echo "Current Script Version $VERSION"
+echo -e "${GREEN}Script Self Updating Complete${ENDCOLOR}"
+echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 # Run apt-get update/upgrade
 echo "Run apt-get update/upgrade"
@@ -66,10 +73,11 @@ sleep 2
 clear
 
 # Install and Configure Starship
-read -p "Do you want to Install and Configure Starship? (yes/no) " starship
+echo -e "${YELLOW}Do you want to Install and Configure Starship?${ENDCOLOR}"
+read -p "(yes/no) " starship
 
 case $starship in 
-	yes ) echo ok, we will proceed
+	yes ) echo -e "${GREEN}echo ok, we will proceed${ENDCOLOR}";
   curl -sS https://starship.rs/install.sh | sh
   sleep 2
   echo 'eval "$(starship init bash)"' >> ~/.bashrc
