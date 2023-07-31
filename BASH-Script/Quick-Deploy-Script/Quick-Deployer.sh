@@ -13,6 +13,8 @@
 clear 
 
 # Script Auto Self Update
+echo "Script Self Updating"
+sleep 2
 VERSION="0.0.2"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Quick-Deploy-Script/Quick-Deployer.sh'
 SCRIPT_DESCRIPTION=""
@@ -46,10 +48,6 @@ function update()
 update "$@"
 
 echo "$@"
-
-echo "Test"
-
-pause
 
 # Run apt-get update/upgrade
 echo "Run apt-get update/upgrade"
