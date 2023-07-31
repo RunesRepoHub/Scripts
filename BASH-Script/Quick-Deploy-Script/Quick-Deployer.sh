@@ -74,6 +74,21 @@ clear
 # Install and Configure Checkmk
 
 # Install and Configure Wazuh 
+echo "Install and Configure Wazuh"
+echo " "
+echo "Please enter your choice:"
+echo " "
+read -p 'Install and Configure Wazuh (yes/no): ' Wazuh
+
+if (( $Wazuh == "yes" ))
+then
+    clear
+    echo -e "\nInstalling Wazuh"
+    echo " "
+    echo "Installed and Configured Wazuh"
+else
+    echo "Skipping Install and Configure Wazuh"
+fi
 
 # Install and Configure Cloudflare Tunnel
 echo "Install and Configure Cloudflare Tunnel"
@@ -102,11 +117,11 @@ read -p 'Add Nightly Reboot Cron (yes/no): ' NightlyRebootCron
 if (( $NightlyRebootCron == "yes" ))
 then
     clear
-    echo -e "\nInstalling Cloudflare Tunnel"
+    echo -e "\nNightly Reboot Cron"
     echo " "
-    echo "Installed Cloudflare Test"
+    echo "Installed Nightly Reboot Cron"
 else
-    echo "Skipping Cloudflare Tunel"
+    echo "Skipping Add Nightly Reboot Cron"
 fi
 
 # Add Nightly Update Cron
@@ -119,11 +134,11 @@ read -p 'Add Nightly Update Cron (yes/no): ' NightlyUpdateCron
 if (( $NightlyUpdateCron == "yes" ))
 then
     clear
-    echo -e "\nInstalling Cloudflare Tunnel"
+    echo -e "\nInstalling Nightly Update Cron"
     echo " "
-    echo "Installed Cloudflare Test"
+    echo "Installed Nightly Update Cron"
 else
-    echo "Skipping Cloudflare Tunel"
+    echo "Skipping Add Nightly Update Cron"
 fi
 
 # Change hostname via variables
