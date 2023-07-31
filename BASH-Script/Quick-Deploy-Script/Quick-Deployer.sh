@@ -14,7 +14,7 @@ clear
 
 # Script Auto Self Update
 echo "Script Self Updating"
-VERSION="0.1.0"
+VERSION="0.1.1"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Quick-Deploy-Script/Quick-Deployer.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -74,10 +74,10 @@ case $starship in
   sleep 2
   echo "eval "$(starship init bash)"" >> ~/.bashrc
   ;;
-	no ) echo exiting...;
+	no ) echo skipping...;
 		break;;
 	* ) echo invalid response;
-    sleep 5
+    sleep 2
 		exit 1;;
 esac
 clear
@@ -89,10 +89,10 @@ case $checkmk in
 	yes ) echo ok, we will proceed
   sleep 2
   ;;
-	no ) echo exiting...;
+	no ) echo skipping...;
 		break;;
 	* ) echo invalid response;
-    sleep 5
+    sleep 2
 		exit 1;;
 esac
 clear
@@ -104,10 +104,10 @@ case $wazuh in
 	yes ) echo ok, we will proceed
   sleep 2
   ;;
-	no ) echo exiting...;
+	no ) echo skipping...;
 		break;;
 	* ) echo invalid response;
-    sleep 5
+    sleep 2
 		exit 1;;
 esac
 clear
@@ -118,10 +118,10 @@ read -p "Do you want to Install and Configure Cloudflare Tunnel? (yes/no) " clou
 case $cloudflare in 
 	yes ) echo ok, we will proceed
   ;;
-	no ) echo exiting...;
+	no ) echo skipping...;
 		break;;
 	* ) echo invalid response;
-    sleep 5
+    sleep 2
 		exit 1;;
 esac
 clear
@@ -132,10 +132,10 @@ read -p "Do you want to Add Nightly Reboot Cron? (yes/no) " nrc
 case $nrc in 
 	yes ) echo ok, we will proceed
   ;;
-	no ) echo exiting...;
+	no ) echo skipping...;
 		break;;
 	* ) echo invalid response;
-    sleep 5
+    sleep 2
 		exit 1;;
 esac
 clear
@@ -146,10 +146,10 @@ read -p "Do you want to Add Nightly Update Cron? (yes/no) " nuc
 case $nuc in 
 	yes ) echo ok, we will proceed
   ;;
-	no ) echo exiting...;
+	no ) echo skipping...;
 		break;;
 	* ) echo invalid response;
-    sleep 5
+    sleep 2
 		exit 1;;
 esac
 clear
