@@ -15,7 +15,7 @@ clear
 # Script Auto Self Update
 echo "Script Self Updating"
 sleep 2
-VERSION="0.0.1"
+VERSION="0.0.2"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Quick-Deploy-Script/Quick-Deployer.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -64,7 +64,9 @@ sleep 2
 clear
 
 # Install and Configure Starship
-
+echo "Test Starship"
+sleep 2
+clear
 # Install and Configure Checkmk
 
 # Install and Configure Wazuh 
@@ -116,8 +118,7 @@ echo " address $IP" >> /etc/network/interfaces
 echo " netmask 255.255.255.0" >> /etc/network/interfaces
 echo " gateway 192.168.1.1" >> /etc/network/interfaces
 echo " dns-nameservers 192.168.1.1 1.1.1.1" >> /etc/network/interfaces
-sudo chmod 644 /etc/network/interfaces
-systemctl restart networking.service
+chmod 644 /etc/network/interfaces
 sleep 2
 clear
 
@@ -156,3 +157,7 @@ sleep 2
 apt-get update -y
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 sleep 2
+
+
+systemctl restart networking.service
+reboot now
