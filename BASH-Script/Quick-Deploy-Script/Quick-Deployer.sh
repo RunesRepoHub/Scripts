@@ -77,7 +77,8 @@ echo -e "${YELLOW}Do you want to Install and Configure Starship?${ENDCOLOR}"
 read -p "(yes/no) " starship
 
 case $starship in 
-	yes ) echo -e "${GREEN}echo ok, beginning installation${ENDCOLOR}"
+	yes ) 
+  echo -e "${GREEN}echo ok, beginning installation${ENDCOLOR}"
   curl -sS https://starship.rs/install.sh | sh -y
   sleep 2
   echo 'eval "$(starship init bash)"' >> ~/.bashrc
@@ -95,7 +96,8 @@ echo -e "${YELLOW}Do you want to Install and Configure Checkmk?${ENDCOLOR}"
 read -p " (yes/no) " checkmk
 
 case $checkmk in 
-	yes ) echo ok, we will proceed
+	yes ) 
+  echo ok, we will proceed
   sleep 2
   ;;
 	no ) echo skipping...;
@@ -111,7 +113,8 @@ echo -e "${YELLOW}Do you want to Install and Configure Wazuh?${ENDCOLOR}"
 read -p " (yes/no) " wazuh
 
 case $wazuh in 
-	yes ) echo ok, we will proceed
+	yes ) 
+  echo ok, we will proceed
   sleep 2
   ;;
 	no ) echo skipping...;
@@ -127,7 +130,8 @@ echo -e "${YELLOW}Do you want to Install and Configure Cloudflare Tunnel?${ENDCO
 read -p " (yes/no) " cloudflare
 
 case $cloudflare in 
-	yes ) echo ok, we will proceed
+	yes ) 
+  echo ok, we will proceed
   ;;
 	no ) echo skipping...;
 		break;;
@@ -142,11 +146,13 @@ echo -e "${YELLOW}Do you want to Add Nightly Reboot Cron?${ENDCOLOR}"
 read -p " (yes/no) " nrc
 
 case $nrc in 
-	yes ) echo ok, we will proceed
+	yes ) 
+  echo ok, we will proceed
   ;;
 	no ) echo skipping...;
 		break;;
-	* ) echo invalid response;
+	* ) 
+    echo invalid response;
     sleep 2
 		exit 1;;
 esac
@@ -157,9 +163,11 @@ echo -e "${YELLOW}Do you want to Add Nightly Update Cron?${ENDCOLOR}"
 read -p " (yes/no) " nuc
 
 case $nuc in 
-	yes ) echo ok, we will proceed
+	yes ) 
+  echo ok, we will proceed
   ;;
-	no ) echo skipping...;
+	no ) 
+    echo skipping...;
 		break;;
 	* ) echo invalid response;
     sleep 2
@@ -172,7 +180,8 @@ echo -e "${YELLOW}Do you want to Change hostname via variables?${ENDCOLOR}"
 read -p " (yes/no) " nuc
 
 case $nuc in 
-	yes ) echo -e "${YELLOW}Change Hostname Via Hostnamectl${ENDCOLOR}"
+	yes ) 
+    echo -e "${YELLOW}Change Hostname Via Hostnamectl${ENDCOLOR}"
     echo " "
     read -p 'Hostname: ' Hostname
     sleep 2
@@ -182,7 +191,8 @@ case $nuc in
     sleep 2
     clear
   ;;
-	no ) echo skipping...;
+	no ) 
+    echo skipping...;
 		break;;
 	* ) echo invalid response;
     sleep 2
@@ -195,7 +205,8 @@ echo -e "${YELLOW}Do you want to Change IP to static via variables?${ENDCOLOR}"
 read -p " (yes/no) " nuc
 
 case $nuc in 
-	yes ) echo -e "${YELLOW}Change IP To Static${ENDCOLOR}"
+	yes ) 
+    echo -e "${YELLOW}Change IP To Static${ENDCOLOR}"
     echo " "
     read -p 'New IP Address: ' IP
     echo " "
@@ -227,7 +238,8 @@ case $nuc in
     sleep 2
     clear
   ;;
-	no ) echo skipping...;
+	no ) 
+    echo skipping...;
 		break;;
 	* ) echo invalid response;
     sleep 2
