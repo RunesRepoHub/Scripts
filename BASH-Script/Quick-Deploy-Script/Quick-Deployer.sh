@@ -77,32 +77,21 @@ clear
 
 # Install and Configure Cloudflare Tunnel
 echo "Install and Configure Cloudflare Tunnel"
-echo "--------------------------"
-read -p 'yes: ' cloudflareyes
-read -p 'No: ' cloudflareno
+echo " "
+echo "Please enter your choice:"
+echo " "
+read -p 'Install Cloudflare Tunnel (yes/no): ' cloudflare
 
-if (( $cloudflareyes == "yes" && $cloudflareno == "no" ))
+if (( $cloudflare == "yes" ))
 then
     clear
     echo -e "\nInstalling Cloudflare Tunnel"
-    echo "--------------------------"
-    PS3='Please enter your choice: '
-    options=("Yes" "No")
-    select opt in "${options[@]}"
+    echo " "
     do
-        case $opt in
-            "Yes")
-                echo "Installed Cloudflare Test"
-                break
-                ;;
-            "No")
-                break
-                ;;
-            *) echo "invalid option $REPLY";;
-        esac
+    echo "Installed Cloudflare Test"
     done
 else
-    clear
+    done
 fi
 
 # Add Nightly Reboot Cron
