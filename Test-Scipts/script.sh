@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-VERSION="0.0.2"
-SCRIPT_URL='https://gist.github.com/cubedtear/54434fc66439fc4e04e28bd658189701/raw'
+VERSION="0.0.1"
+SCRIPT_URL='https://raw.githubusercontent.com/rune004/Scripts/main/Test-Scipts/script.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
 
