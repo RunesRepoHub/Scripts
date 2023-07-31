@@ -89,10 +89,42 @@ then
     echo " "
     echo "Installed Cloudflare Test"
 else
+    echo "Skipping Cloudflare Tunel"
+fi
 
 # Add Nightly Reboot Cron
+echo "Add Nightly Reboot Cron"
+echo " "
+echo "Please enter your choice:"
+echo " "
+read -p 'Add Nightly Reboot Cron (yes/no): ' NightlyRebootCron
+
+if (( $NightlyRebootCron == "yes" ))
+then
+    clear
+    echo -e "\nInstalling Cloudflare Tunnel"
+    echo " "
+    echo "Installed Cloudflare Test"
+else
+    echo "Skipping Cloudflare Tunel"
+fi
 
 # Add Nightly Update Cron
+echo "Add Nightly Update Cron"
+echo " "
+echo "Please enter your choice:"
+echo " "
+read -p 'Add Nightly Update Cron (yes/no): ' NightlyUpdateCron
+
+if (( $NightlyUpdateCron == "yes" ))
+then
+    clear
+    echo -e "\nInstalling Cloudflare Tunnel"
+    echo " "
+    echo "Installed Cloudflare Test"
+else
+    echo "Skipping Cloudflare Tunel"
+fi
 
 # Change hostname via variables
 echo "Change Hostname Via Hostnamectl"
