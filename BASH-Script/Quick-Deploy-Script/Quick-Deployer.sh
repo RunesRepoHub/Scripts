@@ -21,7 +21,7 @@ ENDCOLOR="\e[0m"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script Self Updating${ENDCOLOR}"
-VERSION="0.1.3"
+VERSION="0.1.4"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Quick-Deploy-Script/Quick-Deployer.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -77,8 +77,8 @@ echo -e "${YELLOW}Do you want to Install and Configure Starship?${ENDCOLOR}"
 read -p "(yes/no) " starship
 
 case $starship in 
-	yes ) echo -e "${GREEN}echo ok, we will proceed${ENDCOLOR}";
-  curl -sS https://starship.rs/install.sh | sh
+	yes ) echo -e "${GREEN}echo ok, beginning installation${ENDCOLOR}"
+  curl -sS https://starship.rs/install.sh | sh -y
   sleep 2
   echo 'eval "$(starship init bash)"' >> ~/.bashrc
   ;;
@@ -91,6 +91,7 @@ esac
 clear
 
 # Install and Configure Checkmk
+echo -e "${YELLOW}Do you want to Install and Configure Checkmk?${ENDCOLOR}"
 read -p "Do you want to Install and Configure Checkmk? (yes/no) " checkmk
 
 case $checkmk in 
@@ -106,6 +107,7 @@ esac
 clear
 
 # Install and Configure Wazuh 
+echo -e "${YELLOW}Do you want to Install and Configure Wazuh?${ENDCOLOR}"
 read -p "Do you want to Install and Configure Wazuh? (yes/no) " wazuh
 
 case $wazuh in 
@@ -121,6 +123,7 @@ esac
 clear
 
 # Install and Configure Cloudflare Tunnel
+echo -e "${YELLOW}Do you want to Install and Configure Cloudflare Tunnel?${ENDCOLOR}"
 read -p "Do you want to Install and Configure Cloudflare Tunnel? (yes/no) " cloudflare
 
 case $cloudflare in 
@@ -135,6 +138,7 @@ esac
 clear
 
 # Add Nightly Reboot Cron
+echo -e "${YELLOW}Do you want to Add Nightly Reboot Cron?${ENDCOLOR}"
 read -p "Do you want to Add Nightly Reboot Cron? (yes/no) " nrc
 
 case $nrc in 
@@ -149,6 +153,7 @@ esac
 clear
 
 # Add Nightly Update Cron
+echo -e "${YELLOW}Do you want to Add Nightly Update Cron?${ENDCOLOR}"
 read -p "Do you want to Add Nightly Update Cron? (yes/no) " nuc
 
 case $nuc in 
@@ -163,25 +168,53 @@ esac
 clear
 
 # Change hostname via variables
-echo "Change Hostname Via Hostnamectl"
-echo " "
-read -p 'Hostname: ' Hostname
-sleep 2
-hostnamectl set-hostname $Hostname
-echo " "
-echo "The Hostname Has Been Change To $Hostname"
-sleep 2
+echo -e "${YELLOW}Do you want to Change hostname via variables?${ENDCOLOR}"
+read -p " (yes/no) " nuc
+
+case $nuc in 
+	yes ) echo "Change Hostname Via Hostnamectl"
+    echo " "
+    read -p 'Hostname: ' Hostname
+    sleep 2
+    hostnamectl set-hostname $Hostname
+    echo " "
+    echo "The Hostname Has Been Change To $Hostname"
+    sleep 2
+    clear
+  ;;
+	no ) echo skipping...;
+		break;;
+	* ) echo invalid response;
+    sleep 2
+		exit 1;;
+esac
 clear
+
+
 
 
 # Change IP to static via variables
-echo "Change IP To Static"
-echo " "
-read -p 'New IP Address: ' IP
-echo " "
-echo "The IP Has Been Change To $IP"
-sleep 2
+echo -e "${YELLOW}Do you want to Change IP to static via variables?${ENDCOLOR}"
+read -p " (yes/no) " nuc
+
+case $nuc in 
+	yes ) echo "Change IP To Static"
+    echo " "
+    read -p 'New IP Address: ' IP
+    echo " "
+    echo "The IP Has Been Change To $IP"
+    sleep 2
+    clear
+  ;;
+	no ) echo skipping...;
+		break;;
+	* ) echo invalid response;
+    sleep 2
+		exit 1;;
+esac
 clear
+
+
 
 # Overwrite the /etc/network/interfaces file with new settings
 echo "Overwrite the /etc/network/interfaces file with new settings"
