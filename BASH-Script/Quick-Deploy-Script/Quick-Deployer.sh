@@ -66,8 +66,20 @@ sleep 2
 clear
 
 # Install and Configure Starship
-echo "Test Starship"
-sleep 2
+read -p "Do you want to Install and Configure Starship? (yes/no) " starship
+
+case $starship in 
+	yes ) echo ok, we will proceed
+  curl -sS https://starship.rs/install.sh | sh
+  sleep 2
+  echo "eval "$(starship init bash)"" >> ~/.bashrc
+  ;;
+	no ) echo exiting...;
+		break;;
+	* ) echo invalid response;
+    sleep 5
+		exit 1;;
+esac
 clear
 
 # Install and Configure Checkmk
@@ -80,6 +92,7 @@ case $checkmk in
 	no ) echo exiting...;
 		break;;
 	* ) echo invalid response;
+    sleep 5
 		exit 1;;
 esac
 clear
@@ -92,8 +105,9 @@ case $wazuh in
   sleep 2
   ;;
 	no ) echo exiting...;
-		exit;;
+		break;;
 	* ) echo invalid response;
+    sleep 5
 		exit 1;;
 esac
 clear
@@ -107,6 +121,7 @@ case $cloudflare in
 	no ) echo exiting...;
 		break;;
 	* ) echo invalid response;
+    sleep 5
 		exit 1;;
 esac
 clear
@@ -120,6 +135,7 @@ case $nrc in
 	no ) echo exiting...;
 		break;;
 	* ) echo invalid response;
+    sleep 5
 		exit 1;;
 esac
 clear
@@ -133,6 +149,7 @@ case $nuc in
 	no ) echo exiting...;
 		break;;
 	* ) echo invalid response;
+    sleep 5
 		exit 1;;
 esac
 clear
