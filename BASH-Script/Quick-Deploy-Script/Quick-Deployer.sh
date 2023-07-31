@@ -15,7 +15,7 @@ clear
 # Script Auto Self Update
 echo "Script Self Updating"
 sleep 2
-VERSION="0.0.3"
+VERSION="0.0.1"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Quick-Deploy-Script/Quick-Deployer.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -48,6 +48,9 @@ function update()
 update "$@"
 
 echo "$@"
+
+echo "Script Self Updating Complete"
+echo "Current Script Version $VERSION"
 
 # Run apt-get update/upgrade
 echo "Run apt-get update/upgrade"
@@ -158,6 +161,5 @@ apt-get update -y
 apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 sleep 2
 
-
-systemctl restart networking.service
+# Apply changes made to VM
 reboot now
