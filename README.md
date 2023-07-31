@@ -10,6 +10,9 @@ Get support via Discord:
 - Step 3. `git config --global credential.helper store`
 - Step 4. `git clone https://Rune004:GithubToken@github.com/rune004/Scripts.git`
 
+### If you only need a single script
+- `curl -s -O https://GithubToken@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Quick-Deploy-Script/Quick-Deployer.sh'`
+
 # Command And Control "CnC"
 All listed below is bash scripts and all other files used within this application to make it run. These can in some cases by used without any other scripts and files from this repo. Most of them will be secured and can therefore not used as a standalone services. 
 
