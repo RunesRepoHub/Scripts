@@ -86,7 +86,7 @@ echo -e "${GREEN}Login In To Get Started${ENDCOLOR}"
 echo -e "${GREEN}--------------------------${ENDCOLOR}"
 read -p 'Username: ' user
 read -sp 'Password: ' pass
-echo -e "${GREEN}--------------------------${ENDCOLOR}"
+echo -e "${GREEN}\n--------------------------${ENDCOLOR}"
 echo " "
 echo -e "${GREEN}\nLogging In...${ENDCOLOR}"
 
