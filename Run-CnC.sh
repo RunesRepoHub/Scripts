@@ -134,6 +134,7 @@ then
         esac
     done
 
+    clear
     echo -e "${RED}Are you done?${ENDCOLOR}"
     select opt in "Yes" "No"; do
         case $REPLY in
