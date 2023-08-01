@@ -21,8 +21,8 @@ ENDCOLOR="\e[0m"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script Self Updating${ENDCOLOR}"
-VERSION="0.0.5"
-SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Docker-Testing/docker-testing.sh'
+VERSION="0.0.1"
+SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Docker-Testing/debian-10.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
 
@@ -58,26 +58,13 @@ echo "$@"
 echo -e "${GREEN}Script Self Updating Complete${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
-echo -e "${YELLOW}Make sure you are in the same folder as the script${ENDCOLOR}"
-PS3='Please pick what docker you want for testing: '
-options=("Debian 10" "Debian 11" "Ubuntu 22.04" "Quit")
-select opt in "${options[@]}"
-do
-    case $opt in
-        "Debian 10")
-            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Docker-Testing/debian-10.sh
-            ssh tools@192.168.56.103 'bash -s' < debian-10.sh
-            break
-            ;;
-        "Debian 11")
-            echo "$user:$pass"
-            ;;
-        "Ubuntu 22.04")
-            echo "you chose choice $REPLY which is $opt"
-            ;;
-        "Quit")
-            break
-            ;;
-        *) echo "invalid option $REPLY";;
-    esac
-done
+docker run -td --name="Debian-10" debian:10
+sleep 2
+echo "Github link to Script"
+read -p 'URL: ' url
+echo "Filename of the script"
+read -p 'filename: ' filename
+id=$(docker ps -aqf "name=Debian-10")
+docker exec -it $id /bin/bash
+curl -s -O https://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@$url
+./$filename
