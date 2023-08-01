@@ -58,7 +58,7 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 # New Virtual Machine or Docker Menu
 echo "--------------------------"
-echo -e "${YELLOW}New Virtual Machine or Docker:${ENDCOLOR} "
+echo -e "${YELLOW}New or Old Virtual Machine/Docker:${ENDCOLOR} "
 PS3='Please enter your choice: '
 options=("New" "Old")
 select opt in "${options[@]}"
@@ -128,7 +128,7 @@ then
             6)
                 break 2
                 ;;
-            *) echo "invalid option $REPLY";;
+            *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
         esac
     done
 
@@ -139,7 +139,7 @@ then
             1) break 2 ;;
             2) clear 
             break ;;
-            *) echo "invalid option $REPLY";;
+            *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
         esac
     done
 done
