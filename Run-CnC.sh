@@ -53,9 +53,7 @@ function update()
 }
 
 update "$@"
-
 echo "$@"
-
 echo -e "${GREEN}Script $SCRIPTNAME Updating Complete${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
