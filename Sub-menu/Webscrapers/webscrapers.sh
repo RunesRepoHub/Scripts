@@ -66,17 +66,17 @@ while true; do
     echo "Choose an option by input a nummer:"
     select opt in "${options[@]}"; do
         case $REPLY in
-            "Add Proshop Link")
+        1)
             bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
             break
             ;;
-        "Option 2")
+        2)
             echo "$user:$pass"
             ;;
-        "Option 3")
+        3)
             echo "you chose choice $REPLY which is $opt"
             ;;
-        "Quit")
+        4)
             break
             ;;
         *) echo "invalid option $REPLY";;
