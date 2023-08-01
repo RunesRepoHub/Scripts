@@ -22,7 +22,7 @@ SCRIPTNAME="CS.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.0.9"
+VERSION="0.1.0"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -71,15 +71,21 @@ DEB_PACKAGE_NAME="python2.7 python-pip libssl-dev"
  if cat /etc/*release | grep ^NAME | grep Ubuntu; then
     sudo apt-get update 
     sudo apt-get install -s -y $DEB_PACKAGE_NAME
-    sudo apt-get install curl -s -y 
+    sudo apt-get install curl -s -y
+    sudo apt-get install -s nano -y
+    sudo apt-get install -s wget -y  
     sudo apt-get install cron -y 
-    crontab -s -e
+    sudo crontab -u root -e
+    sudo crontab -u rune -e
  elif cat /etc/*release | grep ^NAME | grep Debian ; then
     apt-get update 
     apt-get install -s -y $DEB_PACKAGE_NAME 
-    apt-get install -s curl -y 
+    apt-get install -s curl -y
+    apt-get install -s nano -y
+    apt-get install -s wget -y 
     apt-get install cron -y
-    crontab -s -e 
+    crontab -u root -e
+    crontab -u rune -e
  else
     echo "OS NOT DETECTED, couldn't install package $PACKAGE"
     exit 1;
