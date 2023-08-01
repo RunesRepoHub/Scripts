@@ -22,7 +22,7 @@ SCRIPTNAME="CS.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.1.2"
+VERSION="0.1.3"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -65,15 +65,15 @@ sleep 2
 # New Virtual Machine or Docker Menu
 echo "--------------------------"
 PS3='New Virtual Machine or Docker: '
-options=("Yes" "No")
+options=("New" "Old")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Yes")
+        "New")
             bash ./Scripts/CnC/apt-get-install.sh
             break
             ;;
-        "No")
+        "Old")
             break
             ;;
         *) echo "invalid option $REPLY";;
