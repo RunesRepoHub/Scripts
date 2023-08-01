@@ -72,10 +72,18 @@ do
             break
             ;;
         "Debian 11")
-            echo "$user:$pass"
+            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Docker-Testing/debian-11.sh
+            sleep 2
+            ssh root@192.168.1.191 'bash -s' < debian-11.sh
+            ssh root@192.168.1.191
+            break
             ;;
         "Ubuntu 22.04")
-            echo "you chose choice which is $opt"
+            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Docker-Testing/ubuntu-22-04.sh
+            sleep 2
+            ssh root@192.168.1.191 'bash -s' < ubuntu-22-04.sh
+            ssh root@192.168.1.191
+            break
             ;;
         "Quit")
             break
