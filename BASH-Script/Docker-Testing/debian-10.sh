@@ -66,4 +66,5 @@ docker exec -i Debian-10 /bin/bash
 apt-get update
 apt-get upgrade -y
 apt-get install curl -y
+cd root
 curl -s -O https://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@github.com/rune004/Scripts/tree/main

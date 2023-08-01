@@ -69,7 +69,6 @@ do
             sleep 2
             ssh root@192.168.1.191 'bash -s' < debian-10.sh
             ssh root@192.168.1.191
-            docker exec -it Debian-10 bash
             break
             ;;
         "Debian 11")
