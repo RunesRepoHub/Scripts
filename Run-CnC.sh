@@ -22,7 +22,7 @@ SCRIPTNAME="Run-CnC.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.0.2"
+VERSION="0.0.3"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -98,45 +98,43 @@ passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-
 if (( $user == "$userdb" && $pass == "$passdb" ))
 then 
     while true; do
-    PS3='Check for updates: '
+    PS3='Choose an option by input a nummer: '
     options=("Webscrapers" "Make a Virtual Machine" "Reboot Restart N8N" "Docker Testing" "Add Midnight Cron" "Quit")
 
-    echo "Choose an option:"
+    echo "Choose an option by input a nummer:"
     select opt in "${options[@]}"; do
         case $REPLY in
-            "Webscrapers")
+            1)
                 # Export User/Pass for auth header in webscrapers
                 export user="$userdb"
                 export pass="$passdb"
                 bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
                 break
                 ;;
-            "Make a Virtual Machine")
+            2)
                 bash ./Scripts/Sub-menu/Make-VM/makevm.sh
                 break
                 ;;
-            "Reboot Restart N8N")
+            3)
                 bash ./Scripts/Sub-menu/N8N/n8n-CnC.sh
                 break
                 ;;
-            "Docker Testing")
+            4)
                 bash ./Scripts/Sub-menu/Docker-Testing/docker-testing.sh
                 break
                 ;;
-            "Add Midnight Cron")
+            5)
                 bash ./Scripts/CnC/add-midnight-cron.sh
                 break
                 ;;
-            "Quit")
+            6)
                 break
                 ;;
             *) echo "invalid option $REPLY";;
         esac
     done
 
-    echo "Doing other things..."
-
-    echo "Are we done?"
+    echo -e "${RED}Are you done?${ENDCOLOR}"
     select opt in "Yes" "No"; do
         case $REPLY in
             1) break 2 ;;
@@ -147,5 +145,5 @@ then
 done
 else 
     clear
-    echo -e "${GREEN}\nUnsuccessful login${ENDCOLOR}"
+    echo -e "${RED}\nUnsuccessful login${ENDCOLOR}"
 fi
