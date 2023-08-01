@@ -21,8 +21,7 @@ ENDCOLOR="\e[0m"
 SCRIPTNAME="add-midnight-cron.sh"
 
 # Script Auto Self Update
-echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.0.4"
+VERSION="0.0.5"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/CnC/add-midnight-cron.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -53,11 +52,8 @@ function update()
 }
 
 update "$@"
-
 echo "$@"
-
-echo -e "${GREEN}Script $SCRIPTNAME Updating Complete${ENDCOLOR}"
-
+echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 echo -e "${GREEN}Add a Cron job for apt-get update/upgrade and reboot at midnight${ENDCOLOR}"

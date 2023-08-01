@@ -18,11 +18,11 @@ GREEN="\e[32m"
 YELLOW="\e[33m"
 BLUE="\e[34m"
 ENDCOLOR="\e[0m"
+SCRIPTNAME="proshop-pull.sh"
 
 # Script Auto Self Update
-echo -e "${BLUE}Script Self Updating${ENDCOLOR}"
-VERSION="0.0.1"
-SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
+VERSION="0.0.2"
+SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Webscrapers/proshop-pull.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
 
@@ -52,10 +52,8 @@ function update()
 }
 
 update "$@"
-
 echo "$@"
-
-echo -e "${GREEN}Script Self Updating Complete${ENDCOLOR}"
+echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
    
 echo "Kopier dit proshop link her"  
