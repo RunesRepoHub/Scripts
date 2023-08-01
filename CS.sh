@@ -22,7 +22,7 @@ SCRIPTNAME="CS.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.1.4"
+VERSION="0.1.5"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -83,13 +83,13 @@ done
 clear
 
 # Type your Login Information
-echo "${GREEN}Login In To Get Started${ENDCOLOR}"
-echo "--------------------------${ENDCOLOR}"
+echo -e "${GREEN}Login In To Get Started${ENDCOLOR}"
+echo -e "${GREEN}--------------------------${ENDCOLOR}"
 read -p 'Username: ' user
 read -sp 'Password: ' pass
-echo "${GREEN}--------------------------${ENDCOLOR}"
+echo -e "${GREEN}--------------------------${ENDCOLOR}"
 echo " "
-echo "${GREEN}Logging In...${ENDCOLOR}"
+echo -e "${GREEN}Logging In...${ENDCOLOR}"
 
 
 # Check Users Login With Database
