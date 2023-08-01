@@ -63,6 +63,7 @@ echo "--------------------------"
 while true; do
     options=("Add Proshop Link" "Option 2" "Option 3" "Quit")
     PS3='Please enter your choice: '
+    clear
     echo "Choose an option by input a nummer:"
     select opt in "${options[@]}"; do
         case $REPLY in
