@@ -67,12 +67,12 @@ options=("New" "Old")
 select opt in "${options[@]}"
 do
     case $opt in
-        1)
+        "New")
             bash ./Scripts/Installers/apt-get-install.sh
             bash ./Scripts/Installers/install-starship.sh
             break
             ;;
-        2)
+        "Old")
             break
             ;;
         *) echo "invalid option $REPLY";;
