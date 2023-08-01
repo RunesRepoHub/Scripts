@@ -64,7 +64,7 @@ sleep 2
 # New Virtual Machine or Docker Menu
 echo "--------------------------"
 PS3='New Virtual Machine or Docker: '
-options=("New" "Old" "Quit")
+options=("New" "Old")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -74,6 +74,25 @@ do
             break
             ;;
         "Old")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+clear
+
+# New Virtual Machine or Docker Menu
+echo "--------------------------"
+PS3='Enable Starship: '
+options=("Yes" "No")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Yes")
+            bash ./Scripts/CnC/enable-starship.sh
+            break
+            ;;
+        "No")
             break
             ;;
         *) echo "invalid option $REPLY";;

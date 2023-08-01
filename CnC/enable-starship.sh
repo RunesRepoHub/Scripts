@@ -18,12 +18,12 @@ GREEN="\e[32m"
 YELLOW="\e[33m"
 BLUE="\e[34m"
 ENDCOLOR="\e[0m"
-SCRIPTNAME="install-starship.sh"
+SCRIPTNAME="enable-starship.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
 VERSION="0.0.1"
-SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/installers/install-starship.sh'
+SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
 
@@ -59,21 +59,5 @@ echo "$@"
 echo -e "${GREEN}Script $SCRIPTNAME Updating Complete${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
-# Install and Configure Starship
-echo -e "${YELLOW}Do you want to Install and Configure Starship?${ENDCOLOR}"
-read -p "(yes/no) " starship
-
-case $starship in 
-	yes ) 
-  echo -e "${GREEN}Beginning installation${ENDCOLOR}"
-  curl -sS https://starship.rs/install.sh | sh
-  sleep 2
-  echo 'eval "$(starship init bash)"' >> ~/.bashrc
-  ;;
-	no ) echo skipping...;
-		break;;
-	* ) echo invalid response;
-    sleep 2
-		exit 1;;
-esac
-clear
+eval "$(starship init bash)"
+exit
