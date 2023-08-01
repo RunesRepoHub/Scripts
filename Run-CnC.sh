@@ -120,4 +120,7 @@ then
         esac
     done
 done
-done
+else 
+    clear
+    echo -e "${GREEN}\nUnsuccessful login${ENDCOLOR}"
+fi
