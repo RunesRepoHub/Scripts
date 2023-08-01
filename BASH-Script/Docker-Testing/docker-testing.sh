@@ -74,7 +74,7 @@ do
             echo "$user:$pass"
             ;;
         "Ubuntu 22.04")
-            echo "you chose choice $REPLY which is $opt"
+            echo "you chose choice which is $opt"
             ;;
         "Quit")
             break
