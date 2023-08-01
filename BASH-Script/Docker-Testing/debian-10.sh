@@ -64,6 +64,6 @@ docker rm Debian-10
 docker run -i -d --name="Debian-10" debian:10
 docker exec -i Debian-10 /bin/bash
 apt-get update
-apt-get upgrade
-apt-get curl
+apt-get upgrade -y
+apt-get curl -y
 curl -s -O https://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@github.com/rune004/Scripts/tree/main
