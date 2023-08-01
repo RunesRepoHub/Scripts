@@ -67,8 +67,8 @@ mkdir /opt/Scripts
 
 # Copy file midnight-midget.sh to a "commen" system location
 curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Cron/midnight-midget.sh
-cp /midnight-midget.sh /opt/Scripts/midnight-midget.sh
-rm /midnight-midget.sh
+cp midnight-midget.sh /opt/Scripts/midnight-midget.sh
+rm midnight-midget.sh
 
 # Command to add a symbolic link in /usr/bin/
 ln -s /opt/Scripts/midnight-midget.sh /usr/bin/
