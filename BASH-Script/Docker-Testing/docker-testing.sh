@@ -21,7 +21,7 @@ ENDCOLOR="\e[0m"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script Self Updating${ENDCOLOR}"
-VERSION="0.0.1"
+VERSION="0.0.2"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Docker-Testing/docker-testing.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -65,27 +65,27 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Debian 10")
-             ssh root@192.168.1.191
-             sleep 2
-             docker run -td --name="Debian-10" debian:10
-             sleep 2
-             read -p 'Script: ' script
-             id=$(docker ps -aqf "name=Debian-10)
-             docker exec -it $id /bin/bash
-             ./$script
-             break
-             ;;
+            ssh root@192.168.1.191
+            sleep 2
+            docker run -td --name="Debian-10" debian:10
+            sleep 2
+            read -p 'Script: ' script
+            id=$(docker ps -aqf "name=Debian-10)
+            docker exec -it $id /bin/bash
+            ./$script
+            break
+            ;;
         "Debian 11")
-             bash ./scripts/makevm/makevm.sh
-             break
-             ;;
+            bash ./scripts/makevm/makevm.sh
+            break
+            ;;
         "Ubuntu 22.04")
-             bash ./scripts/CnC/n8n-CnC.sh
-             break
-             ;;
+            bash ./scripts/CnC/n8n-CnC.sh
+            break
+            ;;
         "Quit")
-             break
-             ;;
+            break
+            ;;
         *) echo "invalid option $REPLY";;
     esac
 done
