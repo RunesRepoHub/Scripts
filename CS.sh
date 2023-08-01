@@ -70,14 +70,14 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
 
  if cat /etc/*release | grep ^NAME | grep Ubuntu; then
     sudo apt-get update -s
-    sudo apt-get install -y -s $DEB_PACKAGE_NAME
-    sudo apt-get install curl -y -s
-    sudo apt-get install crontab -y -s
+    sudo apt-get install -s -y $DEB_PACKAGE_NAME
+    sudo apt-get install curl -s -y 
+    sudo apt-get install crontab -s -y 
  elif cat /etc/*release | grep ^NAME | grep Debian ; then
     apt-get update -s
-    apt-get install -y -s $DEB_PACKAGE_NAME
-    apt-get install curl -y -s
-    apt-get install crontab -y -s
+    apt-get install -s -y $DEB_PACKAGE_NAME 
+    apt-get install -s curl -y 
+    apt-get install -s crontab -y 
  else
     echo "OS NOT DETECTED, couldn't install package $PACKAGE"
     exit 1;
