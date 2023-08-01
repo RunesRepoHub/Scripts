@@ -53,7 +53,7 @@ function update()
 
 update "$@"
 echo "$@"
-echo -e "\n${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
+echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 echo -e "${YELLOW}Make sure you are in the same folder as the script${ENDCOLOR}"

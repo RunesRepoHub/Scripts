@@ -85,6 +85,7 @@ read -sp 'Password: ' pass
 echo -e "${GREEN}\n--------------------------${ENDCOLOR}"
 echo " "
 echo -e "${GREEN}\nLogging In...${ENDCOLOR}"
+sleep 2
 clear
 
 # Check Users Login With Database
@@ -97,8 +98,8 @@ if (( $user == "$userdb" && $pass == "$passdb" ))
 then 
     while true; do
     options=("Webscrapers" "Make a Virtual Machine" "Reboot Restart N8N" "Docker Testing" "Add Midnight Cron" "Quit")
-
-    echo "Choose an option by input a nummer:"
+    clear
+    echo "${YELLOW}Choose an option by input a nummer:${ENDCOLOR}"
     select opt in "${options[@]}"; do
         case $REPLY in
             1)
@@ -125,7 +126,7 @@ then
                 break
                 ;;
             6)
-                break
+                break 2
                 ;;
             *) echo "invalid option $REPLY";;
         esac
@@ -138,7 +139,7 @@ then
             1) break 2 ;;
             2) clear 
             break ;;
-            *) echo "Look, it's a simple question..." >&2
+            *) echo "invalid option $REPLY";;
         esac
     done
 done
