@@ -59,7 +59,6 @@ echo "$@"
 echo -e "${GREEN}Script $SCRIPTNAME Updating Complete${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 sleep 2
-#!/bin/bash
 
 
 # New Virtual Machine or Docker Menu
@@ -89,7 +88,7 @@ read -p 'Username: ' user
 read -sp 'Password: ' pass
 echo -e "${GREEN}--------------------------${ENDCOLOR}"
 echo " "
-echo -e "${GREEN}Logging In...${ENDCOLOR}"
+echo -e "${GREEN}\nLogging In...${ENDCOLOR}"
 
 
 # Check Users Login With Database
@@ -102,7 +101,7 @@ if (( $user == "$userdb" && $pass == "$passdb" ))
 then
     clear
     echo -e "${GREEN}\nSuccessful login${ENDCOLOR}"
-    echo "${GREEN}--------------------------${ENDCOLOR}"
+    echo "--------------------------"
     PS3='Please enter your choice: '
     options=("Webscrapers" "Make a Virtual Machine" "Reboot Restart N8N" "Docker Testing" "Add Midnight Cron" "Quit")
     select opt in "${options[@]}"
@@ -139,5 +138,5 @@ then
     done
 else
     clear
-    echo -e "${GREEN}\nUnsuccessful login"
+    echo -e "${GREEN}\nUnsuccessful login${ENDCOLOR}"
 fi
