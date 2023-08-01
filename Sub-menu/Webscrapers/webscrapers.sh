@@ -68,7 +68,7 @@ while true; do
         case $REPLY in
             "Add Proshop Link")
             bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
-            break 2
+            break
             ;;
         "Option 2")
             echo "$user:$pass"
@@ -77,7 +77,7 @@ while true; do
             echo "you chose choice $REPLY which is $opt"
             ;;
         "Quit")
-            break 2
+            break
             ;;
         *) echo "invalid option $REPLY";;
         esac
