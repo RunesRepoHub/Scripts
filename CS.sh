@@ -81,25 +81,6 @@ do
 done
 clear
 
-# New Virtual Machine or Docker Menu
-echo "--------------------------"
-PS3='Enable Starship: '
-options=("Yes" "No")
-select opt in "${options[@]}"
-do
-    case $opt in
-        "Yes")
-            bash ./Scripts/CnC/enable-starship.sh
-            break
-            ;;
-        "No")
-            break
-            ;;
-        *) echo "invalid option $REPLY";;
-    esac
-done
-clear
-
 # Type your Login Information
 echo -e "${GREEN}Login In To Get Started${ENDCOLOR}"
 echo -e "${GREEN}--------------------------${ENDCOLOR}"
