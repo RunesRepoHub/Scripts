@@ -69,19 +69,13 @@ YUM_PACKAGE_NAME="python python-devl python-pip openssl-devel"
 DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
 
  if cat /etc/*release | grep ^NAME | grep Ubuntu; then
-    echo "==============================================="
-    echo "Installing packages $DEB_PACKAGE_NAME on Ubuntu"
-    echo "==============================================="
-    sudo apt-get update
-    sudo apt-get install -y $DEB_PACKAGE_NAME
+    sudo apt-get update -s
+    sudo apt-get install -y -s $DEB_PACKAGE_NAME
     sudo apt-get curl -y -s
     sudo apt-get crontab -y -s
  elif cat /etc/*release | grep ^NAME | grep Debian ; then
-    echo "==============================================="
-    echo "Installing packages $DEB_PACKAGE_NAME on Debian"
-    echo "==============================================="
-    apt-get update
-    apt-get install -y $DEB_PACKAGE_NAME
+    apt-get update -s
+    apt-get install -y -s $DEB_PACKAGE_NAME
     apt-get curl -y -s
     apt-get crontab -y -s
  else
@@ -89,7 +83,6 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     exit 1;
  fi
 
-exit 0
 
 # Type your Login Information
 echo "Login In To Get Started"
