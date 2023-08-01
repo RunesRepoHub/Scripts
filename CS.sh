@@ -121,7 +121,7 @@ then
                 break
                 ;;
             "Make a Virtual Machine")
-                bash ./Scripts/makevm/makevm.sh
+                bash ./Scripts/CnC/makevm.sh
                 break
                 ;;
             "Reboot Restart N8N")
