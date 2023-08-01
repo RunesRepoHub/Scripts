@@ -63,13 +63,13 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 echo -e "${GREEN}Add a Cron job for apt-get update/upgrade and reboot at midnight${ENDCOLOR}"
 
 # Make the file directory if it dosen't exist
-mkdir /opt/scripts
+mkdir /opt/Scripts
 
 # Copy file midnight-midget.sh to a "commen" system location
-cp /scripts/BASH-Script/Cron/midnight-midget.sh /opt/scripts/midnight-midget.sh
+cp /Scripts/BASH-Script/Cron/midnight-midget.sh /opt/Scripts/midnight-midget.sh
 
 # Command to add a symbolic link in /usr/bin/
 ln -s /opt/scripts/midnight-midget.sh /usr/bin/
 
 # Setup cron settings
-(crontab -u $(whoami) -l; echo "00 00 * * * ruby /opt/scripts/midnight-midget.sh" ) | crontab -u $(whoami) -
+(crontab -u $(whoami) -l; echo "00 00 * * * ruby /opt/Scripts/midnight-midget.sh" ) | crontab -u $(whoami) -
