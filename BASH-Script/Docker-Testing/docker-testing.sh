@@ -69,6 +69,7 @@ do
             sleep 2
             docker run -td --name="Debian-10" debian:10
             sleep 2
+            echo "Github link to Script"
             read -p 'URL: ' url
             id=$(docker ps -aqf "name=Debian-10")
             docker exec -it $id /bin/bash
