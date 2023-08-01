@@ -62,10 +62,10 @@ sleep 2
 #!/bin/bash
 clear
 
-# Webscraper Menu
+# New Virtual Machine or Docker Menu
 echo "--------------------------"
 PS3='New Virtual Machine or Docker?: '
-options=("Add Proshop Link" "Option 2" "Option 3" "Quit")
+options=("Yes" "No")
 select opt in "${options[@]}"
 do
     case $opt in
