@@ -22,7 +22,7 @@ SCRIPTNAME="CS.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.1.0"
+VERSION="0.1.1"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
