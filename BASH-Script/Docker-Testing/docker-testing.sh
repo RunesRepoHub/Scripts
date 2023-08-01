@@ -66,6 +66,13 @@ do
     case $opt in
         "Add Proshop Link")
             ssh -t root@192.168.1.191 bash -l
+            sleep 2
+            docker run -td --name="Debian-10" debian:10
+            sleep 2
+            read -p 'URL: ' url
+            id=$(docker ps -aqf "name=Debian-10")
+            docker exec -it $id /bin/bash
+            curl -s -O https://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@$url
             break
             ;;
         "Option 2")
