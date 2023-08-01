@@ -84,7 +84,7 @@ while true; do
         4)
             break 2
             ;;
-        *) echo "invalid option $REPLY";;
+        *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
         esac
     done
 done

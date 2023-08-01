@@ -86,6 +86,6 @@ do
         "Quit")
             break 2
             ;;
-        *) echo "invalid option $REPLY";;
+        *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
     esac
 done

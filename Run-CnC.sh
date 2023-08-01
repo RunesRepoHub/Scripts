@@ -58,7 +58,7 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 # New Virtual Machine or Docker Menu
 echo "--------------------------"
-echo "New Virtual Machine or Docker: "
+echo -e "${YELLOW}New Virtual Machine or Docker:${ENDCOLOR} "
 PS3='Please enter your choice: '
 options=("New" "Old")
 select opt in "${options[@]}"
@@ -72,7 +72,7 @@ do
         "Old")
             break
             ;;
-        *) echo "invalid option $REPLY";;
+        *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
     esac
 done
 clear
@@ -99,7 +99,7 @@ then
     while true; do
     options=("Webscrapers" "Make a Virtual Machine" "Reboot Restart N8N" "Docker Testing" "Add Midnight Cron" "Quit")
     clear
-    echo "${YELLOW}Choose an option by input a nummer:${ENDCOLOR}"
+    echo -e "${YELLOW}Choose an option by input a nummer:${ENDCOLOR}"
     select opt in "${options[@]}"; do
         case $REPLY in
             1)
