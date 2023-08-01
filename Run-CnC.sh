@@ -138,7 +138,8 @@ then
     select opt in "Yes" "No"; do
         case $REPLY in
             1) break 2 ;;
-            2) break ;;
+            2) clear 
+            break ;;
             *) echo "Look, it's a simple question..." >&2
         esac
     done
