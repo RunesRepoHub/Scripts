@@ -21,7 +21,6 @@ ENDCOLOR="\e[0m"
 SCRIPTNAME="Run-CnC.sh"
 
 # Script Auto Self Update
-echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
 VERSION="0.0.3"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
@@ -54,7 +53,7 @@ function update()
 
 update "$@"
 echo "$@"
-echo -e "${GREEN}Script $SCRIPTNAME Updating Complete${ENDCOLOR}"
+echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 # New Virtual Machine or Docker Menu
