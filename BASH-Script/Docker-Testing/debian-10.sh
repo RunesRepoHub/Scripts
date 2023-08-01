@@ -59,12 +59,5 @@ echo -e "${GREEN}Script Self Updating Complete${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 docker run -td --name="Debian-10" debian:10
-sleep 2
-echo "Github link to Script"
-read -p 'URL: ' url
-echo "Filename of the script"
-read -p 'filename: ' filename
-id=$(docker ps -aqf "name=Debian-10")
-docker exec -it $id /bin/bash
-curl -s -O https://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@$url
-./$filename
+docker exec -it Debian-10 /bin/bash
+curl -s -O https://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@github.com/rune004/Scripts/tree/main
