@@ -66,7 +66,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Debian 20GB")
-            bash ./scripts/makevm/make-debian-20gb.sh
+            bash ./Scripts/makevm/make-debian-20gb.sh
             break
             ;;
         "Option 2")
