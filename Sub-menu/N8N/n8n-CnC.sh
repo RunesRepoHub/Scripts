@@ -64,7 +64,7 @@ echo "--------------------------"
 while true; do
     PS3='Please pick what n8n server you want to reboot: '
     options=("Restart N8N Backend" "Restart N8N Prod" "Restart N8N MySQL" "Quit")
-
+    clear
     echo "Choose an option by input a nummer:"
     select opt in "${options[@]}"; do
         case $REPLY in
@@ -84,7 +84,7 @@ while true; do
             break
             ;;
         4)
-            break
+            break 2
             ;;
         *) echo "invalid option $REPLY";;
         esac
