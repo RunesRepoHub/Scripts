@@ -64,7 +64,7 @@ sleep 2
 
 # New Virtual Machine or Docker Menu
 echo "--------------------------"
-PS3='New Virtual Machine or Docker?: '
+PS3='New Virtual Machine or Docker: '
 options=("Yes" "No")
 select opt in "${options[@]}"
 do
