@@ -22,7 +22,7 @@ SCRIPTNAME="CS.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.0.4"
+VERSION="0.0.5"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -63,10 +63,22 @@ sleep 2
 clear
 
 # Need software for script to work
-apt-get install curl -y -s
-apt-get install crontab -y -s
-apt-get update 
-apt-get upgrade
+if [[ "$OSTYPE" == "ubuntu"* ]]; then
+        sudo apt-get install curl -y -s
+        sudo apt-get install crontab -y -s
+        sudo apt-get update 
+        sudo apt-get upgrade
+        break
+elif [[ "$OSTYPE" == "debian"* ]]; then
+        apt-get install curl -y -s
+        apt-get install crontab -y -s
+        apt-get update 
+        apt-get upgrade
+        break
+else
+        # Unknown.
+        break
+fi
 
 # Type your Login Information
 echo "Login In To Get Started"
