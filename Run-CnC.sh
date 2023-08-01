@@ -104,30 +104,30 @@ then
     echo "Choose an option:"
     select opt in "${options[@]}"; do
         case $REPLY in
-            "Webscrapers" 1)
+            "Webscrapers")
                 # Export User/Pass for auth header in webscrapers
                 export user="$userdb"
                 export pass="$passdb"
                 bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
                 break
                 ;;
-            "Make a Virtual Machine" 2)
+            "Make a Virtual Machine")
                 bash ./Scripts/Sub-menu/Make-VM/makevm.sh
                 break
                 ;;
-            "Reboot Restart N8N" 3)
+            "Reboot Restart N8N")
                 bash ./Scripts/Sub-menu/N8N/n8n-CnC.sh
                 break
                 ;;
-            "Docker Testing" 4)
+            "Docker Testing")
                 bash ./Scripts/Sub-menu/Docker-Testing/docker-testing.sh
                 break
                 ;;
-            "Add Midnight Cron" 5)
+            "Add Midnight Cron")
                 bash ./Scripts/CnC/add-midnight-cron.sh
                 break
                 ;;
-            "Quit" 6)
+            "Quit")
                 break
                 ;;
             *) echo "invalid option $REPLY";;
