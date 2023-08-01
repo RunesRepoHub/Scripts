@@ -117,23 +117,23 @@ then
                 # Export User/Pass for auth header in webscrapers
                 export user="$userdb"
                 export pass="$passdb"
-                bash /Scripts/webscrapers/webscrapers.sh
+                bash ~./Scripts/webscrapers/webscrapers.sh
                 break
                 ;;
             "Make a Virtual Machine")
-                bash /Scripts/makevm/makevm.sh
+                bash ~./Scripts/makevm/makevm.sh
                 break
                 ;;
             "Reboot Restart N8N")
-                bash /Scripts/CnC/n8n-CnC.sh
+                bash ~./Scripts/CnC/n8n-CnC.sh
                 break
                 ;;
             "Docker Testing")
-                bash /Scripts/CnC/docker-testing.sh
+                bash ~./Scripts/CnC/docker-testing.sh
                 break
                 ;;
             "Add Midnight Cron")
-                bash /Scripts/CnC/add-midnight-cron.sh
+                bash ~./Scripts/CnC/add-midnight-cron.sh
                 break
                 ;;
             "Quit")
