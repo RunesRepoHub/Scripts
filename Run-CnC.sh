@@ -98,7 +98,7 @@ passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-
 if (( $user == "$userdb" && $pass == "$passdb" ))
 then 
     while true; do
-    PS3='Choose an option by input a nummer: '
+    PS3='Choose a Sub-Menu: '
     options=("Webscrapers" "Make a Virtual Machine" "Reboot Restart N8N" "Docker Testing" "Add Midnight Cron" "Quit")
 
     echo "Choose an option by input a nummer:"

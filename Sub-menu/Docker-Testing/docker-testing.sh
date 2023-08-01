@@ -66,21 +66,21 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Debian 10")
-            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Sub-menu/Docker-Testing/debian-10.sh
+            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/debian-10.sh
             sleep 2
             ssh root@192.168.1.191 'bash -s' < debian-10.sh
             ssh root@192.168.1.191
             break
             ;;
         "Debian 11")
-            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Sub-menu/Docker-Testing/debian-11.sh
+            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/debian-11.sh
             sleep 2
             ssh root@192.168.1.191 'bash -s' < debian-11.sh
             ssh root@192.168.1.191
             break
             ;;
         "Ubuntu 22.04")
-            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Sub-menu/Docker-Testing/Ubuntu-22-04.sh
+            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/Ubuntu-22-04.sh
             sleep 2
             ssh root@192.168.1.191 'bash -s' < Ubuntu-22-04.sh
             ssh root@192.168.1.191
