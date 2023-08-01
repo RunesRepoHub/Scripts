@@ -22,7 +22,7 @@ SCRIPTNAME="CS.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.1.1"
+VERSION="0.1.2"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -62,31 +62,23 @@ sleep 2
 #!/bin/bash
 clear
 
-# Need software for script to work
-set -e
-
-YUM_PACKAGE_NAME="python python-devl python-pip openssl-devel"
-DEB_PACKAGE_NAME="python2.7 python-pip libssl-dev"
-
- if cat /etc/*release | grep ^NAME | grep Ubuntu; then
-    sudo apt-get update 
-    sudo apt-get install -y $DEB_PACKAGE_NAME
-    sudo apt-get install curl -s -y
-    sudo apt-get install nano -y
-    sudo apt-get install wget -y  
-    sudo apt-get install cron -y 
- elif cat /etc/*release | grep ^NAME | grep Debian ; then
-    apt-get update 
-    apt-get install -y $DEB_PACKAGE_NAME 
-    apt-get install curl -y
-    apt-get install nano -y
-    apt-get install wget -y 
-    apt-get install cron -y
- else
-    echo "OS NOT DETECTED, couldn't install package $PACKAGE"
-    exit 1;
- fi
-clear
+# Webscraper Menu
+echo "--------------------------"
+PS3='New Virtual Machine or Docker?: '
+options=("Add Proshop Link" "Option 2" "Option 3" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Yes")
+            bash ./Scripts/CnC/apt-get-install.sh
+            break
+            ;;
+        "No")
+            break
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
 
 # Type your Login Information
 echo "Login In To Get Started"
