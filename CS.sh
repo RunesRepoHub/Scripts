@@ -22,7 +22,7 @@ SCRIPTNAME="CS.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.0.3"
+VERSION="0.0.4"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -61,6 +61,12 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 sleep 2
 #!/bin/bash
 clear
+
+# Need software for script to work
+apt-get install curl -y -s
+apt-get install crontab -y -s
+apt-get update 
+apt-get upgrade
 
 # Type your Login Information
 echo "Login In To Get Started"
