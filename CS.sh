@@ -71,7 +71,6 @@ do
         "New")
             bash ./Scripts/CnC/apt-get-install.sh
             bash ./Scripts/installers/install-starship.sh
-            eval "$(starship init bash)"
             break
             ;;
         "Old")
