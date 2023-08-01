@@ -87,7 +87,7 @@ read -sp 'Password: ' pass
 echo -e "${GREEN}\n--------------------------${ENDCOLOR}"
 echo " "
 echo -e "${GREEN}\nLogging In...${ENDCOLOR}"
-
+clear
 
 # Check Users Login With Database
 userdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-user)
@@ -98,6 +98,7 @@ passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-
 if (( $user == "$userdb" && $pass == "$passdb" ))
 then 
     while true; do
+    PS3='Check for updates: '
     options=("Check for update" "Reinstall theme")
 
     echo "Choose an option:"
