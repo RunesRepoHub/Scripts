@@ -1,0 +1,7 @@
+            sleep 2
+            docker run -td --name="Debian-10" debian:10
+            sleep 2
+            read -p 'Script: ' script
+            id=$(docker ps -aqf "name=Debian-10)
+            docker exec -it $id /bin/bash
+            ./$script

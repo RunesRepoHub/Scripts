@@ -66,13 +66,6 @@ do
     case $opt in
         "Debian 10")
             ssh root@192.168.1.191
-            sleep 2
-            docker run -td --name="Debian-10" debian:10
-            sleep 2
-            read -p 'Script: ' script
-            id=$(docker ps -aqf "name=Debian-10)
-            docker exec -it $id /bin/bash
-            ./$script
             break
             ;;
         "Debian 11")
