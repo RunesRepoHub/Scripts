@@ -21,7 +21,7 @@ ENDCOLOR="\e[0m"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script Self Updating${ENDCOLOR}"
-VERSION="0.0.3"
+VERSION="0.0.4"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Docker-Testing/docker-testing.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -65,7 +65,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Debian 10")
-            ssh -t root@192.168.1.191 ksh bash -l
+            ssh -t root@192.168.1.191 bash -l
             sleep 2
             docker run -td --name="Debian-10" debian:10
             sleep 2
