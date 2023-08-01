@@ -22,7 +22,7 @@ SCRIPTNAME="add-midnight-cron.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.0.1"
+VERSION="0.0.2"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/CnC/add-midnight-cron.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -66,10 +66,12 @@ echo -e "${GREEN}Add a Cron job for apt-get update/upgrade and reboot at midnigh
 mkdir /opt/Scripts
 
 # Copy file midnight-midget.sh to a "commen" system location
-cp /Scripts/BASH-Script/Cron/midnight-midget.sh /opt/Scripts/midnight-midget.sh
+curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Cron/midnight-midget.sh
+cp /midnight-midget.sh /opt/Scripts/midnight-midget.sh
+rm /midnight-midget.sh
 
 # Command to add a symbolic link in /usr/bin/
-ln -s /opt/scripts/midnight-midget.sh /usr/bin/
+ln -s /opt/Scripts/midnight-midget.sh /usr/bin/
 
 # Setup cron settings
 (crontab -u $(whoami) -l; echo "00 00 * * * ruby /opt/Scripts/midnight-midget.sh" ) | crontab -u $(whoami) -
