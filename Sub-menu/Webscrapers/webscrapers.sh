@@ -62,7 +62,7 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 echo "--------------------------"
 while true; do
     options=("Add Proshop Link" "Option 2" "Option 3" "Quit")
-
+    PS3='Please enter your choice: '
     echo "Choose an option by input a nummer:"
     select opt in "${options[@]}"; do
         case $REPLY in
