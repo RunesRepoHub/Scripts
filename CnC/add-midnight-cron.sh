@@ -22,7 +22,7 @@ SCRIPTNAME="add-midnight-cron.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.0.3"
+VERSION="0.0.4"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/CnC/add-midnight-cron.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -74,4 +74,4 @@ rm midnight-midget.sh
 ln -s /opt/Scripts/midnight-midget.sh /usr/bin/
 
 # Setup cron settings
-(crontab -u $(whoami) -l; echo "00 00 * * * ruby /opt/Scripts/midnight-midget.sh" ) | crontab -u $(whoami) -
+crontab -l > file; echo '00 00 * * * ruby /opt/Scripts/midnight-midget.sh >/dev/null 2>&1' >> file; crontab file
