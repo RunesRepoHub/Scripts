@@ -60,7 +60,7 @@ echo -e "${GREEN}Script $SCRIPTNAME Updating Complete${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 sleep 2
 #!/bin/bash
-clear
+
 
 # New Virtual Machine or Docker Menu
 echo "--------------------------"
@@ -79,6 +79,7 @@ do
         *) echo "invalid option $REPLY";;
     esac
 done
+clear
 
 # Type your Login Information
 echo "Login In To Get Started"
