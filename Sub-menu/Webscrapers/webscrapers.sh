@@ -68,7 +68,7 @@ while true; do
     select opt in "${options[@]}"; do
         case $REPLY in
         1)
-            bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
+            bash ./Scripts/Sub-menu/Webscrapers/proshop-pull.sh
             break
             ;;
         2)

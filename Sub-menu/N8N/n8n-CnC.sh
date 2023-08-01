@@ -21,8 +21,8 @@ ENDCOLOR="\e[0m"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script Self Updating${ENDCOLOR}"
-VERSION="0.0.1"
-SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
+VERSION="0.0.2"
+SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/N8N/n8n-CnC.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
 
@@ -61,29 +61,32 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 # N8N CnC Menu
 echo "--------------------------"
-PS3='Please pick what n8n server you want to reboot: '
-options=("Restart N8N Backend" "Restart N8N Prod" "Restart N8N MySQL" "Quit")
-select opt in "${options[@]}"
-do
-    case $opt in
-        "Restart N8N Backend")
+while true; do
+    PS3='Please pick what n8n server you want to reboot: '
+    options=("Restart N8N Backend" "Restart N8N Prod" "Restart N8N MySQL" "Quit")
+
+    echo "Choose an option by input a nummer:"
+    select opt in "${options[@]}"; do
+        case $REPLY in
+        1)
             curl -s GET "https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-backend"
             echo " "
             break
             ;;
-        "Restart N8N Prod")
+        2)
             curl -s GET "https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-prod"
             echo " "
             break
             ;;
-        "Restart N8N MySQL")
+        3)
             curl -s GET "https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-mysql"
             echo " "
             break
             ;;
-        "Quit")
+        4)
             break
             ;;
         *) echo "invalid option $REPLY";;
-    esac
+        esac
+    done
 done
