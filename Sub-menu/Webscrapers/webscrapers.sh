@@ -60,13 +60,14 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 # Webscraper Menu
 echo "--------------------------"
-PS3='Please pick what store you want to add a link to: '
-options=("Add Proshop Link" "Option 2" "Option 3" "Quit")
-select opt2 in "${options[@]}"
-do
-    case $opt2 in
-        "Add Proshop Link")
-            bash ./Scripts/webscrapers/proshop-pull.sh
+while true; do
+    options=("Add Proshop Link" "Option 2" "Option 3" "Quit")
+
+    echo "Choose an option by input a nummer:"
+    select opt in "${options[@]}"; do
+        case $REPLY in
+            "Add Proshop Link")
+            bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
             break 2
             ;;
         "Option 2")
@@ -79,5 +80,6 @@ do
             break 2
             ;;
         *) echo "invalid option $REPLY";;
-    esac
+        esac
+    done
 done

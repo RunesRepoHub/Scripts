@@ -1,7 +1,22 @@
-            sleep 2
-            docker run -td --name="Debian-10" debian:10
-            sleep 2
-            read -p 'URL: ' url
-            id=$(docker ps -aqf "name=Debian-10)
-            docker exec -it $id /bin/bash
-            curl -s -O https://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@$url
+while true; do
+    options=("Add Proshop Link" "Option 2" "Option 3" "Quit")
+
+    echo "Choose an option by input a nummer:"
+    select opt in "${options[@]}"; do
+        case $REPLY in
+            "Add Proshop Link")
+            bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
+            break 2
+            ;;
+        "Option 2")
+            echo "$user:$pass"
+            ;;
+        "Option 3")
+            echo "you chose choice $REPLY which is $opt"
+            ;;
+        "Quit")
+            break 2
+            ;;
+        *) echo "invalid option $REPLY";;
+        esac
+    done
