@@ -78,7 +78,7 @@ while true; do
             echo "you chose choice $REPLY which is $opt"
             ;;
         4)
-            break
+            break 2
             ;;
         *) echo "invalid option $REPLY";;
         esac
