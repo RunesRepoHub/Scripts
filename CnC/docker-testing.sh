@@ -81,7 +81,7 @@ do
         "Ubuntu 22.04")
             curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Docker-Testing/Ubuntu-22-04.sh
             sleep 2
-            ssh root@192.168.1.191 'bash -s' < ubuntu-22-04.sh
+            ssh root@192.168.1.191 'bash -s' < Ubuntu-22-04.sh
             ssh root@192.168.1.191
             break
             ;;
