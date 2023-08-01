@@ -67,7 +67,7 @@ do
     case $opt in
         "Add Proshop Link")
             bash ./Scripts/webscrapers/proshop-pull.sh
-            break
+            break 2
             ;;
         "Option 2")
             echo "$user:$pass"
@@ -76,7 +76,7 @@ do
             echo "you chose choice $REPLY which is $opt"
             ;;
         "Quit")
-            break
+            break 2
             ;;
         *) echo "invalid option $REPLY";;
     esac
