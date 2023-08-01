@@ -18,10 +18,11 @@ GREEN="\e[32m"
 YELLOW="\e[33m"
 BLUE="\e[34m"
 ENDCOLOR="\e[0m"
+SCRIPTNAME="docker-testing.sh"
 
 # Script Auto Self Update
-echo -e "${BLUE}Script Self Updating${ENDCOLOR}"
-VERSION="0.0.9"
+echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
+VERSION="0.1.0"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Docker-Testing/docker-testing.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -55,7 +56,7 @@ update "$@"
 
 echo "$@"
 
-echo -e "${GREEN}Script Self Updating Complete${ENDCOLOR}"
+echo -e "${GREEN}Script $SCRIPTNAME Updating Complete${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 echo -e "${YELLOW}Make sure you are in the same folder as the script${ENDCOLOR}"
