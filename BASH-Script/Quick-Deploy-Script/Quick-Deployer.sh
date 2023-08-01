@@ -21,7 +21,7 @@ ENDCOLOR="\e[0m"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script Self Updating${ENDCOLOR}"
-VERSION="0.1.6"
+VERSION="0.1.7"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Quick-Deploy-Script/Quick-Deployer.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -111,9 +111,6 @@ clear
 # Install and Configure Wazuh 
 echo -e "${YELLOW}Do you want to Install and Configure Wazuh?${ENDCOLOR}"
 read -p " (yes/no) " wazuh
-
-echo -e "{$YELLOW}What is the OS on this machine?${ENDCOLOR}
-read -p " (yes/no) "
 
 case $wazuh in 
 	yes ) 
