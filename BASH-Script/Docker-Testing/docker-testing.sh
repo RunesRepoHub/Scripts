@@ -59,22 +59,20 @@ echo -e "${GREEN}Script Self Updating Complete${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 echo -e "${YELLOW}Make sure you are in the same folder as the script${ENDCOLOR}"
-PS3='Please enter your choice: '
-options=("Debian 10" "Debian 11" "Ubuntu 22.04" "Quit")
+PS3='Please pick what store you want to add a link to: '
+options=("Add Proshop Link" "Option 2" "Option 3" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Debian 10")
-            ssh root@192.168.1.191
+        "Add Proshop Link")
+            ssh -t root@192.168.1.191 bash -l
             break
             ;;
-        "Debian 11")
-            bash ./scripts/makevm/makevm.sh
-            break
+        "Option 2")
+            echo "$user:$pass"
             ;;
-        "Ubuntu 22.04")
-            bash ./scripts/CnC/n8n-CnC.sh
-            break
+        "Option 3")
+            echo "you chose choice $REPLY which is $opt"
             ;;
         "Quit")
             break
