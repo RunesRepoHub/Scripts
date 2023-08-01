@@ -60,7 +60,7 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 docker stop Debian-10
 docker rm Debian-10
-docker volume prune
+docker volume prune -y
 
 docker run -i -d --name="Debian-10" debian:10
 docker exec -i Debian-10 /bin/bash
