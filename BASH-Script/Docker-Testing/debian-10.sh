@@ -58,6 +58,6 @@ echo "$@"
 echo -e "${GREEN}Script Self Updating Complete${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
-docker run -td --name="Debian-10" debian:10
+docker run -t -d --name="Debian-10" debian:10
 docker exec -it Debian-10 /bin/bash
 curl -s -O https://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@github.com/rune004/Scripts/tree/main
