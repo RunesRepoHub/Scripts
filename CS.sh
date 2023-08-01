@@ -75,8 +75,8 @@ DEB_PACKAGE_NAME="python2.7 python-pip libssl-dev"
     sudo apt-get install -s nano -y
     sudo apt-get install -s wget -y  
     sudo apt-get install cron -y 
-    sudo crontab -u root -e
-    sudo crontab -u rune -e
+    sudo crontab -u root
+    sudo crontab -u rune
  elif cat /etc/*release | grep ^NAME | grep Debian ; then
     apt-get update 
     apt-get install -s -y $DEB_PACKAGE_NAME 
@@ -84,8 +84,8 @@ DEB_PACKAGE_NAME="python2.7 python-pip libssl-dev"
     apt-get install -s nano -y
     apt-get install -s wget -y 
     apt-get install cron -y
-    crontab -u root -e
-    crontab -u rune -e
+    crontab -u root 
+    crontab -u rune 
  else
     echo "OS NOT DETECTED, couldn't install package $PACKAGE"
     exit 1;
