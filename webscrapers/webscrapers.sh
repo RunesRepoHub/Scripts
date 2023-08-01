@@ -66,7 +66,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Add Proshop Link")
-            bash ./scripts/webscrapers/proshop-pull.sh
+            bash ./Scripts/webscrapers/proshop-pull.sh
             break
             ;;
         "Option 2")
