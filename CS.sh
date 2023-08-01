@@ -65,7 +65,7 @@ sleep 2
 # New Virtual Machine or Docker Menu
 echo "--------------------------"
 PS3='New Virtual Machine or Docker: '
-options=("New" "Old")
+options=("New" "Old" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -75,6 +75,9 @@ do
             ;;
         "Old")
             break
+            ;;
+        "Quit")
+            exit 1
             ;;
         *) echo "invalid option $REPLY";;
     esac
