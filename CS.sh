@@ -63,21 +63,33 @@ sleep 2
 clear
 
 # Need software for script to work
-if [[ "$OSTYPE" == "ubuntu"* ]]; then
-        sudo apt-get install curl -y -s
-        sudo apt-get install crontab -y -s
-        sudo apt-get update 
-        sudo apt-get upgrade
-        break
-elif [[ "$OSTYPE" == "debian"* ]]; then
-        apt-get install curl -y -s
-        apt-get install crontab -y -s
-        apt-get update 
-        apt-get upgrade
-        break
-else
-        # Unknown.
-fi
+set -e
+
+YUM_PACKAGE_NAME="python python-devl python-pip openssl-devel"
+DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
+
+ if cat /etc/*release | grep ^NAME | grep Ubuntu; then
+    echo "==============================================="
+    echo "Installing packages $DEB_PACKAGE_NAME on Ubuntu"
+    echo "==============================================="
+    sudo apt-get update
+    sudo apt-get install -y $DEB_PACKAGE_NAME
+    sudo apt-get curl -y -s
+    sudo apt-get crontab -y -s
+ elif cat /etc/*release | grep ^NAME | grep Debian ; then
+    echo "==============================================="
+    echo "Installing packages $DEB_PACKAGE_NAME on Debian"
+    echo "==============================================="
+    apt-get update
+    apt-get install -y $DEB_PACKAGE_NAME
+    apt-get curl -y -s
+    apt-get crontab -y -s
+ else
+    echo "OS NOT DETECTED, couldn't install package $PACKAGE"
+    exit 1;
+ fi
+
+exit 0
 
 # Type your Login Information
 echo "Login In To Get Started"
