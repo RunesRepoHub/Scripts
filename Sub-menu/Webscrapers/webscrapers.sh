@@ -62,9 +62,9 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 echo "--------------------------"
 PS3='Please pick what store you want to add a link to: '
 options=("Add Proshop Link" "Option 2" "Option 3" "Quit")
-select opt in "${options[@]}"
+select opt2 in "${options[@]}"
 do
-    case $opt in
+    case $opt2 in
         "Add Proshop Link")
             bash ./Scripts/webscrapers/proshop-pull.sh
             break 2
