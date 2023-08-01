@@ -61,4 +61,4 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 sudo rm -r Scripts/
 git clone https://github.com/rune004/Scripts.git
-bash ./Scripts/CS.sh
+bash ./Scripts/Run-CnC.sh
