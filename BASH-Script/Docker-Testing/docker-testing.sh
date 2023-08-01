@@ -58,13 +58,20 @@ echo "$@"
 echo -e "${GREEN}Script Self Updating Complete${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
+echo -e "${YELLOW}Make sure you are in the same folder as the script${ENDCOLOR}"
     PS3='Please enter your choice: '
     options=("Debian 10" "Debian 11" "Ubuntu 22.04" "Quit")
     select opt in "${options[@]}"
     do
         case $opt in
             "Debian 10")
-                
+                ssh root@192.168.1.191
+                docker run -td --name="Debian-10" debian:10
+                sleep 2
+                read -p 'Script: ' script
+                id=$(docker ps -aqf "name=Debian-10)
+                docker exec -it $id /bin/bash
+                ./$script
                 break
                 ;;
             "Debian 11")
