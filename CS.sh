@@ -83,12 +83,13 @@ done
 clear
 
 # Type your Login Information
-echo "Login In To Get Started"
-echo "--------------------------"
+echo "${GREEN}Login In To Get Started${ENDCOLOR}"
+echo "--------------------------${ENDCOLOR}"
 read -p 'Username: ' user
 read -sp 'Password: ' pass
+echo "${GREEN}--------------------------${ENDCOLOR}"
 echo " "
-echo "Logging In..."
+echo "${GREEN}Logging In...${ENDCOLOR}"
 
 
 # Check Users Login With Database
@@ -100,8 +101,8 @@ passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-
 if (( $user == "$userdb" && $pass == "$passdb" ))
 then
     clear
-    echo -e "\nSuccessful login"
-    echo "--------------------------"
+    echo -e "${GREEN}\nSuccessful login${ENDCOLOR}"
+    echo "${GREEN}--------------------------${ENDCOLOR}"
     PS3='Please enter your choice: '
     options=("Webscrapers" "Make a Virtual Machine" "Reboot Restart N8N" "Docker Testing" "Add Midnight Cron" "Quit")
     select opt in "${options[@]}"
@@ -138,5 +139,5 @@ then
     done
 else
     clear
-    echo -e "\nUnsuccessful login"
+    echo -e "${GREEN}\nUnsuccessful login"
 fi
