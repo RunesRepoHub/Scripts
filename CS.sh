@@ -22,7 +22,7 @@ SCRIPTNAME="CS.sh"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script $SCRIPTNAME Updating${ENDCOLOR}"
-VERSION="0.1.3"
+VERSION="0.1.4"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -71,13 +71,11 @@ do
     case $opt in
         "New")
             bash ./Scripts/CnC/apt-get-install.sh
+            bash ./Scripts/installers/install-starship.sh
             break
             ;;
         "Old")
             break
-            ;;
-        "Quit")
-            exit 1
             ;;
         *) echo "invalid option $REPLY";;
     esac
