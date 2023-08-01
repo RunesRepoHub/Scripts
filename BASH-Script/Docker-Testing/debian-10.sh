@@ -21,7 +21,7 @@ ENDCOLOR="\e[0m"
 
 # Script Auto Self Update
 echo -e "${BLUE}Script Self Updating${ENDCOLOR}"
-VERSION="0.0.8"
+VERSION="0.0.9"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Docker-Testing/debian-10.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -65,5 +65,5 @@ docker run -i -d --name="Debian-10" debian:10
 docker exec -i Debian-10 /bin/bash
 apt-get update
 apt-get upgrade -y
-apt-get curl -y
+apt-get install curl -y
 curl -s -O https://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@github.com/rune004/Scripts/tree/main
