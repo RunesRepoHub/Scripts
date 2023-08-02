@@ -55,7 +55,7 @@ function update()
 update "$@"
 echo "$@"
 
-dialog --infobox "Make sure you are in the same folder as the script" 10 30 ; sleep 5
+dialog --msgbox "Make sure you are in the same folder as the script" 10 30 ; sleep 5
 
 cmd=(dialog --keep-tite --menu "$SCRIPTNAME - Version $VERSION" 22 76 16)
 

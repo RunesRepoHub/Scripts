@@ -54,8 +54,6 @@ function update()
 
 update "$@"
 echo "$@"
-echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
-echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 
 # N8N CnC Menu
