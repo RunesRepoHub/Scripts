@@ -27,7 +27,7 @@ SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
 FILE_UPDATER=updater.sh
 
-rm -f $FILE_UPDATER
+rm -f "$FILE_UPDATER"
 
 function update()
 {
@@ -39,14 +39,14 @@ function update()
     then
         printf "Updating script \e[31;1m%s\e[0m -> \e[32;1m%s\e[0m\n" "$VERSION" "$NEW_VER"
 
-        echo "cp \"$TMP_FILE\" \"$ABS_SCRIPT_PATH\"" > $FILE_UPDATER
-        echo "rm -f \"$TMP_FILE\"" >> $FILE_UPDATER
-        echo "echo Running script again: `basename ${BASH_SOURCE[@]}` $@" >> $FILE_UPDATER
-        echo "exec \"$ABS_SCRIPT_PATH\" \"$@\"" >> $FILE_UPDATER
+        echo "cp \"$TMP_FILE\" \"$ABS_SCRIPT_PATH\"" > "$FILE_UPDATER"
+        echo "rm -f \"$TMP_FILE\"" >> "$FILE_UPDATER"
+        echo "echo Running script again: `basename ${BASH_SOURCE[@]}` $@" >> "$FILE_UPDATER"
+        echo "exec \"$ABS_SCRIPT_PATH\" \"$@\"" >> "$FILE_UPDATER"
 
-        chmod +x $FILE_UPDATER
+        chmod +x "$FILE_UPDATER"
         chmod +x "$TMP_FILE"
-        exec $FILE_UPDATER
+        exec "$FILE_UPDATER"
     else
         rm -f "$TMP_FILE"
     fi

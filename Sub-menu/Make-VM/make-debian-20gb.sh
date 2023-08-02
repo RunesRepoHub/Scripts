@@ -25,8 +25,9 @@ VERSION="0.0.1"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
+FILE_UPDATER=updater.sh
 
-rm -f updater.sh
+rm -f "$FILE_UPDATER"
 
 function update()
 {
@@ -38,14 +39,14 @@ function update()
     then
         printf "Updating script \e[31;1m%s\e[0m -> \e[32;1m%s\e[0m\n" "$VERSION" "$NEW_VER"
 
-        echo "cp \"$TMP_FILE\" \"$ABS_SCRIPT_PATH\"" > updater.sh
-        echo "rm -f \"$TMP_FILE\"" >> updater.sh
-        echo "echo Running script again: `basename ${BASH_SOURCE[@]}` $@" >> updater.sh
-        echo "exec \"$ABS_SCRIPT_PATH\" \"$@\"" >> updater.sh
+        echo "cp \"$TMP_FILE\" \"$ABS_SCRIPT_PATH\"" > "$FILE_UPDATER"
+        echo "rm -f \"$TMP_FILE\"" >> "$FILE_UPDATER"
+        echo "echo Running script again: `basename ${BASH_SOURCE[@]}` $@" >> "$FILE_UPDATER"
+        echo "exec \"$ABS_SCRIPT_PATH\" \"$@\"" >> "$FILE_UPDATER"
 
-        chmod +x updater.sh
+        chmod +x "$FILE_UPDATER"
         chmod +x "$TMP_FILE"
-        exec updater.sh
+        exec "$FILE_UPDATER"
     else
         rm -f "$TMP_FILE"
     fi
