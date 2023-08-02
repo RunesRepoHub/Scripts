@@ -96,57 +96,64 @@ passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-
 # Check the username and password are valid or not
 if (( $user == "$userdb" && $pass == "$passdb" ))
 then 
-    while true; do
-    options=("Webscrapers" "Make a Virtual Machine" "Reboot Restart N8N" "Docker Testing" "Add Midnight Cron" "Install Dockers" "Quit")
-    clear
-    echo -e "${YELLOW}Choose an option by input a nummer:${ENDCOLOR}"
-    select opt in "${options[@]}"; do
-        case $REPLY in
-            1)
-                # Export User/Pass for auth header in webscrapers
-                export user="$userdb"
-                export pass="$passdb"
-                bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
-                break
-                ;;
-            2)
-                bash ./Scripts/Sub-menu/Make-VM/makevm.sh
-                break
-                ;;
-            3)
-                bash ./Scripts/Sub-menu/N8N/n8n-CnC.sh
-                break
-                ;;
-            4)
-                bash ./Scripts/Sub-menu/Docker-Testing/docker-testing.sh
-                break
-                ;;
-            5)
-                bash ./Scripts/CnC/add-midnight-cron.sh
-                break
-                ;;
-            6)
-                bash ./Scripts/Sub-menu/Install-Dockers/Install-Dockers.sh
-                break
-                ;;
-            7)
-                break
-                ;;
-            *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
-        esac
-    done
+cmd=(dialog --keep-tite --menu "Welcome to Rune's Utility Menu v1.0:" 22 76 16)
 
-    clear
-    echo -e "${RED}Are you done?${ENDCOLOR}"
-    select opt in "Yes" "No"; do
-        case $REPLY in
-            1) break 2 ;;
-            2) clear 
-            break ;;
-            *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
-        esac
-    done
-done
+options=(1  "Webscrapers"
+         2  "Make a Virtual Machine"
+         3  "Reboot Restart N8N"
+         4  "Docker Testing"
+         5  "Add Midnight Cron" 
+         6  "Install Dockers"
+         7  "..."
+         8  "..."
+         9  "..."
+         10 "..."
+#         11 "exit"
+        )
+
+choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+
+for choice in $choices 
+    do    
+        case $choice in
+        1)
+            export user="$userdb"
+            export pass="$passdb"
+            bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
+            ;;
+        2)
+            bash ./Scripts/Sub-menu/Make-VM/makevm.sh
+            ;;
+        3)
+            bash ./Scripts/Sub-menu/N8N/n8n-CnC.sh
+            ;;
+        4)
+            bash ./Scripts/Sub-menu/Docker-Testing/docker-testing.sh
+            ;;
+        5)
+            bash ./Scripts/CnC/add-midnight-cron.sh
+            ;;
+        6)
+            bash ./Scripts/Sub-menu/Install-Dockers/Install-Dockers.sh
+            ;;
+        7)
+            speedometer -l  -r wlp2s0 -t lo -m $(( 1024 * 1024 * 3 / 2 ))
+            ;;
+        8)
+            bmon
+            ;;
+        9)
+            speedtest
+            ;;
+        10)
+            ./snow.sh
+            ;;
+         *)
+            exit
+      esac
+read -p "Hit enter to continue ..."
+exec /bin/bash "$0" "$@"
+      done
 else 
     clear
     echo -e "${RED}\nUnsuccessful login${ENDCOLOR}"
