@@ -56,7 +56,7 @@ update "$@"
 echo "$@"
 
 #!/bin/bash
-cmd=(dialog --keep-tite --menu "$SCRIPTNAME   -   Version$VERSION" 22 76 16)
+cmd=(dialog --keep-tite --menu "$SCRIPTNAME - Version $VERSION" 22 76 16)
 
 options=(1  "Debian 20GB"
          2  "..."

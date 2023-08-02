@@ -60,7 +60,7 @@ echo "$@"
 # New Virtual Machine or Docker Menu
 DIALOG=${DIALOG=dialog}
 
-$DIALOG --title " $SCRIPTNAME   -   Version$VERSION " --clear \
+$DIALOG --title "$SCRIPTNAME - Version $VERSION" --clear \
         --yesno "Is this a freshly made VM or Docker, then click yes all the software needed for these script menu to work" 10 30
 
 case $? in

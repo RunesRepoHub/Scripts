@@ -55,7 +55,7 @@ function update()
 update "$@"
 echo "$@"
 
-cmd=(dialog --keep-tite --menu "Welcome to $SCRIPTNAME   -   Version$VERSION" 22 76 16)
+cmd=(dialog --keep-tite --menu "$SCRIPTNAME - Version $VERSION" 22 76 16)
 
 options=(1  "Webscrapers"
          2  "Make a Virtual Machine"
