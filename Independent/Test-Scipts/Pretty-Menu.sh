@@ -1,5 +1,5 @@
 #!/bin/sh
-dialog --menu "List file of a directory" 10 30 3 1 /home 2 /root 3 /tmp 2>temp
+dialog --menu "Choose an option" 10 30 3 1 Webscrapers 2 Make a Virtual Machine 3 Reboot Restart N8N 4 Docker Testing 5 Add Midnight Cron 6 Install Dockers 7 Quit 2>temp
  
  
 # OK is pressed
@@ -10,19 +10,43 @@ then
         # /home is selected
         if [ "$_return" = "1" ]
         then
-                dialog --title "List file of directory /home" --msgbox "$(ls /home -l)" 100 100
+                bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
         fi
  
          # /root is selected
         if [ "$_return" = "2" ]
         then
-                dialog --title "List file of directory /root" --msgbox "$(ls /root -l)" 100 100
+                bash ./Scripts/Sub-menu/Make-VM/makevm.sh
         fi
  
          # /tmp is selected
         if [ "$_return" = "3" ]
         then
-                dialog --title "List file of directory /tmp" --msgbox "$(ls /tmp -l)" 100 100
+                bash ./Scripts/Sub-menu/N8N/n8n-CnC.sh
+        fi
+
+        # /tmp is selected
+        if [ "$_return" = "3" ]
+        then
+                bash ./Scripts/Sub-menu/Docker-Testing/docker-testing.sh
+        fi
+
+        # /tmp is selected
+        if [ "$_return" = "3" ]
+        then
+                bash ./Scripts/CnC/add-midnight-cron.sh
+        fi
+
+        # /tmp is selected
+        if [ "$_return" = "3" ]
+        then
+                bash ./Scripts/Sub-menu/Install-Dockers/Install-Dockers.sh
+        fi
+
+        # /tmp is selected
+        if [ "$_return" = "3" ]
+        then
+                break
         fi
  
 # Cancel is pressed
