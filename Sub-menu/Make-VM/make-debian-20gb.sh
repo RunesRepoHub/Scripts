@@ -71,7 +71,3 @@ dialog --infobox "Your Virtual Machine Is Now Being Made" 10 30 ; sleep 5
 
 curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
 sleep 180
-
-exit
-
-dialog --msgbox "curl -X GET "$(https://n8n-prod.rp-helpdesk.com/webhook/ip")" 10 30 ;
