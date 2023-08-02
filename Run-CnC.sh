@@ -84,7 +84,6 @@ echo -e "${GREEN}--------------------------${ENDCOLOR}"
 read -p 'Username: ' user
 read -sp 'Password: ' pass
 echo -e "${GREEN}\n--------------------------${ENDCOLOR}"
-echo " "
 echo -e "${GREEN}\nLogging In...${ENDCOLOR}"
 sleep 2
 clear
