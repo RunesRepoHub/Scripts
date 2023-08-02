@@ -57,9 +57,6 @@ update "$@"
 
 echo "$@"
 
-echo -e "${GREEN}Script $SCRIPTNAME Updating Complete${ENDCOLOR}"
-echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
-
 # Need software for script to work
 set -e
 

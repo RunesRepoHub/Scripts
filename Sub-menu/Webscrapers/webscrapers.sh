@@ -56,7 +56,6 @@ update "$@"
 echo "$@"
 
 # Webscraper Menu
-#!/bin/bash
 cmd=(dialog --keep-tite --menu "$SCRIPTNAME - Version $VERSION" 22 76 16)
 
 options=(1  "Add Proshop Link"

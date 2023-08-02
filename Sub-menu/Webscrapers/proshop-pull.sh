@@ -54,11 +54,14 @@ function update()
 
 update "$@"
 echo "$@"
-echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
-echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
-   
-echo "Kopier dit proshop link her"  
-# Take input without defining variable    
-read  
+
+# Take input without defining variable  
+reply=$(\
+  dialog --title "Kopier dit proshop link her" \
+         --inputbox "User:" 8 40 \
+  3>&1 1>&2 2>&3 3>&- \
+)
+
+
 # Print the input value
-curl -X GET https://n8n-b.rp-helpdesk.com/webhook/proshop-pull-link/?url=$REPLY
+curl -X GET https://n8n-b.rp-helpdesk.com/webhook/proshop-pull-link/?url=$reply
