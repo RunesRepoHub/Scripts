@@ -10,7 +10,7 @@ case $? in
     bash ./Scripts/Installers/install-starship.sh
     ;;
   1)
-    bash /Scripts/Login.sh;;
+    bash ./Scripts/Login.sh;;
   255)
     echo "ESC pressed.";;
 esac

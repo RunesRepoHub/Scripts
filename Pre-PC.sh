@@ -1,20 +1,17 @@
 # New Virtual Machine or Docker Menu
-echo "--------------------------"
-echo -e "${YELLOW}New or Old Virtual Machine/Docker:${ENDCOLOR} "
-PS3='Please enter your choice: '
-options=("New" "Old")
-select opt in "${options[@]}"
-do
-    case $opt in
-        "New")
-            bash ./Scripts/Installers/apt-get-install.sh
-            bash ./Scripts/Installers/install-starship.sh
-            break
-            ;;
-        "Old")
-            break
-            ;;
-        *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
-    esac
-done
-clear
+#!/bin/bash
+DIALOG=${DIALOG=dialog}
+
+$DIALOG --title " Please enter your choice " --clear \
+        --yesno "New or Old Virtual Machine/Docker" 10 30
+
+case $? in
+  0)
+    bash ./Scripts/Installers/apt-get-install.sh
+    bash ./Scripts/Installers/install-starship.sh
+    ;;
+  1)
+    bash ./Scripts/Login.sh;;
+  255)
+    echo "ESC pressed.";;
+esac
