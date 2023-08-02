@@ -18,11 +18,11 @@ GREEN="\e[32m"
 YELLOW="\e[33m"
 BLUE="\e[34m"
 ENDCOLOR="\e[0m"
+SCRIPTNAME="install-docker.sh"
 
 # Script Auto Self Update
-echo -e "${BLUE} Script Self Updating ${ENDCOLOR}"
 VERSION="0.0.1"
-SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Docker-Testing/install-docker.sh'
+SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/Installers/install-docker.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
 FILE_UPDATER=updater.sh
@@ -56,12 +56,12 @@ update "$@"
 
 echo "$@"
 
-echo -e "${GREEN}Script Self Updating Complete${ENDCOLOR}"
+echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 # Install Docker Engine, containerd, and Docker Compose.
 
-echo "${YELLOW}Update the apt package index and install packages to allow apt to use a repository over HTTPS${ENDCOLOR}"
+echo -e "${YELLOW}Update the apt package index and install packages to allow apt to use a repository over HTTPS${ENDCOLOR}"
 echo " "
 sleep 2
 apt-get update -y
@@ -69,7 +69,7 @@ apt-get install ca-certificates curl gnupg -y
 sleep 2
 clear
 
-echo "${YELLOW}Add Docker’s official GPG key:${ENDCOLOR}"
+echo -e "${YELLOW}Add Docker’s official GPG key:${ENDCOLOR}"
 echo " "
 sleep 2
 install -m 0755 -d /etc/apt/keyrings
@@ -78,7 +78,7 @@ chmod a+r /etc/apt/keyrings/docker.gpg
 sleep 2
 clear
 
-echo "${YELLOW}Setting up the repository${ENDCOLOR}"
+echo -e "${YELLOW}Setting up the repository${ENDCOLOR}"
 echo " "
 sleep 2
 
@@ -89,7 +89,7 @@ echo \
 sleep 2
 clear
 
-echo "${YELLOW}Update the apt package index and Install Docker Engine, containerd, and Docker Compose.${ENDCOLOR}"
+echo -e "${YELLOW}Update the apt package index and Install Docker Engine, containerd, and Docker Compose.${ENDCOLOR}"
 echo " "
 sleep 2
 apt-get update -y
