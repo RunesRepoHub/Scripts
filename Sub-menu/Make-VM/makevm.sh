@@ -79,7 +79,6 @@ for choice in $choices
         1)
             bash ./Scripts/Sub-menu/Make-VM/make-debian-20gb.sh
             dialog --msgbox "curl -X GET "$(https://n8n-prod.rp-helpdesk.com/webhook/ip")" 10 30 ;
-            break
             ;;
         2)
             bash ./Scripts/Sub-menu/Make-VM/makevm.sh
