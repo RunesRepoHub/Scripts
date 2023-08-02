@@ -11,6 +11,7 @@ then
         if [ "$_return" = "1" ]
         then
                 dialog --title "List file of directory /home" --msgbox "$(ls /home -l)" 100 100
+                echo "test"
         fi
  
          # /root is selected
