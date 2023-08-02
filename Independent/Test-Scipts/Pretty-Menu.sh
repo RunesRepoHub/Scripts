@@ -1,13 +1,7 @@
 #!/bin/bash
-
-while true; do
-    DIALOG=${DIALOG=dialog}
-
-$DIALOG --title " My first dialog" --clear \
-        --inputbox "Hello , this is my first dialog program" 10 30
         
 options=("Install Docker & Docker-Compose" "Cloudflare" "Restart N8N MySQL" "Quit")
-    select opt in "${options[@]}"; do
+    dialog --menu "Menu" 10 30 3 1 Install Docker + Docker-Compose 2 Cloudflare 3 Quit
         case $? in
         1)
             bash ./Scripts/Installers/install-docker.sh
@@ -18,14 +12,7 @@ options=("Install Docker & Docker-Compose" "Cloudflare" "Restart N8N MySQL" "Qui
             break
             ;;
         3)
-            curl -s GET "https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-mysql"
-            echo " "
-            break
-            ;;
-        4)
             break 2
             ;;
         *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
         esac
-    done
-done
