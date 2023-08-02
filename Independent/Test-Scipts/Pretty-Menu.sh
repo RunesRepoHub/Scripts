@@ -2,7 +2,7 @@
 DIALOG=${DIALOG=dialog}
 
 $DIALOG --title " My first dialog" --clear \
-        --input "Hello , this is my first dialog program" 10 30
+        --inputbox "Hello , this is my first dialog program" 10 30
 
 
 case $? in
