@@ -126,7 +126,7 @@ then
                 break
                 ;;
             6)
-                bash ./Scripts/CnC/add-midnight-cron.sh
+                bash ./Scripts/Sub-menu/Install-Dockers/Install-Dockers.sh
                 break
                 ;;
             7)
