@@ -1,11 +1,14 @@
 #!/bin/bash
-DIALOG=${DIALOG=dialog}
+
+while true; do
+    DIALOG=${DIALOG=dialog}
 
 $DIALOG --title " My first dialog" --clear \
         --inputbox "Hello , this is my first dialog program" 10 30
-
-
-case $? in
+        
+options=("Install Docker & Docker-Compose" "Cloudflare" "Restart N8N MySQL" "Quit")
+    select opt in "${options[@]}"; do
+        case $? in
         1)
             bash ./Scripts/Installers/install-docker.sh
             break
@@ -23,4 +26,6 @@ case $? in
             break 2
             ;;
         *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
-esac
+        esac
+    done
+done
