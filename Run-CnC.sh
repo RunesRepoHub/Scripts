@@ -57,45 +57,6 @@ echo "$@"
 echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
 echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
-# New Virtual Machine or Docker Menu
-echo "--------------------------"
-echo -e "${YELLOW}New or Old Virtual Machine/Docker:${ENDCOLOR} "
-PS3='Please enter your choice: '
-options=("New" "Old")
-select opt in "${options[@]}"
-do
-    case $opt in
-        "New")
-            bash ./Scripts/Installers/apt-get-install.sh
-            bash ./Scripts/Installers/install-starship.sh
-            break
-            ;;
-        "Old")
-            break
-            ;;
-        *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
-    esac
-done
-clear
-
-# Type your Login Information
-echo -e "${GREEN}Login In To Get Started${ENDCOLOR}"
-echo -e "${GREEN}--------------------------${ENDCOLOR}"
-read -p 'Username: ' user
-read -sp 'Password: ' pass
-echo -e "${GREEN}\n--------------------------${ENDCOLOR}"
-echo -e "${GREEN}\nLogging In...${ENDCOLOR}"
-sleep 2
-clear
-
-# Check Users Login With Database
-userdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-user)
-passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-pass)
-
-
-# Check the username and password are valid or not
-if (( $user == "$userdb" && $pass == "$passdb" ))
-then 
 cmd=(dialog --keep-tite --menu "Welcome to Rune's Utility Menu v1.0:" 22 76 16)
 
 options=(1  "Webscrapers"
@@ -156,5 +117,5 @@ exec /bin/bash "$0" "$@"
       done
 else 
     clear
-    echo -e "${RED}\nUnsuccessful login${ENDCOLOR}"
+    dialog --infobox "Unsuccessful login" 10 30 ; sleep 5
 fi
