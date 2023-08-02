@@ -62,11 +62,11 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 # Make Debian VM Automation Script With IP Pull  
 
-dialog --infobox "Pick The Settings For The Debian VM" 10 30 ; sleep 5
+dialog --msgbox "Pick The Settings For Setting Up A VM" 10 30 ;
 
 hostname=$(\
-  dialog --title "Create Directory" \
-         --inputbox "Enter the directory name:" 8 40 \
+  dialog --title "VM Hostname" \
+         --inputbox "Enter the hostname:" 8 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
 
@@ -74,4 +74,5 @@ dialog --infobox "Your Virtual Machine Is Now Being Made" 10 30 ; sleep 5
 
 curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
 sleep 180
-curl -X GET "https://n8n-prod.rp-helpdesk.com/webhook/ip"
+
+dialog --msgbox "curl -X GET "$(https://n8n-prod.rp-helpdesk.com/webhook/ip")" 10 30 ;
