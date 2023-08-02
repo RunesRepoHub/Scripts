@@ -61,18 +61,17 @@ echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 echo "--------------------------"
 while true; do
     PS3='Please pick what Dockers you want to install: '
-    options=("Cloudflare" "Restart N8N Prod" "Restart N8N MySQL" "Quit")
+    options=("Install Docker & Docker-Compose" "Cloudflare" "Restart N8N MySQL" "Quit")
     clear
     echo "Choose an option by input a nummer:"
     select opt in "${options[@]}"; do
         case $REPLY in
         1)
-            bash ./Scripts/Installers/install-cloudflare-tunnel.sh
+            bash ./Scripts/Installers/install-docker.sh
             break
             ;;
         2)
-            curl -s GET "https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-prod"
-            echo " "
+            bash ./Scripts/Installers/install-cloudflare-tunnel.sh
             break
             ;;
         3)
