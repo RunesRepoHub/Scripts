@@ -1,12 +1,12 @@
 #!/bin/bash
-cmd=(dialog --keep-tite --menu "Welcome to Rune's Utility Menu v1.0:" 22 76 16)
+cmd=(dialog --keep-tite --menu "$SCRIPTNAME   -   Version$VERSION" 22 76 16)
 
-options=(1  "Webscrapers"
-         2  "Make a Virtual Machine"
-         3  "Reboot Restart N8N"
-         4  "Docker Testing"
-         5  "Add Midnight Cron" 
-         6  "Install Dockers"
+options=(1  "Debian 20GB"
+         2  "..."
+         3  "..."
+         4  "..."
+         5  "..." 
+         6  "..."
          7  "..."
          8  "..."
          9  "..."
@@ -20,9 +20,7 @@ for choice in $choices
     do    
         case $choice in
         1)
-            export user="$userdb"
-            export pass="$passdb"
-            bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
+            bash ./Scripts/Sub-menu/Make-VM/make-debian-20gb.sh
             ;;
         2)
             bash ./Scripts/Sub-menu/Make-VM/makevm.sh
