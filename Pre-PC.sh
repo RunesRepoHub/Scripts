@@ -2,8 +2,8 @@
 #!/bin/bash
 DIALOG=${DIALOG=dialog}
 
-$DIALOG --title " Please enter your choice " --clear \
-        --yesno "New or Old Virtual Machine/Docker" 10 30
+$DIALOG --title " $SCRIPTNAME   -   Version$VERSION " --clear \
+        --yesno "Is this a freshly made VM or Docker, then click yes all the software needed for these script menu to work" 10 30
 
 case $? in
   0)

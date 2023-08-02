@@ -58,7 +58,7 @@ echo "$@"
 
 DIALOG=${DIALOG=dialog}
 
-$DIALOG --title " $SCRIPTNAME Version:$VERSION " --clear \
+$DIALOG --title " $SCRIPTNAME   -   Version$VERSION " --clear \
         --yesno "New or Old Virtual Machine/Docker" 10 30
 
 case $? in
