@@ -105,10 +105,10 @@ for choice in $choices
             speedtest
             ;;
         10)
-            ./snow.sh
+            break 2
             ;;
          *)
-            break 2
+            exit
       esac
 exec /bin/bash "$0" "$@"
       done

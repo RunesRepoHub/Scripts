@@ -61,7 +61,7 @@ echo "$@"
 DIALOG=${DIALOG=dialog}
 
 $DIALOG --title "$SCRIPTNAME - Version $VERSION" --clear \
-        --yesno "Is this a freshly made VM or Docker, then click yes to install all the software needed for these script menu to work" 10 30
+        --yesno "Is this a freshly made VM or Docker, then click yes to install all the software needed for these script menu to work." 10 30
 
 case $? in
   0)
