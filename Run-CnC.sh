@@ -21,7 +21,7 @@ ENDCOLOR="\e[0m"
 SCRIPTNAME="Run-CnC.sh"
 
 # Script Auto Self Update
-VERSION="0.0.3"
+VERSION="0.0.4"
 SCRIPT_URL='https://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@raw.githubusercontent.com/rune004/Scripts/main/Run-CnC.sh'
 SCRIPT_DESCRIPTION=""
 SCRIPT_LOCATION="${BASH_SOURCE[@]}"
@@ -54,10 +54,8 @@ function update()
 
 update "$@"
 echo "$@"
-echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
-echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
-cmd=(dialog --keep-tite --menu "Welcome to Rune's Utility Menu v1.0:" 22 76 16)
+cmd=(dialog --keep-tite --menu "Welcome to $SCRIPTNAME Version:$VERSION:" 22 76 16)
 
 options=(1  "Webscrapers"
          2  "Make a Virtual Machine"
