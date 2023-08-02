@@ -112,6 +112,5 @@ for choice in $choices
          *)
             exit
       esac
-read -p "Hit enter to continue ..."
 exec /bin/bash "$0" "$@"
       done

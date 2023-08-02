@@ -9,6 +9,7 @@ case $? in
   0)
     bash ./Scripts/Installers/apt-get-install.sh
     bash ./Scripts/Installers/install-starship.sh
+    bash ./Scripts/Login.sh
     ;;
   1)
     bash ./Scripts/Login.sh;;
