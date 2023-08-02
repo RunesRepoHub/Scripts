@@ -154,7 +154,6 @@ fi
  
 # remove the temp file
 rm -f temp
-    done
 
     clear
     echo -e "${RED}Are you done?${ENDCOLOR}"
