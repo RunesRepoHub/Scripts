@@ -1,4 +1,4 @@
-user=$(\
+ user=$(\
   dialog --title "User" \
          --inputbox "User:" 8 40 \
   3>&1 1>&2 2>&3 3>&- \
