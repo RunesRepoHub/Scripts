@@ -97,7 +97,7 @@ passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-
 if (( $user == "$userdb" && $pass == "$passdb" ))
 then 
     while true; do
-    options=("Webscrapers" "Make a Virtual Machine" "Reboot Restart N8N" "Docker Testing" "Add Midnight Cron" "Quit")
+    options=("Webscrapers" "Make a Virtual Machine" "Reboot Restart N8N" "Docker Testing" "Add Midnight Cron" "Install Dockers" "Quit")
     clear
     echo -e "${YELLOW}Choose an option by input a nummer:${ENDCOLOR}"
     select opt in "${options[@]}"; do
@@ -126,6 +126,10 @@ then
                 break
                 ;;
             6)
+                bash ./Scripts/CnC/add-midnight-cron.sh
+                break
+                ;;
+            7)
                 break
                 ;;
             *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
