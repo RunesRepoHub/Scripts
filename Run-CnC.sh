@@ -97,7 +97,7 @@ passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-
 if (( $user == "$userdb" && $pass == "$passdb" ))
 then 
     while true; do
-        dialog --menu "Choose an option" 10 30 3 1 Webscrapers 2 Make a Virtual Machine 3 Reboot Restart N8N 4 Docker Testing 5 Add Midnight Cron 6 Install Dockers 7 Quit 2>temp
+    dialog --menu "Choose an option" 10 30 3 1 Webscrapers 2 Make a Virtual Machine 3 Reboot Restart N8N 4 Docker Testing 5 Add Midnight Cron 6 Install Dockers 7 Quit 2>temp
  
  
 # OK is pressed
@@ -154,7 +154,6 @@ fi
  
 # remove the temp file
 rm -f temp
-done
 
     clear
     echo -e "${RED}Are you done?${ENDCOLOR}"
