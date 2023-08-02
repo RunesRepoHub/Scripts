@@ -115,7 +115,3 @@ for choice in $choices
 read -p "Hit enter to continue ..."
 exec /bin/bash "$0" "$@"
       done
-else 
-    clear
-    dialog --infobox "Unsuccessful login" 10 30 ; sleep 5
-fi
