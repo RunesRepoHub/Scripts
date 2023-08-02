@@ -127,7 +127,7 @@ then
                 break
                 ;;
             6)
-                break 2
+                break
                 ;;
             *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
         esac
