@@ -1,9 +1,9 @@
 #!/bin/bash
 cmd=(dialog --keep-tite --menu "$SCRIPTNAME - Version $VERSION" 22 76 16)
 
-options=(1  "Debian 10"
-         2  "Debian 11"
-         3  "Ubuntu 22.04"
+options=(1  "Restart N8N Backend"
+         2  "Restart N8N Prod"
+         3  "Restart N8N MySQL"
          4  "..."
          5  "..." 
          6  "..."
@@ -20,22 +20,13 @@ for choice in $choices
     do    
         case $choice in
         1)
-            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/debian-10.sh
-            sleep 2
-            ssh root@192.168.1.191 'bash -s' < debian-10.sh
-            ssh root@192.168.1.191
+            dialog --msgbox "$(curl -X GET https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-backend)" 10 30 ;
             ;;
         2)
-            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/debian-11.sh
-            sleep 2
-            ssh root@192.168.1.191 'bash -s' < debian-11.sh
-            ssh root@192.168.1.191
+            dialog --msgbox "$(curl -X GET https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-prod)" 10 30 ;
             ;;
         3)
-            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/Ubuntu-22-04.sh
-            sleep 2
-            ssh root@192.168.1.191 'bash -s' < Ubuntu-22-04.sh
-            ssh root@192.168.1.191
+            dialog --msgbox "$(curl -X GET https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-mysql)" 10 30 ;
             ;;
         4)
             bash ./Scripts/Sub-menu/Docker-Testing/docker-testing.sh
