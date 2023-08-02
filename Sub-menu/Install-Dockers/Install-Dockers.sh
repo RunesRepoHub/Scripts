@@ -54,35 +54,61 @@ function update()
 
 update "$@"
 echo "$@"
-echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
-echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 # Install Dockers
-echo "--------------------------"
-while true; do
-    PS3='Please pick what Dockers you want to install: '
-    options=("Install Docker & Docker-Compose" "Cloudflare" "Restart N8N MySQL" "Quit")
-    clear
-    echo "Choose an option by input a nummer:"
-    select opt in "${options[@]}"; do
-        case $REPLY in
+#!/bin/bash
+cmd=(dialog --keep-tite --menu "$SCRIPTNAME - Version $VERSION" 22 76 16)
+
+options=(1  "Install Docker & Docker-Compose"
+         2  "Cloudflare"
+         3  "..."
+         4  "..."
+         5  "..." 
+         6  "..."
+         7  "..."
+         8  "..."
+         9  "..."
+         10 "Back To Main Menu"
+#         11 "exit"
+        )
+
+choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+
+for choice in $choices 
+    do    
+        case $choice in
         1)
             bash ./Scripts/Installers/install-docker.sh
-            break
             ;;
         2)
             bash ./Scripts/Installers/install-cloudflare-tunnel.sh
-            break
             ;;
         3)
-            curl -s GET "https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-mysql"
-            echo " "
-            break
+            bash ./Scripts/Sub-menu/N8N/n8n-CnC.sh
             ;;
         4)
-            break 2
+            bash ./Scripts/Sub-menu/Docker-Testing/docker-testing.sh
             ;;
-        *) echo -e "${RED}invalid option $REPLY${ENDCOLOR}";;
-        esac
-    done
-done
+        5)
+            bash ./Scripts/CnC/add-midnight-cron.sh
+            ;;
+        6)
+            bash ./Scripts/Sub-menu/Install-Dockers/Install-Dockers.sh
+            ;;
+        7)
+            speedometer -l  -r wlp2s0 -t lo -m $(( 1024 * 1024 * 3 / 2 ))
+            ;;
+        8)
+            bmon
+            ;;
+        9)
+            speedtest
+            ;;
+        10)
+            ./snow.sh
+            ;;
+         *)
+            break 2
+      esac
+exec /bin/bash "$0" "$@"
+      done

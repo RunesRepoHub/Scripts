@@ -1,16 +1,16 @@
 #!/bin/bash
-cmd=(dialog --keep-tite --menu "$SCRIPTNAME   -   Version$VERSION" 22 76 16)
+cmd=(dialog --keep-tite --menu "$SCRIPTNAME - Version $VERSION" 22 76 16)
 
-options=(1  "Debian 20GB"
-         2  "..."
-         3  "..."
+options=(1  "Debian 10"
+         2  "Debian 11"
+         3  "Ubuntu 22.04"
          4  "..."
          5  "..." 
          6  "..."
          7  "..."
          8  "..."
          9  "..."
-         10 "..."
+         10 "Back To Main Menu"
 #         11 "exit"
         )
 
@@ -20,13 +20,22 @@ for choice in $choices
     do    
         case $choice in
         1)
-            bash ./Scripts/Sub-menu/Make-VM/make-debian-20gb.sh
+            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/debian-10.sh
+            sleep 2
+            ssh root@192.168.1.191 'bash -s' < debian-10.sh
+            ssh root@192.168.1.191
             ;;
         2)
-            bash ./Scripts/Sub-menu/Make-VM/makevm.sh
+            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/debian-11.sh
+            sleep 2
+            ssh root@192.168.1.191 'bash -s' < debian-11.sh
+            ssh root@192.168.1.191
             ;;
         3)
-            bash ./Scripts/Sub-menu/N8N/n8n-CnC.sh
+            curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/Ubuntu-22-04.sh
+            sleep 2
+            ssh root@192.168.1.191 'bash -s' < Ubuntu-22-04.sh
+            ssh root@192.168.1.191
             ;;
         4)
             bash ./Scripts/Sub-menu/Docker-Testing/docker-testing.sh
@@ -50,8 +59,7 @@ for choice in $choices
             ./snow.sh
             ;;
          *)
-            exit
+            break 2
       esac
-read -p "Hit enter to continue ..."
 exec /bin/bash "$0" "$@"
       done
