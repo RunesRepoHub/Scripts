@@ -13,7 +13,7 @@
 
 mkdir -p /mnt/user/appdata/cloudflared/ && chmod -R 777 /mnt/user/appdata/cloudflared/
 
-docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel login
+dialog --prgbox "" "docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel login" 20 40 
 
 TUNNELNAME=$(\
   dialog --title "$scriptname - Install Cloudflare Tunnel" \
@@ -21,7 +21,7 @@ TUNNELNAME=$(\
   3>&1 1>&2 2>&3 3>&- \
 )
 export TUNNELNAME="$TUNNELNAME"
-dialog --prgbox "Docker Create Tunnel" "bash ./Scripts/Installers/Docker-run/cloudflare-login.sh" 20 40 
+dialog --prgbox "Docker Create Tunnel" "docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel create $TUNNELNAME" 20 40 
 
 touch /mnt/user/appdata/cloudflared/config.yml
 
