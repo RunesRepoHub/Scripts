@@ -68,3 +68,5 @@ for choice in $choices
       esac
 exec /bin/bash "$0" "$@"
       done
+
+sudo rm -r Scripts/
