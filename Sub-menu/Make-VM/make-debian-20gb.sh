@@ -25,12 +25,12 @@ dialog --infobox "Your Virtual Machine Is Now Being Made" 10 30 ; sleep 5
 curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
 sleep 180
 
-IP="$(curl -X GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"
+IP="$(curl -s GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"
 
 #!/bin/bash
 # dynbox.sh - Yes/No box demo
 dialog --title "SSH" \
---yesno "Do you wany to ssh into $IP" 7 60
+--yesno "Do you want to ssh into $IP" 7 60
 
 # Get exit status
 # 0 means user hit [yes] button.
