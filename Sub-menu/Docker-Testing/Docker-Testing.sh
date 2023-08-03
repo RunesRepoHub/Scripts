@@ -32,21 +32,21 @@ for choice in $choices
     do    
         case $choice in
         1)
-            dialog --msgbox "Deploying Debian 10 Docker" 10 30
+            dialog --infobox "Deploying Debian 10 Docker" 10 30 ; sleep 2
             curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/debian-10.sh
             sleep 2
             ssh root@192.168.1.191 'bash -s' < debian-10.sh
             ssh root@192.168.1.191
             ;;
         2)
-            dialog --msgbox "Deploying Debian 11 Docker" 10 30
+            dialog --infobox "Deploying Debian 11 Docker" 10 30 ; sleep 2
             curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/debian-11.sh
             sleep 2
             ssh root@192.168.1.191 'bash -s' < debian-11.sh
             ssh root@192.168.1.191
             ;;
         3)
-            dialog --msgbox "Deploying Ubuntu 22.04 Docker" 10 30
+            dialog --infobox "Deploying Ubuntu 22.04 Docker" 10 30 ; sleep 2
             curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/Ubuntu-22-04.sh
             sleep 2
             ssh root@192.168.1.191 'bash -s' < Ubuntu-22-04.sh
