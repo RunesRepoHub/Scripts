@@ -17,7 +17,6 @@ docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/
 
 TUNNELNAME=$(\
   dialog --title "$scriptname - Install Cloudflare Tunnel" \
-         --infobox "Input a tunnel name for the cloudflare dashboard" \
          --inputbox "User:" 8 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
@@ -28,21 +27,18 @@ touch /mnt/user/appdata/cloudflared/config.yml
 
 UUID=$(\
   dialog --title "$scriptname - Install Cloudflare Tunnel" \
-         --infobox "Make config file - Tunnel UUID" \
          --inputbox "Tunnel UUID:" 8 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
 
 REVERSEPROXYIP=$(\
   dialog --title "$scriptname - Install Cloudflare Tunnel" \
-         --infobox "Make config file - " \
          --inputbox "https://" 8 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
 
 YOURDOMAIN=$(\
   dialog --title "$scriptname - Install Cloudflare Tunnel" \
-         --infobox "Make config file " \
          --inputbox "yourdomain.com:" 8 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
