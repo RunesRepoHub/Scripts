@@ -13,6 +13,6 @@
 cd ~ 
 sudo rm -r Scripts/
 git clone https://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@github.com/rune004/Scripts.git
-bash ./Scripts/Installers/install-dialog.sh
+bash ./Scripts/Installers/install-first-time.sh
 bash ./Scripts/Menu/Pre-Install-PC.sh
 

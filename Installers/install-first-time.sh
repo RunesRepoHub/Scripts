@@ -36,6 +36,10 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     echo "==============================================="
     sudo apt-get update
     sudo apt-get install -y $DEB_PACKAGE_NAME
+    sudo apt-get install curl -y
+    sudo apt-get install nano -y
+    sudo apt-get install wget -y 
+    sudo apt-get install cron -y
     sudo apt-get install dialog
     sudo dialog --create-rc ~/.dialogrc
     sudo cat ~/Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
@@ -45,6 +49,10 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     echo "==============================================="
     apt-get update
     apt-get install -y $DEB_PACKAGE_NAME
+    apt-get install curl -y
+    apt-get install nano -y
+    apt-get install wget -y 
+    apt-get install cron -y
     apt-get install dialog
     dialog --create-rc ~/.dialogrc
     cat ~/Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
@@ -54,6 +62,10 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     echo "============================================="
     apt-get update
     apt-get install -y $DEB_PACKAGE_NAME
+    apt-get install curl -y
+    apt-get install nano -y
+    apt-get install wget -y 
+    apt-get install cron -y
     apt-get install dialog
     dialog --create-rc ~/.dialogrc
     cat ~/Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
@@ -63,6 +75,10 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     echo "================================================="
     apt-get update
     apt-get install -y $DEB_PACKAGE_NAME
+    apt-get install curl -y
+    apt-get install nano -y
+    apt-get install wget -y 
+    apt-get install cron -y
     apt-get install dialog
     dialog --create-rc ~/.dialogrc
     cat ~/Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
