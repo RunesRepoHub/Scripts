@@ -1,3 +1,6 @@
+version="$(cat /Scripts/Version)"
+Scriptname="$(cat /Scripts/Scriptname)"
+
 user=$(\
   dialog --title "User" \
          --inputbox "User:" 8 40 \

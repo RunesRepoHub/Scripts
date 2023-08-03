@@ -11,6 +11,7 @@
 ## |--------------------------------|
 #!/usr/bin/env bash
 version="$(cat /Scripts/Version)"
+Scriptname="$(cat /Scripts/Scriptname)"
 
 # New Virtual Machine or Docker Menu
 DIALOG=${DIALOG=dialog}
