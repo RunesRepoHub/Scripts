@@ -16,7 +16,7 @@ me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 DIALOG=${DIALOG=dialog}
 
 $DIALOG --title "$scriptname - Version $version - $me" --clear \
-        --yesno "Is this a freshly made VM or Docker, then click yes to install all the software needed for these script menu to work." 10 30
+        --yesno "Is this a freshly made VM or Docker, then click yes to install all the software needed for these script menu to work." 20 50
 
 case $? in
   0)

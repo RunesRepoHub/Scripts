@@ -11,7 +11,7 @@
 ## |--------------------------------|
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
-cmd=(dialog --colors "black" --keep-tite --menu "$scriptname - Version $version - $me" 22 76 16)
+cmd=(dialog --keep-tite --menu "$scriptname - Version $version - $me" --colors "black" 22 76 16)
 
 options=(1  "Webscrapers"
          2  "Make a Virtual Machine"
