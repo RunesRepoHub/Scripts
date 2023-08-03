@@ -17,11 +17,11 @@ docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/
 
 TUNNELNAME=$(\
   dialog --title "$scriptname - Install Cloudflare Tunnel" \
-         --inputbox "User:" 8 40 \
+         --inputbox "Tunnel Name:" 8 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
 
-dialog --programbox "(docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel create "$TUNNELNAME")" 20 40 \
+dialog --programbox (docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel create "$TUNNELNAME") 20 40 \
 
 touch /mnt/user/appdata/cloudflared/config.yml
 
