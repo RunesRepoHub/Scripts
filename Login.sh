@@ -15,12 +15,14 @@ userdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-
 passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-pass)
 sessionid=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/sessionid)
 
+export $userdb
+export $passdb
+export $sessionid
+
 
 # Check the username and password are valid or not
 if (( $user == "$userdb" && $pass == "$passdb" ))
 then
-    touch /Scripts/.secrets
-    echo "$sessionid" > .secret
     bash ./Scripts/Run-CnC.sh    
 else 
     clear
