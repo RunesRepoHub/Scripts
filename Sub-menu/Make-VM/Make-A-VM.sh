@@ -33,6 +33,7 @@ for choice in $choices
     do    
         case $choice in
         1)
+            dialog --msgbox "Pick The Settings For Setting Up A VM" 10 30 ;
             bash ./Scripts/Sub-menu/Make-VM/make-debian-20gb.sh
             ;;
         2)
