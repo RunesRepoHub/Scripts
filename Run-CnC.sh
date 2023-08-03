@@ -11,7 +11,7 @@
 ## |--------------------------------|
 
 
-cmd=(dialog --keep-tite --menu "$SCRIPTNAME - Version $VERSION" 22 76 16)
+cmd=(dialog --keep-tite --menu "$scriptname - Version $version" 22 76 16)
 
 options=(1  "Webscrapers"
          2  "Make a Virtual Machine"
@@ -32,8 +32,6 @@ for choice in $choices
     do    
         case $choice in
         1)
-            export user="$userdb"
-            export pass="$passdb"
             bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
             ;;
         2)
@@ -68,5 +66,3 @@ for choice in $choices
       esac
 exec /bin/bash "$0" "$@"
       done
-
-sudo rm -r Scripts/

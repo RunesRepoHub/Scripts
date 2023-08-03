@@ -14,7 +14,11 @@ pass=$(\
 userdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-user)
 passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-pass)
 sessionid=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/sessionid)
+version="v0.0.5"
+scriptname="RPH BASH Menu"
 
+export $version
+export $scriptname
 export $userdb
 export $passdb
 export $sessionid
