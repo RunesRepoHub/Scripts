@@ -18,14 +18,17 @@ export scriptname="$scriptname"
 
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
+
 # New Virtual Machine or Docker Menu
 DIALOG=${DIALOG=dialog}
 
 $DIALOG --title "$scriptname - Version $version - $me" --clear \
-        --yesno "Is this a freshly made VM or Docker, then click yes to install all the software needed for these script menu to work." 20 50
+        --yesno "Is this a freshly made VM or Docker, then click yes to install all the software needed for these script menu to work." 20 60
 
 case $? in
   0)
+    dialog --create-rc ~/.dialogrc
+    cat Scripts/Sample-Configs/Dialogrc >> ~/.dialogrc
     bash ./Scripts/Installers/apt-get-install.sh
     bash ./Scripts/Installers/install-starship.sh
     bash ./Scripts/Security/Login-Script.sh
