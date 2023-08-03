@@ -27,8 +27,6 @@ $DIALOG --title "$scriptname - Version $version - $me" --clear \
 
 case $? in
   0)
-    dialog --create-rc ~/.dialogrc
-    cat Scripts/Sample-Configs/Dialogrc >> ~/.dialogrc
     bash ./Scripts/Installers/apt-get-install.sh
     bash ./Scripts/Installers/install-starship.sh
     bash ./Scripts/Security/Login-Script.sh
