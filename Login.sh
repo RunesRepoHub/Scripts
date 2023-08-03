@@ -13,15 +13,6 @@ pass=$(\
 # Check Users Login With Database
 userdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-user)
 passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-pass)
-sessionid=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/sessionid)
-version="v0.0.5"
-scriptname="RPH BASH Menu"
-
-export VAR="$version"
-export VAR="$scriptname"
-export VAR="$userdb"
-export VAR="$passdb"
-export VAR="$sessionid"
 
 
 # Check the username and password are valid or not

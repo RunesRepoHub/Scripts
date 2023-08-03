@@ -10,6 +10,7 @@
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
 #!/usr/bin/env bash
+version="$(cat /Scripts/Version)"
 
 # New Virtual Machine or Docker Menu
 DIALOG=${DIALOG=dialog}
