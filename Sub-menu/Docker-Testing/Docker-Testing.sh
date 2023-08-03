@@ -9,11 +9,11 @@
 ## |            Github:             |
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
-
+me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 dialog --msgbox "Make sure you are in the same folder as the script" 10 30 ; sleep 5
 
-cmd=(dialog --keep-tite --menu "$scriptname - Version $version" 22 76 16)
+cmd=(dialog --keep-tite --menu "$scriptname - Version $version - $me" 22 76 16)
 
 options=(1  "Debian 10"
          2  "Debian 11"

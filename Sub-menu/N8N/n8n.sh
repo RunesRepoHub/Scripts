@@ -9,13 +9,13 @@
 ## |            Github:             |
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
-
+me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 # N8N CnC Menu
 dialog --msgbox "Please pick what n8n server you want to reboot" 10 30 ;
 
 
-cmd=(dialog --keep-tite --menu "$scriptname - Version $version" 22 76 16)
+cmd=(dialog --keep-tite --menu "$scriptname - Version $version - $me" 22 76 16)
 
 options=(1  "Restart N8N Backend"
          2  "Restart N8N Prod"
