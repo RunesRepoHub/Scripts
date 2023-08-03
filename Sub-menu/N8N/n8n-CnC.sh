@@ -9,8 +9,8 @@
 ## |            Github:             |
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
-version="$(cat /Scripts/Version)"
-Scriptname="$(cat /Scripts/Scriptname)"
+version="$(cat /Scripts/Version.md)"
+scriptname="$(cat /Scripts/Scriptname.md)"
 
 
 # N8N CnC Menu
