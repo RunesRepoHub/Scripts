@@ -9,8 +9,7 @@
 ## |            Github:             |
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
-version="$(cat /Scripts/Version)"
-Scriptname="$(cat /Scripts/Scriptname)"
+
 
 
 # Make Debian VM Automation Script With IP Pull  

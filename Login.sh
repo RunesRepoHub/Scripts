@@ -1,5 +1,8 @@
-version="$(cat /Scripts/Version)"
-Scriptname="$(cat /Scripts/Scriptname)"
+version="v0.0.5"
+export version="$version"
+
+scriptname="RPH BASH Menu"
+export scriptname="$scriptname"
 
 user=$(\
   dialog --title "User" \
