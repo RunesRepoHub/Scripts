@@ -20,8 +20,8 @@ TUNNELNAME=$(\
          --inputbox "Tunnel Name:" 8 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
-
-dialog --prgbox "Docker Create Tunenel" "docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel create $TUNNELNAME" 20 40 
+export TUNNELNAME="$TUNNELNAME"
+dialog --prgbox "Docker Create Tunnel" "bash ./Scripts/Installers/Docker-run/cloudflare-login.sh" 20 40 
 
 touch /mnt/user/appdata/cloudflared/config.yml
 
