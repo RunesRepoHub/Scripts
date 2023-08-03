@@ -22,5 +22,6 @@ apt-get upgrade -y
 apt-get install curl -y
 apt-get install git -y
 apt-get install sudo -y
+apt-get install dialog -y
 cd root
 git clone https://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@github.com/rune004/Scripts.git
