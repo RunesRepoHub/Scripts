@@ -1,1 +1,0 @@
-docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel create $TUNNELNAME

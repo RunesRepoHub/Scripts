@@ -13,33 +13,33 @@
 
 mkdir -p /mnt/user/appdata/cloudflared/ && chmod -R 777 /mnt/user/appdata/cloudflared/
 
-dialog --prgbox "" "docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel login" 20 40 
+dialog --prgbox "Cloudflare Docker Login" "docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel login" 20 60 
 
 TUNNELNAME=$(\
   dialog --title "$scriptname - Install Cloudflare Tunnel" \
-         --inputbox "Tunnel Name:" 8 40 \
+         --inputbox "Tunnel Name:" 10 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
-export TUNNELNAME="$TUNNELNAME"
-dialog --prgbox "Docker Create Tunnel" "docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel create $TUNNELNAME" 20 40 
+
+dialog --prgbox "Docker Create Tunnel" "docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel create $TUNNELNAME" 20 60 
 
 touch /mnt/user/appdata/cloudflared/config.yml
 
 UUID=$(\
   dialog --title "$scriptname - Install Cloudflare Tunnel" \
-         --inputbox "Tunnel UUID:" 8 40 \
+         --inputbox "Tunnel UUID:" 10 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
 
 REVERSEPROXYIP=$(\
   dialog --title "$scriptname - Install Cloudflare Tunnel" \
-         --inputbox "https://" 8 40 \
+         --inputbox "https://" 10 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
 
 YOURDOMAIN=$(\
   dialog --title "$scriptname - Install Cloudflare Tunnel" \
-         --inputbox "yourdomain.com:" 8 40 \
+         --inputbox "yourdomain.com:" 10 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
 
@@ -52,4 +52,4 @@ echo "      - service: https://$REVERSEPROXYIP" >> /mnt/user/appdata/cloudflared
 echo "        originRequest:" >> /mnt/user/appdata/cloudflared/config.yml
 echo "          originServerName: $YOURDOMAIN" >> /mnt/user/appdata/cloudflared/config.yml
 
-docker run -it -d -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel run -- "$UUID"
+dialog --prgbox "Docker Run Cloudflare" "docker run -it -d -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel run -- $UUID" 20 60
