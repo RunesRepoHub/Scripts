@@ -9,9 +9,9 @@
 ## |            Github:             |
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
+me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
-
-cmd=(dialog --keep-tite --menu "$scriptname - Version $version" 22 76 16)
+cmd=(dialog --keep-tite --menu "$scriptname - Version $version - $me" 22 76 16)
 
 options=(1  "Webscrapers"
          2  "Make a Virtual Machine"
