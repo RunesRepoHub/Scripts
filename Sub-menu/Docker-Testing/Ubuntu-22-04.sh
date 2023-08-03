@@ -9,7 +9,7 @@
 ## |            Github:             |
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
-SCRIPT="Ubuntu-22-04.sh"
+SCRIPT="Ubuntu-22-04"
 
 docker stop $SCRIPT
 docker rm $SCRIPT

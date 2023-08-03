@@ -9,7 +9,7 @@
 ## |            Github:             |
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
-SCRIPT="debian-10.sh"
+SCRIPT="Debian-10"
 
 docker stop $SCRIPT
 docker rm $SCRIPT
