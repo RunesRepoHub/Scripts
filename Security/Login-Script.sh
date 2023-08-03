@@ -5,13 +5,13 @@ scriptname="RPH BASH Menu"
 export scriptname="$scriptname"
 
 user=$(\
-  dialog --title "User" \
+  dialog --title "$scriptname - Login" \
          --inputbox "User:" 8 40 \
   3>&1 1>&2 2>&3 3>&- \
 )
 
 pass=$(\
-  dialog --title "Password" \
+  dialog --title "$scriptname - Login" \
          --passwordbox "Password:" 8 40 \
   3>&1 1>&2 2>&3 3>&- \
 )

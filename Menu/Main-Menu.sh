@@ -32,19 +32,19 @@ for choice in $choices
     do    
         case $choice in
         1)
-            bash ./Scripts/Sub-menu/Webscrapers/webscrapers.sh
+            bash ./Scripts/Sub-menu/Webscrapers/Webscrapers.sh
             ;;
         2)
-            bash ./Scripts/Sub-menu/Make-VM/makevm.sh
+            bash ./Scripts/Sub-menu/Make-VM/Make-A-VM.sh
             ;;
         3)
-            bash ./Scripts/Sub-menu/N8N/n8n-CnC.sh
+            bash ./Scripts/Sub-menu/N8N/n8n.sh
             ;;
         4)
-            bash ./Scripts/Sub-menu/Docker-Testing/docker-testing.sh
+            bash ./Scripts/Sub-menu/Docker-Testing/Docker-Testing.sh
             ;;
         5)
-            bash ./Scripts/CnC/add-midnight-cron.sh
+            bash ./Scripts/Cron/Add-Midnight-Cron.sh
             ;;
         6)
             bash ./Scripts/Sub-menu/Install-Dockers/Install-Dockers.sh

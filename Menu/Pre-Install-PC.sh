@@ -10,12 +10,12 @@
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
 #!/usr/bin/env bash
-
+me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 # New Virtual Machine or Docker Menu
 DIALOG=${DIALOG=dialog}
 
-$DIALOG --title "$scriptname - Version $version" --clear \
+$DIALOG --title "$scriptname - Version $version - $me" --clear \
         --yesno "Is this a freshly made VM or Docker, then click yes to install all the software needed for these script menu to work." 10 30
 
 case $? in

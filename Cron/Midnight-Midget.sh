@@ -10,15 +10,23 @@
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
 #!/usr/bin/env bash
+me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
+echo -e "${GREEN}Script $SCRIPTNAME Updating Complete${ENDCOLOR}"
+echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
-# Take input without defining variable  
-reply=$(\
-  dialog --title "Kopier dit proshop link her" \
-         --inputbox "Proshop Link:" 8 40 \
-  3>&1 1>&2 2>&3 3>&- \
-)
+# Run apt-get update/upgrade
+echo "Run apt-get update/upgrade"
+echo " "
+sleep 2
 
+# apt-get update
+apt-get update -y
+sleep 2
 
-# Print the input value
-curl -X GET https://n8n-b.rp-helpdesk.com/webhook/proshop-pull-link/?url=$reply
+# apt-get upgrade
+apt-get upgrade -y
+sleep 2
+clear
+
+reboot now
