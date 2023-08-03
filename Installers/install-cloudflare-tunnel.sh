@@ -10,25 +10,42 @@
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
 
-echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
-echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
 
 mkdir -p /mnt/user/appdata/cloudflared/ && chmod -R 777 /mnt/user/appdata/cloudflared/
 
 docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel login
 
-echo "Input a tunnel name for the cloudflare dashboard"
-read -p 'Tunnel Name: ' TUNNELNAME
+TUNNELNAME=$(\
+  dialog --title "$scriptname - Install Cloudflare Tunnel" \
+         --infobox "Input a tunnel name for the cloudflare dashboard" \
+         --inputbox "User:" 8 40 \
+  3>&1 1>&2 2>&3 3>&- \
+)
 
 docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel create "$TUNNELNAME"
 
 touch /mnt/user/appdata/cloudflared/config.yml
 
-echo "Make config file"
-read -p 'Tunnel UUID: ' UUID
-read -p 'https://REVERSEPROXYIP:PORT ' REVERSEPROXYIP
-read -p 'yourdomain.com ' YOURDOMAIN
+UUID=$(\
+  dialog --title "$scriptname - Install Cloudflare Tunnel" \
+         --infobox "Make config file - Tunnel UUID" \
+         --inputbox "Tunnel UUID:" 8 40 \
+  3>&1 1>&2 2>&3 3>&- \
+)
 
+REVERSEPROXYIP=$(\
+  dialog --title "$scriptname - Install Cloudflare Tunnel" \
+         --infobox "Make config file - " \
+         --inputbox "https://" 8 40 \
+  3>&1 1>&2 2>&3 3>&- \
+)
+
+YOURDOMAIN=$(\
+  dialog --title "$scriptname - Install Cloudflare Tunnel" \
+         --infobox "Make config file " \
+         --inputbox "yourdomain.com:" 8 40 \
+  3>&1 1>&2 2>&3 3>&- \
+)
 
 echo "tunnel: $UUID" >> /mnt/user/appdata/cloudflared/config.yml
 echo "credentials-file: /home/nonroot/.cloudflared/$UUID.json" >> /mnt/user/appdata/cloudflared/config.yml
