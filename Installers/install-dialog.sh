@@ -37,6 +37,7 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     sudo apt-get update
     sudo apt-get install -y $DEB_PACKAGE_NAME
     sudo apt-get install dialog
+    sudo dialog --create-rc ~/.dialogrc
     sudo cat /Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
  elif cat /etc/*release | grep ^NAME | grep Debian ; then
     echo "==============================================="
@@ -45,6 +46,7 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     apt-get update
     apt-get install -y $DEB_PACKAGE_NAME
     apt-get install dialog
+    dialog --create-rc ~/.dialogrc
     cat /Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
  elif cat /etc/*release | grep ^NAME | grep Mint ; then
     echo "============================================="
@@ -53,6 +55,7 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     apt-get update
     apt-get install -y $DEB_PACKAGE_NAME
     apt-get install dialog
+    dialog --create-rc ~/.dialogrc
     cat /Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
  elif cat /etc/*release | grep ^NAME | grep Knoppix ; then
     echo "================================================="
@@ -61,6 +64,7 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     apt-get update
     apt-get install -y $DEB_PACKAGE_NAME
     apt-get install dialog
+    dialog --create-rc ~/.dialogrc
     cat /Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
  else
     echo "OS NOT DETECTED, couldn't install package $PACKAGE"
