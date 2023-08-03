@@ -11,24 +11,27 @@
 ## |--------------------------------|
 
 
-echo -e "${GREEN}Script $SCRIPTNAME Updating Complete${ENDCOLOR}"
-echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
+cmd=(dialog --keep-tite --cancel-label "Exit" --menu "$scriptname - Version $version - $me " 22 76 16)
 
-# Install and Configure Starship
-echo -e "${YELLOW}Do you want to Install and Configure Starship?${ENDCOLOR}"
-read -p "(yes/no) " starship
+options=(1  "Install Starship"
+         2  "Don't Install Starship"
+#         11 "exit"
+        )
 
-case $starship in 
-	yes ) 
-  echo -e "${GREEN}Beginning installation${ENDCOLOR}"
-  curl -sS https://starship.rs/install.sh | sh
-  sleep 2
-  echo 'eval "$(starship init bash)"' >> ~/.bashrc
-  ;;
-	no ) echo skipping...;
-		break;;
-	* ) echo invalid response;
-    sleep 2
-		exit 1;;
-esac
-clear
+choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+
+for choice in $choices 
+    do    
+        case $choice in
+        1)
+            curl -sS https://starship.rs/install.sh | sh
+            echo 'eval "$(starship init bash)"' >> ~/.bashrc
+            ;;
+        2)
+            break 2
+            ;;
+         *)
+            exit
+      esac
+exec /bin/bash "$0" "$@"
+      done
