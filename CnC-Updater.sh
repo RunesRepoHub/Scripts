@@ -15,6 +15,3 @@ sudo rm -r Scripts/
 git clone https://github.com/rune004/Scripts.git
 bash ./Scripts/Pre-PC.sh
 
-
-clear
-sudo rm -r Scripts/
