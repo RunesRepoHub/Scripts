@@ -21,7 +21,7 @@ TUNNELNAME=$(\
   3>&1 1>&2 2>&3 3>&- \
 )
 
-dialog --programbox "docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel create "$TUNNELNAME""
+dialog --programbox "(docker run -it --rm -v /mnt/user/appdata/cloudflared:/home/nonroot/.cloudflared/ cloudflare/cloudflared:latest tunnel create "$TUNNELNAME")" 20 40 \
 
 touch /mnt/user/appdata/cloudflared/config.yml
 
