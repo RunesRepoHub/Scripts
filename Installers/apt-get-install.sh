@@ -25,8 +25,6 @@ DEB_PACKAGE_NAME="python2.7 python-pip libssl-dev"
     sudo apt-get install wget -y  
     sudo apt-get install cron -y
     sudo apt-get install dialog 
-    sudo dialog --create-rc ~/.dialogrc
-    sudo cat Scripts/Sample-Configs/Dialogrc >> ~/.dialogrc
  elif cat /etc/*release | grep ^NAME | grep Debian ; then
     apt-get update 
     apt-get install -y $DEB_PACKAGE_NAME 
@@ -35,8 +33,6 @@ DEB_PACKAGE_NAME="python2.7 python-pip libssl-dev"
     apt-get install wget -y 
     apt-get install cron -y
     apt-get install dialog
-    dialog --create-rc ~/.dialogrc
-    cat Scripts/Sample-Configs/Dialogrc >> ~/.dialogrc
  else
     echo "OS NOT DETECTED, couldn't install package $PACKAGE"
     exit 1;
