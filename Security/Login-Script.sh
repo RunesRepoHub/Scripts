@@ -24,7 +24,7 @@ passdb=$(curl -s --user $user:$pass https://n8n-b.rp-helpdesk.com/webhook/login-
 # Check the username and password are valid or not
 if (( $user == "$userdb" && $pass == "$passdb" ))
 then
-    bash ./Scripts/Main-Menu.sh    
+    bash ./Scripts/Menu/Main-Menu.sh
 else 
     clear
     dialog --infobox "Unsuccessful login" 10 30 ; sleep 5
