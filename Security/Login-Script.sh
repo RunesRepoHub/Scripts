@@ -1,9 +1,3 @@
-version="v0.0.5"
-export version="$version"
-
-scriptname="RPH BASH Menu"
-export scriptname="$scriptname"
-
 user=$(\
   dialog --title "$scriptname - Login" \
          --inputbox "User:" 8 40 \

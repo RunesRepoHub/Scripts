@@ -10,6 +10,12 @@
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
 #!/usr/bin/env bash
+version="v0.0.5"
+export version="$version"
+
+scriptname="RPH BASH Menu"
+export scriptname="$scriptname"
+
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 # New Virtual Machine or Docker Menu
