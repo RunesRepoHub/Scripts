@@ -38,7 +38,7 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     sudo apt-get install -y $DEB_PACKAGE_NAME
     sudo apt-get install dialog
     sudo dialog --create-rc ~/.dialogrc
-    sudo cat "/Scripts/Sample-Configs/dialog.txt" > "~/.dialogrc"
+    sudo cat /Scripts/Sample-Configs/dialog.txt > "~/.dialogrc"
  elif cat /etc/*release | grep ^NAME | grep Debian ; then
     echo "==============================================="
     echo "Installing packages $DEB_PACKAGE_NAME on Debian"
@@ -47,7 +47,7 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     apt-get install -y $DEB_PACKAGE_NAME
     apt-get install dialog
     dialog --create-rc ~/.dialogrc
-    cat "/Scripts/Sample-Configs/dialog.txt" > "~/.dialogrc"
+    cat /Scripts/Sample-Configs/dialog.txt > "~/.dialogrc"
  elif cat /etc/*release | grep ^NAME | grep Mint ; then
     echo "============================================="
     echo "Installing packages $DEB_PACKAGE_NAME on Mint"
@@ -56,7 +56,7 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     apt-get install -y $DEB_PACKAGE_NAME
     apt-get install dialog
     dialog --create-rc ~/.dialogrc
-    cat "/Scripts/Sample-Configs/dialog.txt" > "~/.dialogrc"
+    cat /Scripts/Sample-Configs/dialog.txt > "~/.dialogrc"
  elif cat /etc/*release | grep ^NAME | grep Knoppix ; then
     echo "================================================="
     echo "Installing packages $DEB_PACKAGE_NAME on Kanoppix"
@@ -65,7 +65,7 @@ DEB_PACKAGE_NAME="python2.7 python-dev python-pip libssl-dev"
     apt-get install -y $DEB_PACKAGE_NAME
     apt-get install dialog
     dialog --create-rc ~/.dialogrc
-    cat "/Scripts/Sample-Configs/dialog.txt" > "~/.dialogrc"
+    cat /Scripts/Sample-Configs/dialog.txt > "~/.dialogrc"
  else
     echo "OS NOT DETECTED, couldn't install package $PACKAGE"
     exit 1;
