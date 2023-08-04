@@ -29,7 +29,7 @@ DEB_PACKAGE_NAME="python2.7 python-dev libssl-dev"
     sudo mkdir /opt/Scripts
     fi
     # Copy file midnight-midget.sh to a "commen" system location
-    curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Cron/midnight-midget.sh
+    curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Cron/Midnight-Midget.sh
     sudo cp midnight-midget.sh /opt/Scripts/midnight-midget.sh
     sudo rm midnight-midget.sh
     # Command to add a symbolic link in /usr/bin/
@@ -39,8 +39,21 @@ DEB_PACKAGE_NAME="python2.7 python-dev libssl-dev"
     # Setup cron settings
     dialog --backtitle "$scriptname - Version $version" --title " $me " --prgbox "Crontab" "sudo crontab -l > file; echo '00 00 * * * ruby /opt/Scripts/midnight-midget.sh >/dev/null 2>&1' >> file; crontab file" 30 60
  elif cat /etc/*release | grep ^NAME | grep Debian ; then
-    apt-get update
-    apt-get install -y $DEB_PACKAGE_NAME
+    dialog --backtitle "$scriptname - Version $version" --title " $me " --msgbox "Add a Cron job for apt-get update/upgrade and reboot at midnight" 30 60
+    # Make the file directory if it dosen't exist
+    if [ ! -d /opt/Scripts ]; then
+    mkdir /opt/Scripts
+    fi
+    # Copy file midnight-midget.sh to a "commen" system location
+    curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Cron/Midnight-Midget.sh
+    cp midnight-midget.sh /opt/Scripts/midnight-midget.sh
+    rm midnight-midget.sh
+    # Command to add a symbolic link in /usr/bin/
+    if [ ! -f /opt/Scripts/midnight-midget.sh ]; then
+    ln -s /opt/Scripts/midnight-midget.sh /usr/bin/
+    fi
+    # Setup cron settings
+    dialog --backtitle "$scriptname - Version $version" --title " $me " --prgbox "Crontab" "crontab -l > file; echo '00 00 * * * ruby /opt/Scripts/midnight-midget.sh >/dev/null 2>&1' >> file; crontab file" 30 60
  elif cat /etc/*release | grep ^NAME | grep Mint ; then
     apt-get update
     apt-get install -y $DEB_PACKAGE_NAME
