@@ -30,6 +30,7 @@ else
     curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
 fi
 
+
 declare -i COUNTER=1
 {
 while test $COUNTER -le 100
