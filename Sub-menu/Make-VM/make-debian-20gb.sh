@@ -17,7 +17,7 @@ hostname=$(\
   dialog --title "VM Hostname" \
          --backtitle "$scriptname - Version $version" \
          --inputbox "Enter the hostname:" 10 60 \
-  3>&1 1>&2 2>&3 3>&- \
+  3>&1 1>&2 2>&3 3>&- \ ||exit
 )
 
 
