@@ -10,29 +10,12 @@
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
 
-
-
 set -e
 
 YUM_PACKAGE_NAME="python python-devl python-pip openssl-devel"
 DEB_PACKAGE_NAME="python2.7 python-dev libssl-dev"
 
- if cat /etc/*release | grep ^NAME | grep CentOS; then
-    echo "==============================================="
-    echo "Installing packages $YUM_PACKAGE_NAME on CentOS"
-    echo "==============================================="
-    yum install -y $YUM_PACKAGE_NAME
- elif cat /etc/*release | grep ^NAME | grep Red; then
-    echo "==============================================="
-    echo "Installing packages $YUM_PACKAGE_NAME on RedHat"
-    echo "==============================================="
-    yum install -y $YUM_PACKAGE_NAME
- elif cat /etc/*release | grep ^NAME | grep Fedora; then
-    echo "================================================"
-    echo "Installing packages $YUM_PACKAGE_NAME on Fedorea"
-    echo "================================================"
-    yum install -y $YUM_PACKAGE_NAME
- elif cat /etc/*release | grep ^NAME | grep Ubuntu; then
+ if cat /etc/*release | grep ^NAME | grep Ubuntu; then
     echo "==============================================="
     echo "Installing packages $DEB_PACKAGE_NAME on Ubuntu"
     echo "==============================================="
@@ -45,7 +28,7 @@ DEB_PACKAGE_NAME="python2.7 python-dev libssl-dev"
     sudo apt-get install cron -y
     sudo apt-get install dialog
     sudo dialog --create-rc ~/.dialogrc
-    sudo cat ~/Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
+    sudo cat ~/CnC-Public/dialog.txt > ~/.dialogrc
  elif cat /etc/*release | grep ^NAME | grep Debian ; then
     echo "==============================================="
     echo "Installing packages $DEB_PACKAGE_NAME on Debian"
@@ -59,37 +42,11 @@ DEB_PACKAGE_NAME="python2.7 python-dev libssl-dev"
     apt-get install cron -y
     apt-get install dialog
     dialog --create-rc ~/.dialogrc
-    cat ~/Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
- elif cat /etc/*release | grep ^NAME | grep Mint ; then
-    echo "============================================="
-    echo "Installing packages $DEB_PACKAGE_NAME on Mint"
-    echo "============================================="
-    apt-get update
-    apt-get install -y $DEB_PACKAGE_NAME
-    apt-get install curl -y
-    apt-get install nano -y
-    apt-get install wget -y 
-    apt-get install sudo -y
-    apt-get install cron -y
-    apt-get install dialog
-    dialog --create-rc ~/.dialogrc
-    cat ~/Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
- elif cat /etc/*release | grep ^NAME | grep Knoppix ; then
-    echo "================================================="
-    echo "Installing packages $DEB_PACKAGE_NAME on Kanoppix"
-    echo "================================================="
-    apt-get update
-    apt-get install -y $DEB_PACKAGE_NAME
-    apt-get install curl -y
-    apt-get install nano -y
-    apt-get install wget -y
-    apt-get install sudo -y 
-    apt-get install cron -y
-    apt-get install dialog
-    dialog --create-rc ~/.dialogrc
-    cat ~/Scripts/Sample-Configs/dialog.txt > ~/.dialogrc
+    cat ~/CnC-Public/dialog.txt > ~/.dialogrc
  else
     echo "OS NOT DETECTED, couldn't install package $PACKAGE"
     exit 1;
  fi
+ 
+
 
