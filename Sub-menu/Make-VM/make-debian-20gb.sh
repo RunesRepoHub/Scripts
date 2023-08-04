@@ -25,7 +25,7 @@ dialog --backtitle "$scriptname - Version $version" --infobox "Your Virtual Mach
 
 if (( $? = 1 ))
 then
-    exit
+    break 
 else 
     curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
 fi
