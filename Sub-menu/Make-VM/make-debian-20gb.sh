@@ -11,7 +11,7 @@
 ## |--------------------------------|
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
-hostname="hostname"
+hostname="$hostname"
 
 # Make Debian VM Automation Script With IP Pull  
 
