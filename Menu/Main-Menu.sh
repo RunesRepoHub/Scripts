@@ -63,7 +63,7 @@ for choice in $choices
             ./snow.sh
             ;;
          *)
-            exit || break; done
+            exit 
       esac
 exec /bin/bash "$0" "$@"
       done
