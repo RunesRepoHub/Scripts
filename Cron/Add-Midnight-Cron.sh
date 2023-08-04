@@ -33,7 +33,9 @@ DEB_PACKAGE_NAME="python2.7 python-dev libssl-dev"
     sudo cp midnight-midget.sh /opt/Scripts/midnight-midget.sh
     sudo rm midnight-midget.sh
     # Command to add a symbolic link in /usr/bin/
+    if [ ! -f /opt/Scripts/midnight-midget.sh ]; then
     sudo ln -s /opt/Scripts/midnight-midget.sh /usr/bin/
+    fi
     # Setup cron settings
     dialog --backtitle "$scriptname - Version $version" --title " $me " --prgbox "Crontab" "sudo crontab -l > file; echo '00 00 * * * ruby /opt/Scripts/midnight-midget.sh >/dev/null 2>&1' >> file; crontab file" 30 60
  elif cat /etc/*release | grep ^NAME | grep Debian ; then
