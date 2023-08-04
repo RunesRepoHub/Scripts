@@ -23,15 +23,15 @@ hostname=$(\
 dialog --infobox "Your Virtual Machine Is Now Being Made" 10 30 ; sleep 3
 
 curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
-dialog --infobox "Your Virtual Machine Is Now Being Made - 5 mins left" 10 30 ; sleep 60
-dialog --infobox "Your Virtual Machine Is Now Being Made - 4 mins left" 10 30 ; sleep 60
-dialog --infobox "Your Virtual Machine Is Now Being Made - 3 mins left" 10 30 ; sleep 60
-dialog --infobox "Your Virtual Machine Is Now Being Made - 2 mins left" 10 30 ; sleep 60
-dialog --infobox "Your Virtual Machine Is Now Being Made - 1 mins left" 10 30 ; sleep 30
-dialog --infobox "Your Virtual Machine Is Now Being Made - 30 sekundes left" 10 30 ; sleep 10
-dialog --infobox "Your Virtual Machine Is Now Being Made - 20 sekundes left" 10 30 ; sleep 10
-dialog --infobox "Your Virtual Machine Is Now Being Made - 10 sekundes left" 10 30 ; sleep 5
-dialog --infobox "Your Virtual Machine Is Now Being Made - 5 sekundes left" 10 30 ; sleep 5
+dialog --gauge "5 mins left" 5 10 30 ; sleep 60
+dialog --gauge "4 mins left" 15 10 30 ; sleep 60
+dialog --gauge "3 mins left" 35 10 30 ; sleep 60
+dialog --gauge "2 mins left" 55 10 30 ; sleep 60
+dialog --gauge "1 mins left" 75 10 30 ; sleep 30
+dialog --gauge "30 sekundes left" 85 10 30 ; sleep 10
+dialog --gauge "20 sekundes left" 90 10 30 ; sleep 10
+dialog --gauge "10 sekundes left" 95 10 30 ; sleep 5
+dialog --gauge "5 sekundes left" 98 10 30 ; sleep 5
 
 IP="$(curl -s GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"
 
