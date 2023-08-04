@@ -20,7 +20,7 @@ hostname=$(\
   3>&1 1>&2 2>&3 3>&- \
 )
 
-dialog --infobox "Your Virtual Machine Is Now Being Made" 10 30 ; sleep 3
+dialog --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 30 ; sleep 3
 
 curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
 
@@ -33,14 +33,14 @@ do
    # do some task here
    sleep 3
 done
-} | dialog --gauge "Your Virtual Machine Is Now Being Made" 10 50 0
+} | dialog --gauge "Your Virtual Machine $hostname Is Now Being Made" 10 50 0
 
 
 IP="$(curl -s GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"
 
 #!/bin/bash
 # dynbox.sh - Yes/No box demo
-dialog --title "SSH" \
+dialog --title "SSH Into $IP" \
 --yesno "Do you want to ssh into $IP" 7 60
 
 # Get exit status
