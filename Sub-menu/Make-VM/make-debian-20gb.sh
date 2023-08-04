@@ -42,7 +42,7 @@ IP="$(curl -s GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"
 # dynbox.sh - Yes/No box demo
 dialog --title "SSH Into $IP" \
 --backtitle "$scriptname - Version $version" \
---yesno "Do you want to ssh into $IP" 10 60
+--yesno "Do you want to ssh into $IP" 10 60 
 
 # Get exit status
 # 0 means user hit [yes] button.
