@@ -11,7 +11,7 @@
 ## |--------------------------------|
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
-hostname="$hostname"
+debian20hostname="hostname"
 
 # Make Debian VM Automation Script With IP Pull  
 
@@ -24,12 +24,12 @@ hostname=$(\
 
 dialog --backtitle "$scriptname - Version $version" --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 60 ; sleep 3
 
-if (( $hostname == "hostname" ))
+if (( $debian20hostname == "$hostname" ))
 then
     break 
 else 
     curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
-fi
+
 
 
 declare -i COUNTER=1
@@ -45,7 +45,7 @@ done
 
 
 IP="$(curl -s GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"
-
+fi
 #!/bin/bash
 # dynbox.sh - Yes/No box demo
 dialog --title "SSH Into $IP" \
