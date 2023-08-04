@@ -20,16 +20,12 @@ hostname=$(\
   3>&1 1>&2 2>&3 3>&- \
 )
 
-response=$?
+if [[ -z "$hostname" ]]; then
 
-if (( $? == "1" ))
-then
-    break 
-else 
-    dialog --backtitle "$scriptname - Version $version" --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 60 ; sleep 3
-    curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
+dialog --backtitle "$scriptname - Version $version" --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 60 ; sleep 3
+curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
 
-
+else
 
 declare -i COUNTER=1
 {
@@ -44,8 +40,6 @@ done
 
 
 IP="$(curl -s GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"
-fi
-
 
 #!/bin/bash
 # dynbox.sh - Yes/No box demo
@@ -66,3 +60,4 @@ case $response in
    break ;;
    255) echo "[ESC] key pressed.";;
 esac
+fi
