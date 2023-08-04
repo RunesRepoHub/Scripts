@@ -21,12 +21,11 @@ hostname=$(\
   3>&1 1>&2 2>&3 3>&- \
 )
 
-dialog --backtitle "$scriptname - Version $version" --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 60 || break; done ; sleep 3 
-
 if (( $? = 1 ))
 then
     break 
 else 
+    dialog --backtitle "$scriptname - Version $version" --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 60 ; sleep 3 
     curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
 fi
 
