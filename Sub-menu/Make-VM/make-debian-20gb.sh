@@ -17,8 +17,8 @@ hostname=$(\
   dialog --title "VM Hostname" \
          --backtitle "$scriptname - Version $version" \
          --inputbox "Enter the hostname:" 10 60 \
-  3>&1 1>&2 2>&3 3>&- \ ||exit
-)
+  3>&1 1>&2 2>&3 3>&- \
+) ||exit
 
 
 dialog --backtitle "$scriptname - Version $version" --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 60 ; sleep 3
