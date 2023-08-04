@@ -23,6 +23,7 @@ me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 DIALOG=${DIALOG=dialog}
 
 $DIALOG --title "$scriptname - Version $version - $me" --clear \
+        --backtitle "$scriptname - Version $version" \
         --yesno "Is this a freshly made VM or Docker, then click yes to install extra software like Starship." 20 60
 
 case $? in

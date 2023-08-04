@@ -1,12 +1,14 @@
 user=$(\
   dialog --title "$scriptname - Login" \
-         --inputbox "User:" 8 40 \
+         --backtitle "$scriptname - Version $version" \
+         --inputbox "User:" 10 60 \
   3>&1 1>&2 2>&3 3>&- \
 )
 
 pass=$(\
   dialog --title "$scriptname - Login" \
-         --passwordbox "Password:" 8 40 \
+         --backtitle "$scriptname - Version $version" \
+         --passwordbox "Password:" 10 60 \
   3>&1 1>&2 2>&3 3>&- \
 )
   
@@ -29,5 +31,5 @@ then
     bash ./Scripts/Menu/Main-Menu.sh
 else 
     clear
-    dialog --infobox "Unsuccessful login" 10 30 ; sleep 5
+    dialog --backtitle "$scriptname - Version $version" --infobox "Unsuccessful login" 10 60 ; sleep 5
 fi
