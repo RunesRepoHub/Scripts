@@ -11,8 +11,6 @@
 ## |--------------------------------|
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
-default=$hostname
-
 # Make Debian VM Automation Script With IP Pull  
 
 hostname=$(\
@@ -22,9 +20,9 @@ hostname=$(\
   3>&1 1>&2 2>&3 3>&- \
 )
 
+response=$?
 
-
-if (( $hostname == "default" ))
+if (( $? == "1" ))
 then
     break 
 else 
@@ -59,10 +57,9 @@ dialog --title "SSH Into $IP" \
 # 0 means user hit [yes] button.
 # 1 means user hit [no] button.
 # 255 means user hit [Esc] key.
-response=$?
+response2=$?
 case $response in
    0) 
-   
    ssh root@$IP
    ;;
    1) 
