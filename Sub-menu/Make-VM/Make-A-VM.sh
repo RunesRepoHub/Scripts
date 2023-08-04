@@ -11,7 +11,7 @@
 ## |--------------------------------|
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
-#!/bin/bash
+# Dialog Menu 
 cmd=(dialog --keep-tite --backtitle "$scriptname - Version $version" --menu " $me " 22 76 16)
 
 options=(1  "Debian 20GB"
@@ -28,7 +28,7 @@ options=(1  "Debian 20GB"
         )
 
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
-
+# Dialog Menu Select
 for choice in $choices 
     do    
         case $choice in

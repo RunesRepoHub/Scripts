@@ -37,9 +37,9 @@ done
 
 
 IP="$(curl -s GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"
+#-----------------------------------------------------------------------------------------------
 
-#!/bin/bash
-# dynbox.sh - Yes/No box demo
+# Dialog SSH Into Variable $IP
 dialog --title "SSH Into $IP" \
 --backtitle "$scriptname - Version $version" \
 --yesno "Do you want to ssh into $IP" 10 60 
@@ -57,3 +57,4 @@ case $response in
    break ;;
    255) echo "[ESC] key pressed.";;
 esac
+#-----------------------------------------------------------------------------------------------
