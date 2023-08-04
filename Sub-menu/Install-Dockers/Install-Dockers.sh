@@ -12,7 +12,7 @@
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 # Install Dockers
-cmd=(dialog --keep-tite --menu "$scriptname - Version $version - $me" 22 76 16)
+cmd=(dialog --keep-tite --backtitle "$scriptname - Version $version" --menu " $me " 22 76 16)
 
 options=(1  "Install Docker & Docker-Compose"
          2  "Cloudflare"

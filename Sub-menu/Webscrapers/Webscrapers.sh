@@ -12,7 +12,7 @@
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 # Webscraper Menu
-cmd=(dialog --keep-tite --menu "$scriptname - Version $version - $me" 22 76 16)
+cmd=(dialog --keep-tite --backtitle "$scriptname - Version $version" --menu " $me " 22 76 16)
 
 options=(1  "Add Proshop Link"
          2  "..."

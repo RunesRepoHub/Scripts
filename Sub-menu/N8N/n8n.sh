@@ -12,10 +12,10 @@
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 # N8N CnC Menu
-dialog --msgbox "Please pick what n8n server you want to reboot" 10 30 ;
+dialog --backtitle "$scriptname - Version $version" --msgbox "Please pick what n8n server you want to reboot" 10 30 ;
 
 
-cmd=(dialog --keep-tite --menu "$scriptname - Version $version - $me" 22 76 16)
+cmd=(dialog --keep-tite --backtitle "$scriptname - Version $version" --menu " $me " 22 76 16)
 
 options=(1  "Restart N8N Backend"
          2  "Restart N8N Prod"
@@ -36,13 +36,13 @@ for choice in $choices
     do    
         case $choice in
         1)
-            dialog --msgbox "$(curl -X GET https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-backend)" 10 30 ;
+            dialog --backtitle "$scriptname - Version $version" --msgbox "$(curl -X GET https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-backend)" 10 30 ;
             ;;
         2)
-            dialog --msgbox "$(curl -X GET https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-prod)" 10 30 ;
+            dialog --backtitle "$scriptname - Version $version" --msgbox "$(curl -X GET https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-prod)" 10 30 ;
             ;;
         3)
-            dialog --msgbox "$(curl -X GET https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-mysql)" 10 30 ;
+            dialog --backtitle "$scriptname - Version $version" --msgbox "$(curl -X GET https://n8n-b.rp-helpdesk.com/webhook/reboot-N8N-mysql)" 10 30 ;
             ;;
         4)
             bash ./Scripts/Sub-menu/Docker-Testing/docker-testing.sh

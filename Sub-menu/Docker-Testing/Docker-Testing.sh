@@ -11,7 +11,7 @@
 ## |--------------------------------|
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
-cmd=(dialog --keep-tite --menu "$scriptname - Version $version - $me" 22 76 16)
+cmd=(dialog --keep-tite --backtitle "$scriptname - Version $version" --menu " $me " 22 76 16)
 
 options=(1  "Debian 10"
          2  "Debian 11"
@@ -32,21 +32,21 @@ for choice in $choices
     do    
         case $choice in
         1)
-            dialog --infobox "Deploying Debian 10 Docker" 10 30 ; sleep 2
+            dialog --backtitle "$scriptname - Version $version" --infobox "Deploying Debian 10 Docker" 10 30 ; sleep 2
             curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/debian-10.sh
             sleep 2
             ssh root@192.168.1.191 'bash -s' < debian-10.sh
             ssh root@192.168.1.191
             ;;
         2)
-            dialog --infobox "Deploying Debian 11 Docker" 10 30 ; sleep 2
+            dialog --backtitle "$scriptname - Version $version" --infobox "Deploying Debian 11 Docker" 10 30 ; sleep 2
             curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/debian-11.sh
             sleep 2
             ssh root@192.168.1.191 'bash -s' < debian-11.sh
             ssh root@192.168.1.191
             ;;
         3)
-            dialog --infobox "Deploying Ubuntu 22.04 Docker" 10 30 ; sleep 2
+            dialog --backtitle "$scriptname - Version $version" --infobox "Deploying Ubuntu 22.04 Docker" 10 30 ; sleep 2
             curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Sub-menu/Docker-Testing/Ubuntu-22-04.sh
             sleep 2
             ssh root@192.168.1.191 'bash -s' < Ubuntu-22-04.sh

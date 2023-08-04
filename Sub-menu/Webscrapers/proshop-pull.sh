@@ -15,10 +15,11 @@
 # Take input without defining variable  
 reply=$(\
   dialog --title "Kopier dit proshop link her" \
-         --inputbox "Proshop Link:" 8 40 \
+         --backtitle "$scriptname - Version $version" \
+         --inputbox "Proshop Link:" 10 60 \
   3>&1 1>&2 2>&3 3>&- \
 )
 
 
 # Print the input value
-curl -X GET https://n8n-b.rp-helpdesk.com/webhook/proshop-pull-link/?url=$reply
+dialog --backtitle "$scriptname - Version $version" --prgbox "Reply from Server" "curl -X GET https://n8n-b.rp-helpdesk.com/webhook/proshop-pull-link/?url=$reply" 10 60
