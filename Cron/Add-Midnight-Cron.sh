@@ -25,7 +25,9 @@ DEB_PACKAGE_NAME="python2.7 python-dev libssl-dev"
  elif cat /etc/*release | grep ^NAME | grep Ubuntu; then
     dialog --backtitle "$scriptname - Version $version" --title " $me " --msgbox "Add a Cron job for apt-get update/upgrade and reboot at midnight" 30 60
     # Make the file directory if it dosen't exist
+    if [ ! -f /opt/Scripts ]; then
     sudo mkdir /opt/Scripts
+    fi
     # Copy file midnight-midget.sh to a "commen" system location
     curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Cron/midnight-midget.sh
     sudo cp midnight-midget.sh /opt/Scripts/midnight-midget.sh
