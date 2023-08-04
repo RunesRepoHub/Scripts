@@ -31,7 +31,16 @@ do
    echo $COUNTER
    COUNTER=COUNTER+1
    # do some task here
-   sleep 300
+   sleep 30
+   sleep 30
+   sleep 30
+   sleep 30
+   sleep 30
+   sleep 30
+   sleep 30
+   sleep 30
+   sleep 30
+   sleep 30
 done
 } | dialog --gauge "Your Virtual Machine Is Now Being Made" 10 50 0
 
