@@ -26,21 +26,12 @@ curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$
 
 declare -i COUNTER=1
 {
-while test $COUNTER -le 100
+while test $COUNTER -le 300
 do
    echo $COUNTER
    COUNTER=COUNTER+1
    # do some task here
-   sleep 30
-   sleep 30
-   sleep 30
-   sleep 30
-   sleep 30
-   sleep 30
-   sleep 30
-   sleep 30
-   sleep 30
-   sleep 30
+   sleep 1
 done
 } | dialog --gauge "Your Virtual Machine Is Now Being Made" 10 50 0
 
