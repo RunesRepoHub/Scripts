@@ -23,7 +23,12 @@ hostname=$(\
 
 dialog --backtitle "$scriptname - Version $version" --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 60 || break; done ; sleep 3 
 
-curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname" 
+if (( $? = 1 ))
+then
+    exit
+else 
+    curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
+fi
 
 declare -i COUNTER=1
 {
