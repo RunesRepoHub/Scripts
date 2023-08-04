@@ -57,7 +57,3 @@ case $response in
    break ;;
    255) echo "[ESC] key pressed.";;
 esac
-
-
-dialog
-[ $PIPESTATUS -eq 1 ] && exit 1
