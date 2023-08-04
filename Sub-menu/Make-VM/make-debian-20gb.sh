@@ -11,7 +11,7 @@
 ## |--------------------------------|
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
-hostname=$hostname
+default=$hostname
 
 # Make Debian VM Automation Script With IP Pull  
 
@@ -24,7 +24,7 @@ hostname=$(\
 
 dialog --backtitle "$scriptname - Version $version" --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 60 ; sleep 3
 
-if (( $hostname == " ))
+if (( $hostname == "default" ))
 then
     break 
 else 
