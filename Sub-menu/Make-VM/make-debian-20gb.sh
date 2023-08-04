@@ -16,11 +16,12 @@ me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 hostname=$(\
   dialog --title "VM Hostname" \
-         --inputbox "Enter the hostname:" 8 40 \
+         --backtitle "$scriptname - Version $version" \
+         --inputbox "Enter the hostname:" 10 60 \
   3>&1 1>&2 2>&3 3>&- \
 )
 
-dialog --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 30 ; sleep 3
+dialog --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 60 ; sleep 3
 
 curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
 
@@ -33,7 +34,7 @@ do
    # do some task here
    sleep 3
 done
-} | dialog --tite "Baking VM" -backtitle "$scriptname - Version $version" --gauge "Your Virtual Machine $hostname Is Now Being Made" 10 50 0
+} | dialog --title "Baking VM" --backtitle "$scriptname - Version $version" --gauge "Your Virtual Machine $hostname Is Now Being Made" 10 60 0
 
 
 IP="$(curl -s GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"
@@ -41,7 +42,7 @@ IP="$(curl -s GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"
 #!/bin/bash
 # dynbox.sh - Yes/No box demo
 dialog --title "SSH Into $IP" \
---yesno "Do you want to ssh into $IP" 7 60
+--yesno "Do you want to ssh into $IP" 10 60
 
 # Get exit status
 # 0 means user hit [yes] button.
