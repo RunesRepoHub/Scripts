@@ -24,7 +24,7 @@ hostname=$(\
 
 dialog --backtitle "$scriptname - Version $version" --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 60 ; sleep 3
 
-if (( $hostname == "hostname" ))
+if (( $hostname == " ))
 then
     break 
 else 
