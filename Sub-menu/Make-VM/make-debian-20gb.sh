@@ -24,8 +24,17 @@ dialog --infobox "Your Virtual Machine Is Now Being Made" 10 30 ; sleep 3
 
 curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
 
+declare -i COUNTER=1
+{
+while test $COUNTER -le 100
+do
+   echo $COUNTER
+   COUNTER=COUNTER+1
+   # do some task here
+   sleep 300
+done
+} | dialog --gauge "Your Virtual Machine Is Now Being Made" 10 50 0
 
-dialog --pause "Your Virtual Machine Is Now Being Made" 20 40 300
 
 IP="$(curl -s GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"
 
