@@ -33,7 +33,7 @@ do
    # do some task here
    sleep 3
 done
-} | dialog --gauge "Your Virtual Machine $hostname Is Now Being Made" 10 50 0
+} | dialog --tite "Baking VM" -backtitle "$scriptname - Version $version" --gauge "Your Virtual Machine $hostname Is Now Being Made" 10 50 0
 
 
 IP="$(curl -s GET https://n8n-prod.rp-helpdesk.com/webhook/ip)"

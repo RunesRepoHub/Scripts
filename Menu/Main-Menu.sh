@@ -15,7 +15,7 @@ cmd=(dialog --keep-tite --cancel-label "Exit" --backtitle "$scriptname - Version
 
 options=(1  "Webscrapers"
          2  "Make a Virtual Machine"
-         3  "Reboot Restart N8N"
+         3  "Reboot N8N Servers"
          4  "Docker Testing"
          5  "Add Midnight Cron" 
          6  "Install Dockers"
