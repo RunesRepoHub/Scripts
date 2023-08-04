@@ -32,7 +32,7 @@ for choice in $choices
     do    
         case $choice in
         1)
-            bash ./Scripts/Sub-menu/Webscrapers/Webscrapers.sh
+            bash ./Scripts/Sub-menu/Webscrapers/Webscrapers.sh 
             ;;
         2)
             bash ./Scripts/Sub-menu/Make-VM/Make-A-VM.sh
@@ -63,7 +63,7 @@ for choice in $choices
             ./snow.sh
             ;;
          *)
-            exit
+            exit || break; done
       esac
 exec /bin/bash "$0" "$@"
       done
