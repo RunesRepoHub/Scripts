@@ -25,13 +25,13 @@ DEB_PACKAGE_NAME="python2.7 python-dev libssl-dev"
  elif cat /etc/*release | grep ^NAME | grep Ubuntu; then
     dialog --backtitle "$scriptname - Version $version" --title " $me " --msgbox "Add a Cron job for apt-get update/upgrade and reboot at midnight" 30 60
     # Make the file directory if it dosen't exist
-    dialog --backtitle "$scriptname - Version $version" --title " $me " --prgbox "Sudo mkdir /opt/Scripts" "sudo mkdir /opt/Scripts" 30 60
+    sudo mkdir /opt/Scripts
     # Copy file midnight-midget.sh to a "commen" system location
-    dialog --backtitle "$scriptname - Version $version" --title " $me " --prgbox "Curl Midnight-Midget" "curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Cron/midnight-midget.sh" 30 60
-    dialog --backtitle "$scriptname - Version $version" --title " $me " --prgbox "Copy Midnight-Midget" "sudo cp midnight-midget.sh /opt/Scripts/midnight-midget.sh" 30 60
-    dialog --backtitle "$scriptname - Version $version" --title " $me " --prgbox "Remove Midnight-Midget Template" "sudo rm midnight-midget.sh" 30 60
+    curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/BASH-Script/Cron/midnight-midget.sh
+    sudo cp midnight-midget.sh /opt/Scripts/midnight-midget.sh
+    sudo rm midnight-midget.sh
     # Command to add a symbolic link in /usr/bin/
-    dialog --backtitle "$scriptname - Version $version" --title " $me " --prgbox "Sudo ln" "sudo ln -s /opt/Scripts/midnight-midget.sh /usr/bin/" 30 60
+    sudo ln -s /opt/Scripts/midnight-midget.sh /usr/bin/
     # Setup cron settings
     dialog --backtitle "$scriptname - Version $version" --title " $me " --prgbox "Crontab" "sudo crontab -l > file; echo '00 00 * * * ruby /opt/Scripts/midnight-midget.sh >/dev/null 2>&1' >> file; crontab file" 30 60
  elif cat /etc/*release | grep ^NAME | grep Debian ; then
