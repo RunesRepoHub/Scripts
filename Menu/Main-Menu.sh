@@ -41,7 +41,7 @@ for choice in $choices
             bash ./Scripts/Sub-menu/N8N/n8n.sh
             ;;
         4)
-            dialog --msgbox "Make sure you are in the same folder as the script" 10 30
+            dialog --backtitle "$scriptname - Version $version" --msgbox "Make sure you are in the same folder as the script" 10 30
             bash ./Scripts/Sub-menu/Docker-Testing/Docker-Testing.sh
             ;;
         5)

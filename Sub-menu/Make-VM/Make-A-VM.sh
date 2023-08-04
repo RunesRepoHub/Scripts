@@ -12,7 +12,7 @@
 me="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 
 #!/bin/bash
-cmd=(dialog --keep-tite --menu "$scriptname - Version $version - $me" 22 76 16)
+cmd=(dialog --keep-tite --backtitle "$scriptname - Version $version" --menu " $me " 22 76 16)
 
 options=(1  "Debian 20GB"
          2  "..."
@@ -33,7 +33,7 @@ for choice in $choices
     do    
         case $choice in
         1)
-            dialog --msgbox "Pick The Settings For Setting Up A VM" 10 30 ;
+            dialog --backtitle "$scriptname - Version $version" --msgbox "Pick The Settings For Setting Up A VM" 10 30 ;
             bash ./Scripts/Sub-menu/Make-VM/make-debian-20gb.sh
             ;;
         2)

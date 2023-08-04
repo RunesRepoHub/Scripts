@@ -1,0 +1,29 @@
+
+set -e
+
+YUM_PACKAGE_NAME="python python-devl python-pip openssl-devel"
+DEB_PACKAGE_NAME="python2.7 python-dev libssl-dev"
+
+ if cat /etc/*release | grep ^NAME | grep CentOS; then
+    yum install -y $YUM_PACKAGE_NAME
+ elif cat /etc/*release | grep ^NAME | grep Red; then
+    yum install -y $YUM_PACKAGE_NAME
+ elif cat /etc/*release | grep ^NAME | grep Fedora; then
+    yum install -y $YUM_PACKAGE_NAME
+ elif cat /etc/*release | grep ^NAME | grep Ubuntu; then
+    sudo apt-get update
+    sudo apt-get install -y $DEB_PACKAGE_NAME
+ elif cat /etc/*release | grep ^NAME | grep Debian ; then
+    apt-get update
+    apt-get install -y $DEB_PACKAGE_NAME
+ elif cat /etc/*release | grep ^NAME | grep Mint ; then
+    apt-get update
+    apt-get install -y $DEB_PACKAGE_NAME
+ elif cat /etc/*release | grep ^NAME | grep Knoppix ; then
+    apt-get update
+    apt-get install -y $DEB_PACKAGE_NAME
+ else
+    echo "OS NOT DETECTED, couldn't install package $PACKAGE"
+    exit 1;
+ fi
+
