@@ -10,9 +10,6 @@
 ## |  https://github.com/rune004    |
 ## |--------------------------------|
 
-echo -e "${GREEN}Script $SCRIPTNAME Update Completed${ENDCOLOR}"
-echo -e "${YELLOW}Current Script Version $VERSION${ENDCOLOR}"
-
 echo -e "${GREEN}Add a Cron job for apt-get update/upgrade and reboot at midnight${ENDCOLOR}"
 
 # Make the file directory if it dosen't exist

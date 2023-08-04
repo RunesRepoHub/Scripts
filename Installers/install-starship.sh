@@ -11,7 +11,7 @@
 ## |--------------------------------|
 
 
-cmd=(dialog --keep-tite --cancel-label "Exit" --menu "$scriptname - Version $version - $me " 22 76 16)
+cmd=(dialog --keep-tite --cancel-label "Exit" --backtitle "$scriptname - Version $version" --menu " $me " 22 76 16)
 
 options=(1  "Install Starship"
          2  "Don't Install Starship"
