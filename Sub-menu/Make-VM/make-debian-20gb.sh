@@ -20,12 +20,6 @@ hostname=$(\
   3>&1 1>&2 2>&3 3>&- \
 )
 
-if  [[ ! -z "$hostname" ]] 
-then
-
-break 2
-
-else
 
 dialog --backtitle "$scriptname - Version $version" --infobox "Your Virtual Machine $hostname Is Now Being Made" 10 60 ; sleep 3
 curl -X POST "https://n8n-prod.rp-helpdesk.com/webhook/K3s-boot-linux?hostname=$hostname"
@@ -63,4 +57,7 @@ case $response in
    break ;;
    255) echo "[ESC] key pressed.";;
 esac
-fi
+
+
+dialog
+[ $PIPESTATUS -eq 1 ] && exit 1
