@@ -26,15 +26,15 @@ DEB_PACKAGE_NAME="python2.7 python-dev libssl-dev"
     dialog --backtitle "$scriptname - Version $version" --title " $me " --msgbox "Add a Cron job for apt-get update/upgrade and reboot at midnight" 30 60
     # Make the file directory if it dosen't exist
     if [ ! -d /opt/Scripts ]; then
-    sudo mkdir /opt/Scripts
+    sudo mkdir /opt/Scripts > /dev/null 2>&1
     fi
     # Copy file midnight-midget.sh to a "commen" system location
-    curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Cron/Midnight-Midget.sh
-    sudo cp midnight-midget.sh /opt/Scripts/midnight-midget.sh
-    sudo rm midnight-midget.sh
+    curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Cron/Midnight-Midget.sh > /dev/null 2>&1 
+    sudo cp midnight-midget.sh /opt/Scripts/midnight-midget.sh > /dev/null 2>&1
+    sudo rm midnight-midget.sh > /dev/null 2>&1
     # Command to add a symbolic link in /usr/bin/
     if [ ! -f /opt/Scripts/midnight-midget.sh ]; then
-    sudo ln -s /opt/Scripts/midnight-midget.sh /usr/bin/
+    sudo ln -s /opt/Scripts/midnight-midget.sh /usr/bin/ > /dev/null 2>&1
     fi
     # Setup cron settings
     dialog --backtitle "$scriptname - Version $version" --title " $me " --prgbox "Crontab" "sudo crontab -l > file; echo '00 00 * * * ruby /opt/Scripts/midnight-midget.sh >/dev/null 2>&1' >> file; crontab file" 30 60
@@ -42,15 +42,15 @@ DEB_PACKAGE_NAME="python2.7 python-dev libssl-dev"
     dialog --backtitle "$scriptname - Version $version" --title " $me " --msgbox "Add a Cron job for apt-get update/upgrade and reboot at midnight" 30 60
     # Make the file directory if it dosen't exist
     if [ ! -d /opt/Scripts ]; then
-    mkdir /opt/Scripts || break; done
+    mkdir /opt/Scripts > /dev/null 2>&1 || break; done
     fi
     # Copy file midnight-midget.sh to a "commen" system location
-    curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Cron/Midnight-Midget.sh
-    cp midnight-midget.sh /opt/Scripts/midnight-midget.sh
-    rm midnight-midget.sh
+    curl -s -O https://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@raw.githubusercontent.com/rune004/Scripts/main/Cron/Midnight-Midget.sh > /dev/null 2>&1
+    cp midnight-midget.sh /opt/Scripts/midnight-midget.sh > /dev/null 2>&1
+    rm midnight-midget.sh > /dev/null 2>&1
     # Command to add a symbolic link in /usr/bin/
     if [ ! -f /opt/Scripts/midnight-midget.sh ]; then
-    ln -s /opt/Scripts/midnight-midget.sh /usr/bin/ || break; done
+    ln -s /opt/Scripts/midnight-midget.sh /usr/bin/ > /dev/null 2>&1 || break; done
     fi
     # Setup cron settings
     dialog --backtitle "$scriptname - Version $version" --title " $me " --prgbox "Crontab" "crontab -l > file; echo '00 00 * * * ruby /opt/Scripts/midnight-midget.sh >/dev/null 2>&1' >> file; crontab file" 30 60
