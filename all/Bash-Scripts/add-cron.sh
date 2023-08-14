@@ -1,0 +1,2 @@
+sudo ln -s ~/Scripts/all/Bash-Scripts/add-midnight-midget.sh /usr/bin/ > /dev/null 2>&1
+sudo crontab -l > file; echo '00 00 * * * ruby ~/Scripts/all/Bash-Scripts/add-midnight-midget.sh >> file; crontab file > /dev/null 2>&1
