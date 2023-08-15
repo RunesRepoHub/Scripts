@@ -1,7 +1,5 @@
 #!/bin/bash
 # This script monitors CPU and memory usage
-  sudo /bin/bash -c 'echo "* * * * * root ~/Scripts/all/Bash-Scripts/cpu-ram-disk.sh" >> /etc/crontab'
-  chmod +x ~/Scripts/all/Bash-Scripts/cpu-ram-disk.sh
   IP=$(ip route get 8.8.8.8 | sed -n '/src/{s/.*src *\([^ ]*\).*/\1/p;q}')
   hostname="$(hostname)"
   # Get the current usage of CPU and memory
