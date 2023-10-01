@@ -1,7 +1,5 @@
 # Scripts
 
-**Testing**
-
 ### Support
 Get support via Discord:
 [Discord](https://discord.gg/UHd4tJg9Vm)
