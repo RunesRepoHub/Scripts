@@ -1,0 +1,14 @@
+---
+- name: Playbook to Install Packages
+  hosts:
+    - proxmox
+  tasks:
+  - name: Update Ansible
+    pip:
+      name:
+        - proxmoxer
+        - requests
+        - paramiko
+        - openssh_wrapper
+        - ansible
+      state: present

@@ -1,0 +1,10 @@
+---
+- name: Playbook to Install Packages
+  hosts:
+    - portainer
+  tasks:
+  - name: Update Tailscale
+    package:
+      name:
+        - tailscale
+      state: present
