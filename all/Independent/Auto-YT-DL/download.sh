@@ -8,7 +8,8 @@ output_path=~/plex/media/youtube
 # Loop over each URL
 while read -r url; do
     # Set the video file path
-    video_file="${output_path}/$(echo "${url}" | awk -F '=' '{print $2}').mp4"
+    video_folder="${output_path}/$(echo "${url}" | awk -F '=' '{print $2}')"
+    video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4"
 
     # Check if the video file exists
     if [ -f "${video_file}" ]; then
@@ -27,13 +28,16 @@ while read -r url; do
         fi
     fi
 
+    # Create the video folder if it doesn't exist
+    mkdir -p "${video_folder}"
+
     # Download video using docker run command
     docker run \
         --rm -i \
         -e PGID=$(id -g) \
         -e PUID=$(id -u) \
         -v "$(pwd)":/workdir:rw \
-        -v ~/plex/media:/output:rw \
+        -v "${video_folder}":/output:rw \
         mikenye/youtube-dl -f 'bestvideo[height<=1080]+bestaudio/best[height<=1080]' -o '/output/%(title)s.%(ext)s' "${url}"
 
     echo "Video downloaded successfully!"
