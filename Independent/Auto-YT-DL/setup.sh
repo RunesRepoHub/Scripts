@@ -18,6 +18,10 @@ White='\e[1;37m'
 NC='\e[0m'  # Reset to default
 ###################
 
+# Set version (Prod or Dev)
+Dev="Dev"
+export Dev=$Dev
+
 # Make the folder
 echo -e "${Purple}Setting up Auto-YT-DL...${NC}"
 echo -e "${Yellow}Make the folder ~/Auto-YT-DL${NC}"
@@ -39,7 +43,7 @@ echo -e "${Purple}Check if docker and docker-compose is installed${NC}"
 if ! command -v docker &> /dev/null; then
     echo -e "${Purple}Docker is not installed.${NC}"
     echo -e "${Yellow}Installing docker...${NC}"
-    curl -s -o ~/Auto-YT-DL/docker.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/Dev/Independent/Auto-YT-DL/docker.sh > /dev/null
+    curl -s -o ~/Auto-YT-DL/docker.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/docker.sh > /dev/null
     bash ~/Auto-YT-DL/docker.sh
     echo -e "${Green}Docker has been installed.${NC}"
 else
@@ -61,15 +65,15 @@ sleep 2
 
 echo -e "${Purple}Downloading files...${NC}"
 
-curl -s -o ~/Auto-YT-DL/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/Dev/Independent/Auto-YT-DL/automated-check.sh > /dev/null
-
-curl -s -o ~/Auto-YT-DL/cleanup.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/Dev/Independent/Auto-YT-DL/cleanup.sh > /dev/null
-
-curl -s -o ~/Auto-YT-DL/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/Dev/Independent/Auto-YT-DL/add-url.sh > /dev/null
-
-curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/Dev/Independent/Auto-YT-DL/setup-plex.sh > /dev/null
-
-curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/Dev/Independent/Auto-YT-DL/download.sh > /dev/null
++curl -s -o ~/Auto-YT-DL/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/automated-check.sh > /dev/null
++
++curl -s -o ~/Auto-YT-DL/cleanup.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/cleanup.sh > /dev/null
++
++curl -s -o ~/Auto-YT-DL/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/add-url.sh > /dev/null
++
++curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/setup-plex.sh > /dev/null
++
++curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/download.sh > /dev/null
 
 echo -e "${Green}Downloading files complete${NC}"
 
@@ -101,6 +105,11 @@ echo -e "${Purple}Setup cronjob and alias${NC}"
 
 alias add-url="bash ~/Auto-YT-DL/add-url.sh"
 
-echo "0 0 * * * root bash ~/Auto-YT-DL/automated-check.sh" | sudo tee -a /etc/crontab > /dev/null
+if ! crontab -l | grep "0 0 \* \* \* root bash ~/Auto-YT-DL/automated-check.sh" >/dev/null 2>&1; then
+    echo "0 0 * * * root bash ~/Auto-YT-DL/automated-check.sh" | sudo tee -a /etc/crontab >/dev/null
+    echo -e "${Green}Cron job added successfully.${NC}"
+else
+    echo -e "${Red}Cron job already exists.${NC}"
+fi
 
 echo -e "${Green}Done!${NC}"
