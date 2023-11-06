@@ -20,7 +20,7 @@ White='\e[1;37m'
 NC='\e[0m'  # Reset to default
 ###################
 
-echo -e "${Yellow}Enter the Youtube PlaylistURLs to add to the list:${NC}"
+echo -e "${Green}Enter the Youtube Playlist URL to add to the list:${NC}"
 # Prompt the user to enter the URLs
 read -p "Enter the URL: " input_urls
 

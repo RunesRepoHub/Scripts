@@ -24,7 +24,7 @@ NC='\e[0m'  # Reset to default
 IP=$(hostname -I | awk '{print $1}')
 TZ=$(timedatectl show --property=Timezone --value)
 
-echo -e "${Yellow}Enter the Plex claim:${NC}"
+echo -e "${Green}Enter the Plex claim:${NC}"
 
 # Prompt the user for the Plex claim
 read -p "Enter the Plex claim: " PLEX_CLAIM
