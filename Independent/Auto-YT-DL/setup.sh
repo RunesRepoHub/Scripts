@@ -36,7 +36,7 @@ fi
 
 echo -e "${Purple}Check if docker and docker-compose is installed${NC}"
 # Check if docker and docker-compose are installed
-if! command -v docker &> /dev/null; then
+if ! command -v docker &> /dev/null; then
     echo -e "${Purple}Docker is not installed.${NC}"
     echo -e "${Yellow}Installing docker...${NC}"
     curl -s -o ~/Auto-YT-DL/docker.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/Dev/Independent/Auto-YT-DL/docker.sh > /dev/null
