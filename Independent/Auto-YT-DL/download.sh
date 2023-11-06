@@ -13,16 +13,6 @@ while read -r url; do
     # Set the video file path
     video_folder="${output_path}/$(echo "${url}" | awk -F '=' '{print $2}')"
     video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4"
-
-    # Check if the video file exists
-    if [ -f "${video_file}" ]; then
-        # Remove the video file
-        rm "${video_file}"
-        echo "Video deleted successfully!"
-    else
-        echo "Video has already been downloaded!"
-        continue
-    fi
 done
 
     # Create the video folder if it doesn't exist
