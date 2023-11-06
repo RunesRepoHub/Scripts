@@ -37,7 +37,7 @@ while read -r url; do
     # Check the number of running youtube-dl Docker containers
     while [ "$(docker ps | grep mikenye/youtube-dl | wc -l)" -ge "$max_containers" ]; do
         echo -e "${Blue}Waiting for available youtube-dl container...${NC}"
-        sleep 5
+        sleep 15
     done
 
     # Download video using docker run command in detached mode and delete the container when finished
@@ -62,6 +62,6 @@ while read -r url; do
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
 
-    echo -e "${Green}Video downloaded successfully!${NC}"
+    echo -e "${Green}Download has been started successfully!${NC}"
 done <<< "$input_urls"
 
