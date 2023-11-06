@@ -20,9 +20,6 @@ White='\e[1;37m'
 NC='\e[0m'  # Reset to default
 ###################
 
-# Read the URLs from the txt file
-input_urls=$(cat ~/plex/media/url_file.txt)
-
 output_path=~/plex/media/youtube
 
 # Define the maximum number of running containers
