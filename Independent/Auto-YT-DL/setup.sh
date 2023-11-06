@@ -60,6 +60,6 @@ echo -e "${Purple}Setup cronjob and alias${NC}"
 
 alias add-url="bash ~/Auto-YT-DL/add-url.sh"
 
-echo "5,10,15,20,25,30,35,45,50,55,0 * * * * root bash ~/Auto-YT-DL/automated-check.sh" | sudo tee -a /etc/crontab > /dev/null
+echo "0 0 * * * root bash ~/Auto-YT-DL/automated-check.sh" | sudo tee -a /etc/crontab > /dev/null
 
 echo -e "${Green}Done!${NC}"
