@@ -21,7 +21,7 @@ NC='\e[0m'  # Reset to default
 ###################
 
 # Read the URLs from the txt file
-input_urls=$(cat ~/plex/media/url_file.txt)
+input_urls=$(cat ~/plex/media/.url)
 
 output_path=~/plex/media/youtube
 

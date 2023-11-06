@@ -37,10 +37,10 @@ for url in $input_urls; do
     # Check if the URL already exists in the file
     if [[ $existing_urls =~ (^|[[:space:]])$url($|[[:space:]]) ]]; then
         echo -e "${Yellow}URL $url already exists, skipping...${NC}"
-        export url="$url"
     else
         # Append the new URL to the file
         echo "$url" >> ~/plex/media/url_file.txt
+        echo "$url" > ~/plex/media/.url
     fi
 done
 
