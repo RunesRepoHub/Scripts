@@ -46,7 +46,6 @@ else
     echo -e "${Green}Docker is already installed.${NC}"
 fi
 
-echo -e "${Purple}Check if docker image is downloaded${NC}"
 # Check if docker image is downloaded
 echo -e "${Purple}Check if docker image is downloaded${NC}"
 if ! docker image inspect mikenye/youtube-dl &> /dev/null; then
