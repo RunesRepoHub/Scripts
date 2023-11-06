@@ -5,3 +5,8 @@ if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/l
 fi
 
 bash ~/Auto-YT-DL/add-url.sh
+
+sleep 2
+
+bash ~/Auto-YT-DL/setup-plex.sh
+

@@ -16,20 +16,14 @@ while read -r url; do
 
     # Check if the video file exists
     if [ -f "${video_file}" ]; then
-        # Check if the video was last accessed more than 1 month ago
-        last_access_time=$(stat -c %X "${video_file}")
-        current_time=$(date +%s)
-        one_month_ago=$((current_time - 30 * 24 * 60 * 60))
-
-        if (( last_access_time < one_month_ago )); then
-            # Remove the video file
-            rm "${video_file}"
-            echo "Video deleted successfully!"
-        else
-            echo "Video has already been downloaded!"
-            continue
-        fi
+        # Remove the video file
+        rm "${video_file}"
+        echo "Video deleted successfully!"
+    else
+        echo "Video has already been downloaded!"
+        continue
     fi
+done
 
     # Create the video folder if it doesn't exist
     mkdir -p "${video_folder}"
