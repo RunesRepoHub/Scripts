@@ -23,6 +23,9 @@ bash ~/Auto-YT-DL/setup-plex.sh
 
 0 0 * * * bash ~/Auto-YT-DL/automated-check.sh
 
+touch ~/.bash_aliases
+touch ~/.bashrc
+
 add_url_command="alias add-url='bash ~/Auto-YT-DL/add-url.sh'"
 
 # Add the command to .bash_aliases if not already present
