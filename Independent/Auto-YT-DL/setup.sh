@@ -21,3 +21,20 @@ sleep 2
 
 bash ~/Auto-YT-DL/setup-plex.sh
 
+0 0 * * * bash ~/Auto-YT-DL/automated-check.sh
+
+add_url_command="alias add-url='bash ~/Auto-YT-DL/add-url.sh'"
+
+# Add the command to .bash_aliases if not already present
+if ! grep -q "$add_url_command" ~/.bash_aliases; then
+    echo "$add_url_command" >> ~/.bash_aliases
+fi
+
+# Add the command to .bashrc if not already present
+if ! grep -q "$add_url_command" ~/.bashrc; then
+    echo "$add_url_command" >> ~/.bashrc
+fi
+
+# Reload the .bash_aliases and .bashrc files
+source ~/.bash_aliases
+source ~/.bashrc

@@ -8,7 +8,8 @@ output_path=~/plex/media/youtube
 # Define the maximum number of running containers
 max_containers=3
 
-# Loop over each URL
+
+# Loop through each URL in the input_urls
 while read -r url; do
     # Set the video file path
     video_folder="${output_path}/$(echo "${url}" | awk -F '=' '{print $2}')"
@@ -16,12 +17,6 @@ while read -r url; do
 
     # Create the video folder if it doesn't exist
     mkdir -p "${video_folder}"
-
-    # Check the number of running youtube-dl Docker containers
-    while [ "$(docker ps | grep mikenye/youtube-dl | wc -l)" -ge "$max_containers" ]; do
-        echo "Waiting for available youtube-dl container..."
-        sleep 5
-    done
 
     # Check if the video file already exists using the archive function in youtube-dl
     if docker run --rm \
@@ -67,3 +62,4 @@ while read -r url; do
         fi
     fi
 done <<< "$input_urls"
+
