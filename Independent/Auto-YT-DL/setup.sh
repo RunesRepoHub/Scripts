@@ -23,6 +23,17 @@ echo -e "${Purple}Setting up Auto-YT-DL...${NC}"
 echo -e "${Yellow}Make the folder ~/Auto-YT-DL${NC}"
 mkdir -p ~/Auto-YT-DL/
 
+echo -e "${Purple}Check if curl is installed${NC}"
+# Check if curl is installed
+if ! command -v curl &> /dev/null; then
+    echo -e "${Purple}Curl is not installed.${NC}"
+    echo -e "${Yellow}Installing curl...${NC}"
+    sudo apt-get install curl -y
+    echo -e "${Green}Curl has been installed.${NC}"
+else
+    echo -e "${Green}Curl is already installed.${NC}"
+fi
+
 sleep 2
 
 echo -e "${Purple}Downloading files...${NC}"
@@ -37,6 +48,8 @@ curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRep
 
 curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/Dev/Independent/Auto-YT-DL/download.sh > /dev/null
 
+echo -e "${Green}Downloading files complete${NC}"
+
 sleep 2
 
 echo -e "${Purple}Making folders for plex. media, transcode, and library...${NC}"
@@ -45,6 +58,11 @@ echo -e "${Purple}Making folders for plex. media, transcode, and library...${NC}
 if [ ! -d ~/plex/media/youtube ] || [ ! -d ~/plex/transcode ] || [ ! -d ~/plex/library ]; then
     # Create the folders if they don't exist
     mkdir -p ~/plex/media/youtube ~/plex/transcode ~/plex/library
+    else
+    echo -e "${Red}Error code: 302${NC}"
+    echo -e "${Red}Folders already exist${NC}"
+    echo -e "${Red}If you want this script to work,then delete the folders ~/plex/media/youtube, ~/plex/transcode, and ~/plex/library${NC}"
+    break 2
 fi
 
 bash ~/Auto-YT-DL/add-url.sh
