@@ -32,7 +32,7 @@ while read -r url; do
         mikenye/youtube-dl \
         --get-filename \
         --skip-download \
-        --write-archive /output/archive.txt \
+        --download-archive archive.txt \
         --output '/output/%(title)s.%(ext)s' \
         "${url}" | grep -qF "$video_file"; then
 
@@ -56,7 +56,7 @@ while read -r url; do
             --embed-subs \
             --convert-subs srt \
             --write-auto-sub \
-            --write-archive /output/archive.txt \
+            --download-archive archive.txt \
             --output '/output/%(title)s.%(ext)s' \
             "${url}"
 
