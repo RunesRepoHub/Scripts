@@ -1,5 +1,25 @@
 #!/bin/bash
 
+##### Styles ######
+Black='\e[0;30m'
+DarkGray='\e[1;30m'
+Red='\e[0;31m'
+LightRed='\e[1;31m'
+Green='\e[0;32m'
+LightGreen='\e[1;32m'
+BrownOrange='\e[0;33m'
+Yellow='\e[1;33m'
+Blue='\e[0;34m'
+LightBlue='\e[1;34m'
+Purple='\e[0;35m'
+LightPurple='\e[1;35m'
+Cyan='\e[0;36m'
+LightCyan='\e[1;36m'
+LightGray='\e[0;37m'
+White='\e[1;37m'
+NC='\e[0m'  # Reset to default
+###################
+
 # Read the URLs from the txt file
 input_urls=$(cat ~/plex/media/url_file.txt)
 
@@ -19,8 +39,8 @@ while read -r url; do
 
     # Check the number of running youtube-dl Docker containers
     while [ "$(docker ps | grep mikenye/youtube-dl | wc -l)" -ge "$max_containers" ]; do
-        echo "Waiting for available youtube-dl container..."
-        sleep 5
+        echo -e "${Blue}Waiting for available youtube-dl container...${NC}"
+        sleep 15
     done
 
     # Download video using docker run command in detached mode and delete the container when finished
@@ -45,7 +65,7 @@ while read -r url; do
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
 
-    echo "Video downloaded successfully!"
+    echo -e "${Green}Video downloaded successfully!${NC}"
 done <<< "$input_urls"
 
 
