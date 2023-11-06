@@ -36,7 +36,6 @@ while IFS= read -r url; do
 
     # Check the number of running youtube-dl Docker containers
     while [ "$(docker ps | grep mikenye/youtube-dl | wc -l)" -ge "$max_containers" ]; do
-        echo -e "${Blue}Waiting for available youtube-dl container...${NC}"
         sleep 15
     done
 
@@ -61,7 +60,5 @@ while IFS= read -r url; do
         --download-archive archive.txt \
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
-
-    echo -e "${Green}Video downloaded successfully!${NC}"
 done < ~/plex/media/url_file.txt
 
