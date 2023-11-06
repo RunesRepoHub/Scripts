@@ -113,3 +113,5 @@ else
 fi
 
 echo -e "${Green}Done!${NC}"
+
+rm ~/Auto-YT-DL/setup-plex.sh
