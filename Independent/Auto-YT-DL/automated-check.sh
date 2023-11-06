@@ -20,16 +20,13 @@ White='\e[1;37m'
 NC='\e[0m'  # Reset to default
 ###################
 
-# Read the URLs from the txt file
-input_urls=$(cat ~/plex/media/url_file.txt)
-
 output_path=~/plex/media/youtube
 
 # Define the maximum number of running containers
 max_containers=3
 
-# Loop over each URL
-while read -r url; do
+# Loop over each URL from the txt file
+while IFS= read -r url; do
     # Set the video file path
     video_folder="${output_path}/$(echo "${url}" | awk -F '=' '{print $2}')"
     video_file="${video_folder}/$(echo "${url}" | awk -F '=' '{print $2}').mp4"
@@ -66,6 +63,5 @@ while read -r url; do
         "${url}"
 
     echo -e "${Green}Video downloaded successfully!${NC}"
-done <<< "$input_urls"
-
+done < ~/plex/media/url_file.txt
 
