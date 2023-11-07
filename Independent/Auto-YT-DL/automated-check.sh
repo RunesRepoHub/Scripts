@@ -27,6 +27,7 @@ output_path=~/plex/media/youtube
 
 # Define the maximum number of running containers
 max_containers=3
+current_containers=0
 
 # Loop over each URL from the txt file
 while IFS= read -r url; do
@@ -41,6 +42,9 @@ while IFS= read -r url; do
     while [ "$(docker ps | grep mikenye/youtube-dl | wc -l)" -ge "$max_containers" ]; do
         sleep 15
     done
+
+    # Update the current number of running containers
+    current_containers=$((current_containers+1))
 
     # Download video using docker run command in detached mode and delete the container when finished
     docker run \
@@ -63,5 +67,8 @@ while IFS= read -r url; do
         --download-archive archive.txt \
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
+
+    # Decrement the current number of running containers
+    current_containers=$((current_containers-1))
 done < ~/plex/media/url_file.txt
 
