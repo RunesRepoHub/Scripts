@@ -61,7 +61,7 @@ while read -r url; do
         --embed-subs \
         --convert-subs srt \
         --write-auto-sub \
-        --download-archive archive.txt \
+        --download-archive /output/archive.txt \
         --output '/output/%(title)s.%(ext)s' \
         "${url}"
 
