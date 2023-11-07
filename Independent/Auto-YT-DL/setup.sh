@@ -105,8 +105,8 @@ echo -e "${Purple}Setup cronjob and alias${NC}"
 
 alias add-url="bash ~/Auto-YT-DL/add-url.sh"
 
-if ! crontab -l | grep "0 0 \* \* \* root bash ~/Auto-YT-DL/automated-check.sh" >/dev/null 2>&1; then
-    echo "0 0 * * * root bash ~/Auto-YT-DL/automated-check.sh" | sudo tee -a /etc/crontab >/dev/null
+if ! crontab -l | grep "0 0 30 \* \* root bash ~/Auto-YT-DL/automated-check.sh" >/dev/null 2>&1; then
+    echo "0 0 30 * * root bash ~/Auto-YT-DL/automated-check.sh" | sudo tee -a /etc/crontab >/dev/null
     echo -e "${Green}Cron job added successfully.${NC}"
 else
     echo -e "${Red}Cron job already exists.${NC}"
