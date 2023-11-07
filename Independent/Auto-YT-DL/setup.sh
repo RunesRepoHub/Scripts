@@ -112,6 +112,8 @@ else
     echo -e "${Red}Cron job already exists.${NC}"
 fi
 
+sleep 2 
+
 echo -e "${Green}Done!${NC}"
 
 rm ~/Auto-YT-DL/setup-plex.sh
