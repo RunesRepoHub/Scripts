@@ -65,15 +65,15 @@ sleep 2
 
 echo -e "${Purple}Downloading files...${NC}"
 
-+curl -s -o ~/Auto-YT-DL/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/automated-check.sh > /dev/null
-+
-+curl -s -o ~/Auto-YT-DL/cleanup.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/cleanup.sh > /dev/null
-+
-+curl -s -o ~/Auto-YT-DL/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/add-url.sh > /dev/null
-+
-+curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/setup-plex.sh > /dev/null
-+
-+curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/download.sh > /dev/null
+curl -s -o ~/Auto-YT-DL/automated-check.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/automated-check.sh > /dev/null
+
+curl -s -o ~/Auto-YT-DL/cleanup.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/cleanup.sh > /dev/null
+
+curl -s -o ~/Auto-YT-DL/add-url.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/add-url.sh > /dev/null
+
+curl -s -o ~/Auto-YT-DL/setup-plex.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/setup-plex.sh > /dev/null
+
+curl -s -o ~/Auto-YT-DL/download.sh https://raw.githubusercontent.com/RunesRepoHub/Scripts/$Dev/Independent/Auto-YT-DL/download.sh > /dev/null
 
 echo -e "${Green}Downloading files complete${NC}"
 
