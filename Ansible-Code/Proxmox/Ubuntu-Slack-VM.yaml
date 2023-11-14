@@ -1,0 +1,69 @@
+- name: Proxmox stuff
+  hosts: all
+  tasks:
+    - set_fact:
+        yeppers: "ubuntu-{{ lookup('password', '/dev/null chars=ascii_lowercase,digits length=8') }}"
+    - proxmox_kvm:
+        api_user    : root@pam
+        api_password: PASSWORD
+        api_host    : 100.123.222.8
+        clone       : ubuntutemplate   # The VM source
+        name        : "{{ yeppers }}"  # The target VM name
+        node        : pve
+        storage     : local-lvm
+        format      : qcow2
+        timeout     : 1000  # Note: The task can take a while. Adapt
+    - name: Pause for 1 minute to boot VM
+      ansible.builtin.pause:
+        minutes: 3
+    - name: start vm
+      proxmox_kvm:
+        api_user: root@pam
+        api_password: PASSWORD
+        api_host: 100.123.222.8
+        name: "{{ yeppers }}"
+        node: pve
+        state: started
+    - name: firststuff
+      shell: qm list | grep "{{ yeppers }}" | awk '{ print $1 }'
+      register: thevmid
+    - name: debug
+      debug:
+        var: thevmid.stdout 
+    
+    - name: getstuff
+      shell: qm config "{{ thevmid.stdout }}" | grep ^net0 | awk -F, '{print $1}' | awk -F= '{print $2}'
+      register: stuff
+    - name: debug
+      debug:
+        var: stuff.stdout
+    - name: Pause for 5 minute to build app cache
+      ansible.builtin.pause:
+        minutes: 1
+    - name: getarp
+      shell: nmap -sT 192.168.1.0/24
+      register: nmap
+    - debug:
+        var: nmap 
+    - name: getip
+      shell: arp | grep "{{ stuff.stdout|lower | regex_replace('^\\/|\\/$', '') }}" | awk '{ print $1 }'
+      register: theip
+    - debug:
+        var: theip
+    - name: Slack Notification
+      community.general.slack:
+        token: https://hooks.slack.com/services/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
+        msg: |
+          ### Your Server is READY!! ###
+          --------------------------------------
+          ``
+          `Server`: "{{ yeppers }}"
+          `IP ADDRESS`: "{{ theip.stdout}}"
+          'URL': ssh://root@{{ theip.stdout }}
+          --------------------------------------
+        channel: '#general'
+        color: good
+        username: 'Ansible on {{ inventory_hostname }}'
+        link_names: 0
+        parse: 'none'
+      ignore_errors: true

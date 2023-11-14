@@ -1,0 +1,26 @@
+- hosts: proxmox
+  tasks:
+  - set_fact:
+      Password: "*" # Password
+  - name: Create container for testing
+    community.general.proxmox:
+      vmid: "5{{ lookup('password', '/dev/null chars=digits length=2') }}"
+      node: main
+      api_user: root@pam
+      api_password: "{{ Password }}"
+      api_host: main.pve
+      password: "{{ Password }}"
+      hostname: "test-{{ lookup('password', '/dev/null chars=ascii_lowercase,digits length=2') }}"
+      ostemplate: 'local:vztmpl/ubuntu-22.04-standard_22.04-1_amd64.tar.zst'
+      cores: 2
+      memory: 4096
+      disk: "40"
+      storage: local-lvm
+      netif: '{"net0":"name=eth0,gw=192.168.1.1,ip=dhcp,bridge=vmbr0"}'
+      nameserver: 192.168.1.1
+      unprivileged: yes
+      validate_certs: no
+      onboot: yes
+      description: container for testing
+      features:
+       - nesting=1

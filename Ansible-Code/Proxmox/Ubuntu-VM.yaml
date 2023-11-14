@@ -1,0 +1,52 @@
+- name: Proxmox stuff
+  hosts: proxmox
+  tasks:
+    - set_fact:
+        yeppers: "ubuntu-{{ lookup('password', '/dev/null chars=ascii_lowercase,digits length=8') }}"
+    - proxmox_kvm:
+        api_user    : root@pam
+        api_password: Password
+        api_host    : 100.124.109.92
+        clone       : ubuntutemplate   # The VM source
+        name        : "{{ yeppers }}"  # The target VM name
+        node        : main
+        storage     : vms-ssd
+        format      : qcow2
+        timeout     : 500  # Note: The task can take a while. Adapt
+    - name: Pause for 1 minute to build app cache
+      ansible.builtin.pause:
+        seconds: 10
+    - name: start vm
+      proxmox_kvm:
+        api_user: root@pam
+        api_password: PASSWORD
+        api_host: 100.124.109.92
+        name: "{{ yeppers }}"
+        node: main
+        state: started
+    - name: Pause for 1 minute to build app cache
+      ansible.builtin.pause:
+        seconds: 10
+    - set_fact:
+        yeppers: "ubuntu-{{ lookup('password', '/dev/null chars=ascii_lowercase,digits length=8') }}"
+    - proxmox_kvm:
+        api_user    : root@pam
+        api_password: Password
+        api_host    : 100.124.109.92
+        clone       : ubuntutemplate   # The VM source
+        name        : "{{ yeppers }}"  # The target VM name
+        node        : main
+        storage     : vms-ssd
+        format      : qcow2
+        timeout     : 500  # Note: The task can take a while. Adapt
+    - name: Pause for 1 seconds to start the ****
+      ansible.builtin.pause:
+        seconds: 10
+    - name: start vm
+      proxmox_kvm:
+        api_user: root@pam
+        api_password: PASSWORD
+        api_host: 100.124.109.92
+        name: "{{ yeppers }}"
+        node: main
+        state: started

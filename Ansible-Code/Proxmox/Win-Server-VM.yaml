@@ -1,0 +1,18 @@
+- name: Proxmox stuff
+  hosts: proxmox
+  tasks:
+    - set_fact:
+        yeppers: "windows server-{{ lookup('password', '/dev/null chars=ascii_lowercase,digits length=8') }}"
+    - proxmox_kvm:
+        api_user    : root@pam
+        api_password: Password
+        api_host    : 100.123.222.8
+        clone       : windowsservertemplate   # The VM source
+        name        : "{{ yeppers }}"  # The target VM name
+        node        : pve
+        storage     : Windows-Storage
+        format      : qcow2
+        timeout     : 1000  # Note: The task can take a while. Adapt
+    - name: Pause for 1 minute to build app cache
+      ansible.builtin.pause:
+        minutes: 1
