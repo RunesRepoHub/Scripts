@@ -1,0 +1,56 @@
+- name: Start the VM after creation and get its IP address
+  hosts: proxmox
+  tasks:
+    - name: Create VM
+      community.general.proxmox_kvm:
+        api_user: root@pam
+        api_password: your_password
+        api_host: your_proxmox_host
+        node: your_cluster_node
+        vmid: your_desired_vmid
+        name: your_vm_name
+        memory: 2048
+        cores: 2
+        sockets: 1
+        disk: size=10,storage=local,format=qcow2
+        net: "model=virtio,bridge=vmbr0"
+        os: type=l26
+        state: present
+      register: creation_result
+
+    - name: Start VM
+      community.general.proxmox_kvm:
+        api_user: root@pam
+        api_password: your_password
+        api_host: your_proxmox_host
+        node: your_cluster_node
+        vmid: your_desired_vmid
+        state: started
+      when: creation_result.changed
+
+    - name: Wait for VM to start and get IP
+      community.general.proxmox:
+        api_user: root@pam
+        api_password: your_password
+        api_host: your_proxmox_host
+        task: "status"
+        vmid: your_desired_vmid
+      register: vm_status
+      until: vm_status.status == "running"
+      retries: 5
+      delay: 10
+
+    - name: Get VM IP address
+      community.general.proxmox_kvm:
+        api_user: root@pam
+        api_password: your_password
+        api_host: your_proxmox_host
+        vmid: your_desired_vmid
+        state: current
+      register: vm_info
+      when: vm_status.status == "running"
+
+    - debug:
+        msg: "The VM IP address is {{ vm_info.qemu.ips[0] }}"
+      when: vm_info.qemu.ips is defined and vm_info.qemu.ips | length > 0
+
