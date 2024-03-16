@@ -1,0 +1,24 @@
+name: Bug Branch Creation
+
+on:
+  issues:
+    types: [ labeled ]
+
+jobs:
+  create-backup-branch:
+    if: contains(github.event.issue.labels.*.name, 'bug')
+    runs-on: self-hosted
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create a new branch based on the Dev branch
+        run: |
+            ISSUE_ID=$(echo $GITHUB_EVENT_NAME | cut -d'/' -f 4)
+            BRANCH_NAME="bug_branch_$ISSUE_ID"
+            git checkout Dev
+            git checkout -b "$BRANCH_NAME"
+            git push --set-upstream origin "$BRANCH_NAME"
+            
